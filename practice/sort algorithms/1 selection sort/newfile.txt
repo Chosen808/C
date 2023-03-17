@@ -1,0 +1,8 @@
+Names	5000
+Peter	100
+Paul	300
+James	600
+Tim	200
+John	500
+Bart	900
+Jim	400
