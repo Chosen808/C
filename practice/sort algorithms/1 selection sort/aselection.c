@@ -67,7 +67,7 @@ main ()
         printf ("tempp = %d \n", tempp);
 
         //2.
-        tempp+=size;   ///PROBLEM!!!!!!!!
+        tempp+=size;
 
         printf ("timer = %d \n", timer);
         printf ("tempp = %d \n", tempp);
