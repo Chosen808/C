@@ -11,8 +11,7 @@ It has been developed to take a files with data input and manual input of data.*
 /*NB: 1. Make adjustments in the description of the first block of code to reflect the new 
       new block you will be building in. eg This block receives Names and Scores manually.
       eg. This block receives names and numbers by a list provided
-      2. Adjust so file name can be manually entered
-      3. Ability to cancel a selection
+      2. Ability to cancel a selection
     
         */
 
@@ -90,7 +89,13 @@ main ()
 
     if ( option == 2)
     {
-        FILE *popenn = fopen ("newfile.txt", "r");
+        char filename[20];
+
+        puts ("Please enter you file");
+
+        scanf ("%s", filename);
+
+        FILE *popenn = fopen ( filename, "r");
 
         if ( popenn == NULL)
         {
@@ -112,15 +117,10 @@ main ()
         {
             j++;
             size++;
-            printf ("j = %d \n", j);
-            printf ("size = %d \n", size);
 
             temp = atoi (numbers);
             arr[j] = temp;
         }
-
-        printf ("tempp = %d \n", tempp);
-        printf ("size = %d \n", size);
 
         for ( int i = 0; i < tempp + 1; i++)
         {
@@ -146,7 +146,6 @@ main ()
             printf ("Names: %s \n", str);
 
             k++;
-            printf ("k = %d \n", k);
 
             strcpy (names[k], str);
         }
@@ -163,9 +162,6 @@ main ()
         *op+=size;
 
         *oq+= size;
-
-        printf ("**op = %d \n"
-        "*oq = %d \n", *op, *oq);
 
         goto select;
     }
