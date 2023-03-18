@@ -1,7 +1,7 @@
-/*This software contains selection sort algorthim which has been addapted to suite the
-needs of applicaion. It all contains a average checking algorithm. 
+/*This software contains the selection sort algorthim which has been addapted to suite the
+needs of this applicaion. It also contains a average checking algorithm. 
 
-It has been developed to take file input of data and manual input of data.*/
+It has been developed to take a files with data input and manual input of data.*/
 
 #include <stdio.h>
 #include <stdint.h>
@@ -11,12 +11,7 @@ It has been developed to take file input of data and manual input of data.*/
 /*NB: 1. Make adjustments in the description of the first block of code to reflect the new 
       new block you will be building in. eg This block receives Names and Scores manually.
       eg. This block receives names and numbers by a list provided
-      2. When the program cycles to do manual entry to add data after running the file option
-      first there is a Segmentation fault (core dumped) error when you try to write to the
-      array. This needs to fix
-      3. You need to pass the timing to the FILE block. When you run manual entry first then add
-      more and select file entry and then select sort you are not getting the orignal manual
-      entries to add and sort. The IDs are blank.
+    
         */
 
 main ()
@@ -111,7 +106,7 @@ main ()
 
         while ( fscanf ( popenn, "%*s %s", numbers) == 1)
         {
-            j++;
+            j+=tempp;
             size++;
 
             temp = atoi (numbers);
@@ -123,7 +118,7 @@ main ()
         printf ("tempp = %d \n", tempp);
         printf ("size = %d \n", size);
 
-        for ( int i = 0; i < j + 1; i++)
+        for ( int i = 0; i < tempp + 1; i++)
         {
             printf ("Score ID%d: %d \n", i, arr[i]);
         }
@@ -145,7 +140,7 @@ main ()
         {
             printf ("Names: %s \n", str);
 
-            k++;
+            k+=tempp;
 
             strcpy (names[k], str);
         }
