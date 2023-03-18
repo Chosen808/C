@@ -1,7 +1,10 @@
 /*This software contains the selection sort algorthim which has been addapted to suite the
 needs of this applicaion. It also contains a average checking algorithm. 
 
-It has been developed to take a files with data input and manual input of data.*/
+It has been developed to take a files with data input and manual input of data.
+
+Ver 1.01
+*/
 
 #include <stdio.h>
 #include <stdint.h>
