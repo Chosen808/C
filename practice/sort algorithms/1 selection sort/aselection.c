@@ -103,17 +103,19 @@ main ()
         char ntemp;
 
         j = -1;
+        j+=tempp;
 
         while ( fscanf ( popenn, "%*s %s", numbers) == 1)
         {
-            j+=tempp;
+            j++;
             size++;
+            printf ("j = %d \n", j);
 
             temp = atoi (numbers);
             arr[j] = temp;
         }
 
-        *op+=size;
+        //*op+=size;
 
         printf ("tempp = %d \n", tempp);
         printf ("size = %d \n", size);
@@ -135,12 +137,14 @@ main ()
         int k;
 
         k = -1;
+        k+=tempp;
 
         while ( fscanf (qopenn, "%s %*s", str) ==1 )
         {
             printf ("Names: %s \n", str);
 
-            k+=tempp;
+            k++;
+            printf ("k = %d \n", k);
 
             strcpy (names[k], str);
         }
@@ -154,8 +158,11 @@ main ()
 
             puts ("\n");
         }
+        *op+=size;
 
         *oq+= size;
+
+        printf ("**op = %d \n", *op);
 
         goto select;
     }
