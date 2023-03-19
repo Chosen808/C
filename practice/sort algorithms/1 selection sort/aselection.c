@@ -110,7 +110,7 @@ main ()
         printf ("filename = %s \n", filename);
         printf ("val = %d \n", val);
 
-        if ( val == 0 )
+        if ( filename == "0")
         {
             goto select;
         }
