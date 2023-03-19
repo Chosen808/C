@@ -98,19 +98,16 @@ main ()
     if ( option == 2)
     {
         char filename[20];
+        char str[10] = "0";
+        int value;
 
         puts ("Please enter your file name: ");
         puts ("Enter 0 to cancel and go back to select: ");
         scanf ("%s", filename);
 
-        printf ("filename = %s \n", filename);
+        value = strcmp (filename, str);
 
-        int val = atoi (filename);
-
-        printf ("filename = %s \n", filename);
-        printf ("val = %d \n", val);
-
-        if ( filename == "0")
+        if ( value == 0 )
         {
             goto select;
         }
@@ -189,6 +186,7 @@ main ()
             goto select;
         }
     }
+    //*///
 
     /*This block of code:
         1. Prints options to select what processing to put numbers through
