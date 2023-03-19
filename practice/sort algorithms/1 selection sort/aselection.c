@@ -59,33 +59,38 @@ main ()
     if ( option == 1)
     {
         //1.
-        printf ("How many scores are you entering?: ");
+        printf ("How many scores are you entering?: \n");
+        puts ("Enter 0 to cancel and go back to select: ");
         scanf ("%d", &size);
-        
-        printf ("timer = %d \n", timer);
-        printf ("tempp = %d \n", tempp);
 
         //2.
-        tempp+=size;
+        //tempp+=size;
 
-        printf ("timer = %d \n", timer);
-        printf ("tempp = %d \n", tempp);
-
-        for (int i = timer; i < tempp; i++)
+        if (size == 0)
         {
-            printf ("Name ID%d: ", i);
-            scanf ("%s", &names[i]);
+            goto select;
+        }
 
-            printf ("Enter Score ID%d: \n", i);
-            scanf ("%d", &arr[i]);
+        else 
+        {
+            tempp+=size;
 
-            if (i == tempp -1)
+            for (int i = timer; i < tempp; i++)
             {
-                //4.
-                *q+=size;
+                printf ("Name ID%d: ", i);
+                scanf ("%s", &names[i]);
+
+                printf ("Enter Score ID%d: \n", i);
+                scanf ("%d", &arr[i]);
+
+                if (i == tempp -1)
+                {
+                    //4.
+                    *q+=size;
              
-                //5.
-                goto select;
+                    //5.
+                    goto select;
+                }
             }
         }
     }
@@ -94,79 +99,95 @@ main ()
     {
         char filename[20];
 
-        puts ("Please enter you file");
-
+        puts ("Please enter your file name: ");
+        puts ("Enter 0 to cancel and go back to select: ");
         scanf ("%s", filename);
 
-        FILE *popenn = fopen ( filename, "r");
+        printf ("filename = %s \n", filename);
 
-        if ( popenn == NULL)
+        int val = atoi (filename);
+
+        printf ("filename = %s \n", filename);
+        printf ("val = %d \n", val);
+
+        if ( val == 0 )
         {
-            puts ("No such file exist.");
-
-            return 1;
+            goto select;
         }
 
-        int numbers[100];
-        char str[10000];
-        int temp, j;
-        char ntemp;
-
-        j = -1;
-        j+=tempp;
-        size = 0;
-
-        while ( fscanf ( popenn, "%*s %s", numbers) == 1)
+        else
         {
-            j++;
-            size++;
+            FILE *popenn = fopen ( filename, "r");
 
-            temp = atoi (numbers);
-            arr[j] = temp;
-        }
+            if ( popenn == NULL)
+            {
+                puts ("No such file exist.");
 
-        for ( int i = 0; i < tempp + 1; i++)
-        {
-            printf ("Score ID%d: %d \n", i, arr[i]);
-        }
+                return 1;
+            }
 
-        FILE *qopenn = fopen ("newfile.txt", "r");
+            int numbers[100];
+            char str[10000];
+            int temp, j;
+            char ntemp;
 
-        if ( p = NULL)
-        {
-            puts ("No such file exist.");
+            j = -1;
+            j+=tempp;
+            size = 0;
 
-            return 1;
-        }
+            while ( fscanf ( popenn, "%*s %s", numbers) == 1)
+            {
+                j++;
+                size++;
 
-        int k;
+                temp = atoi (numbers);
+                arr[j] = temp;
+            }
 
-        k = -1;
-        k+=tempp;
+            for ( int i = 0; i < tempp + 1; i++)
+            {
+                printf ("Score ID%d: %d \n", i, arr[i]);
+            }
 
-        while ( fscanf (qopenn, "%s %*s", str) ==1 )
-        {
-            printf ("Names: %s \n", str);
+            FILE *qopenn = fopen ("newfile.txt", "r");
 
-            k++;
+            if ( p = NULL)
+            {
+                puts ("No such file exist.");
 
-            strcpy (names[k], str);
-        }
+                return 1;
+            }
 
-        puts ("\n");
+            int k;
 
-        for ( int i = 0; i < j + 1; i++)
-        {
-            printf ("Names ID%d: %s \n", i, names[i]);
-            printf ("Scores ID%d: %d \n", i, arr[i]);
+            k = -1;
+            k+=tempp;
+
+            while ( fscanf (qopenn, "%s %*s", str) ==1 )
+            {
+                printf ("Names: %s \n", str);
+
+                k++;
+
+                strcpy (names[k], str);
+            }
 
             puts ("\n");
+
+            for ( int i = 0; i < j + 1; i++)
+            {
+                printf ("Names ID%d: %s \n", i, names[i]);
+                printf ("Scores ID%d: %d \n", i, arr[i]);
+
+                puts ("\n");
+            }
+        
+            *op+=size;
+
+            *oq+= size;
+
+            goto select;
         }
-        *op+=size;
-
-        *oq+= size;
-
-        goto select;
     }
 
     /*This block of code:
