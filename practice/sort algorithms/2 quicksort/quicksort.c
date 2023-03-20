@@ -47,8 +47,8 @@ void quicksort (int number[count], int first, int last)
         printf ("pivot: %d \n", pivot);
         printf ("j = %d \n", j);
         
-        quicksort (number, last, j + 1); //number, first, j - 1
-        quicksort (number, j - 1, first);    //number, j + 1, last
+        quicksort (number, first, j - 1); //number, first, j - 1
+        quicksort (number, j + 1, last);    //number, j + 1, last
     }
 }
 
