@@ -43,6 +43,8 @@ main ()
     scanf ("%s", option);
 
     //2.
+    //
+    /*
     for (int i = 0; i < 3; i++)
     {
         value = strcmp (option, str1[i]);
@@ -58,7 +60,72 @@ main ()
         {
             return 0;
         }
+
+        else
+        {
+            goto enter;
+        }
     }
+    //
+    */
+
+   //
+   /*
+    int i = -1;
+
+    while ( i < 3)
+    {
+        i++;
+
+        value = strcmp (option, str1[i]);
+        value2 = strcmp (option, str2[i]);
+
+        if ( value == 0)
+        {
+            goto numbers;
+        }
+
+        else if (value2 == 0)
+        {
+            return 0;
+        }
+
+        else 
+        {
+            goto enter;
+        }
+    }
+    //
+    */
+   ///*
+   int i = -1;
+
+   do 
+   {
+
+    i++;
+
+    value = strcmp (option, str1[i]);
+    value2 = strcmp (option, str2[i]);
+
+    if (value == 0)
+    {
+        goto numbers;
+    }
+    
+    else if (value2 == 0)
+    {
+        return 0;
+    }
+
+    else
+    {
+        goto enter;
+    }
+
+   } while (i < 3);
+
+   // */
 
     /*  1. Here the program will request entry of a postive or negative 
         number. This response will be stored in number
