@@ -12,21 +12,26 @@ main ()
     char str3[3] = {"0"};
     int value, value2, value3, val;
 
-    start: puts ("Please enter a positive or negative number or cancel to eixt");
+    start: puts ("Please enter a positive or negative number or CANCEL to eixt");
     scanf ("%s", option);
+    puts ("\n");
 
     val = atoi (option);
-
-    printf ("val = %d \n", val);
 
     if ( val < 0)
     {
         printf ("%d is a negative number \n", val);
+        puts("\n");
+
+        goto start;
     }
 
-    else if ( val > 0)
+    else if ( val > 0) 
     {
         printf ("%d is a positive number \n", val);
+        puts ("\n");
+
+        goto start;
     }
 
     else if ( val == 0)
@@ -52,6 +57,12 @@ main ()
             {
                 printf ("0 is zero \n", value);
                 break;
+            }
+
+            else if (value != 0 && value2 != 0 && value3 != 0)
+            {
+                puts ("Try again \n");
+                goto start;
             }
         }
     }
