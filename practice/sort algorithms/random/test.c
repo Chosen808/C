@@ -1,3 +1,11 @@
+/*
+This program checks if a number is postive or negative and prints
+out conffirmation of that
+
+ver 1.01
+
+23/3/23*/
+
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
@@ -6,10 +14,31 @@
 
 main ()
 {
+
+    /*
+    Variables
+        1. option[] will receive string input
+        2. str1[][] will be compared with option. If the values match the 
+        block will be executed
+        3. str2[][] will be compared with option. If the values match the 
+        block will be executed
+        4. str3[][] will be compared with option. if the values match the 
+        block will be executed
+        5. value, value2 and value3 will store the result of the comparisons
+        betweeen option and str*[][]. If the results is 0 the block of code 
+        will be executed
+        6. val will store an integer value from option, if an integer was 
+        entered. If a string was entered the default will be 0
+        */
+    //1.
     char option[20];
+    //2.
     char str1[10][10] = {"enter", "Enter", "ENTER"};
+    //3.
     char str2[10][10] = {"cancel", "Cancel", "CANCEL"};
+    //4.
     char str3[3] = {"0"};
+    //5. //6.
     int value, value2, value3, val;
 
     start: puts ("Please enter a positive or negative number or CANCEL to eixt");
