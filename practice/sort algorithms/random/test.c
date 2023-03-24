@@ -41,6 +41,12 @@ main ()
     //5. //6.
     int value, value2, value3, val;
 
+    /*
+    Statements and Functions
+        1. The user is prompted here for input of a - or + number, or to exit
+        option receives whatever input is done by the user
+        2. Here option is check for intger input[[[CONTINUE HERE!!!!!!!!!]]]*/
+
     start: puts ("Please enter a positive or negative number or CANCEL to eixt");
     scanf ("%s", option);
     puts ("\n");
