@@ -56,6 +56,11 @@ main ()
         6. option is compared with str1[][], str2[][] and str3[][].
         If a match is found value* will receive a value of 0 and 
         the correspounding blocks of code will be executed
+        7. If value is 0 this statement will be executed
+        8. If value2 is 0 this statement will be executed
+        9. If value 3 is 0 this statement will be executed. This
+        statement executed when a string character of 0 is typed
+        10. If none of value* equals 0 this block is executed
         */
 
     //1.   
@@ -96,22 +101,26 @@ main ()
             value2 = strcmp (option, str2[i]);
             value3 = strcmp (option, str3);
 
+            //7. 
             if ( value == 0)
             {
                 goto start;
             }
-
+            
+            //8.
             else if (value2 == 0)
             {
                 return 0;
             }
 
+            //9.
             else if ( value3 == 0)
             {
                 printf ("0 is zero \n", value);
                 break;
             }
 
+            //10.
             else if (value != 0 && value2 != 0 && value3 != 0)
             {
                 puts ("Try again \n");
