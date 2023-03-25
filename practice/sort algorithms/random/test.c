@@ -1,6 +1,6 @@
 /*
 This program checks if a number is postive or negative and prints
-out conffirmation of that
+out confirmation of that
 
 ver 1.01
 
