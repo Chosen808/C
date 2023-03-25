@@ -4,7 +4,8 @@ out conffirmation of that
 
 ver 1.01
 
-23/3/23*/
+23/3/23
+*/
 
 #include <stdint.h>
 #include <stdio.h>
@@ -48,14 +49,24 @@ main ()
         2. Here option will checked for integers. If the input is an integer 
         it will be processed by the corresponding if statements. If it is a
         string the value of val will be 0 and will be process by the 
-        corresponding statements*/
+        corresponding statements
+        3. If val is less than 0 this statement will be executed
+        4. If val is more than 0 this statement will be executed
+        5. If val is equal to 0 this statement will be executed
+        6. option is compared with str1[][], str2[][] and str3[][].
+        If a match is found value* will receive a value of 0 and 
+        the correspounding blocks of code will be executed
+        */
 
+    //1.   
     start: puts ("Please enter a positive or negative number or CANCEL to eixt");
     scanf ("%s", option);
     puts ("\n");
 
+    //2.
     val = atoi (option);
-
+    
+    //3.
     if ( val < 0)
     {
         printf ("%d is a negative number \n", val);
@@ -64,6 +75,7 @@ main ()
         goto start;
     }
 
+    //4.
     else if ( val > 0) 
     {
         printf ("%d is a positive number \n", val);
@@ -72,11 +84,14 @@ main ()
         goto start;
     }
 
+    //5.
     else if ( val == 0)
     {
 
+        //6.
         for (int i = 0; i < 3; i++)
-        {
+        {   
+        
             value = strcmp (option, str1[i]);
             value2 = strcmp (option, str2[i]);
             value3 = strcmp (option, str3);
