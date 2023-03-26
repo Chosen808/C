@@ -26,4 +26,6 @@ main ()
     {
         printf ("%d is greater than %d and %d \n", val2, val, val1);
     }
+
+    return 0;
 }

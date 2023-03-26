@@ -6,18 +6,18 @@
 
 main ()
 {
-    int m, yd;
+    double m, yd;
     double km;
 
     puts ("Please enter how many miles: ");
-    scanf ("%d", &m);
+    scanf ("%lf", &m);
 
     puts ("Please enter how many yards: ");
-    scanf ("%d", &yd);
+    scanf ("%lf", &yd);
 
-    km = 1.60934 * (m + yd / 1760 );
+    km = 1.60934 * (m + yd / 1760);
 
-    printf ("%lf km \n", km)
+    printf ("%lf km \n", km);
 
-
+    return 0;
 }

@@ -6,21 +6,24 @@
 
 main ()
 {
-    int val[5], temp; 
+    int val[100000], temp, size; 
 
-    puts ("Please enter three numbers: ");
+    puts ("How many numbers are you entering: ");
+    scanf ("%d", &size);
 
-    for (int i = 1; i < 4; i++)
+    puts ("\n");
+
+    for (int i = 1; i < size +1; i++)
     {
-        printf ("Please enter number %d \n", i);
+        printf ("Please enter number #%d \n", i);
         scanf ("%d", &val[i -1]);
     }
 
     puts ("\n");
     
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < size; i++)
     {
-        for (int j = i + 1; j < 3; j++)
+        for (int j = i + 1; j < size; j++)
         {
             if (val[j] > val[i])
             {
