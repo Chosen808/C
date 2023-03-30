@@ -49,4 +49,6 @@ main ()
 
         goto enter;
     }
+
+    return 0;
 }

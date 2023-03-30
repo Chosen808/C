@@ -1,5 +1,5 @@
 /*This software contains the selection sort algorthim which has been addapted to suite the
-needs of this applicaion. It also contains a average checking algorithm. 
+needs of this applicaion. It also contains an average checking algorithm. 
 
 It has been developed to take a files with data input and manual input of data.
 
