@@ -28,6 +28,8 @@ main ()
 
     printf ("%s is from the Lord \n", pointer);
 
+    printf ("%p is the value of this pointer \n", pointer);
+
 
     return 0;
 }

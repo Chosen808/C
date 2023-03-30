@@ -108,6 +108,8 @@ main ()
     value = strcmp (option, str1[i]);
     value2 = strcmp (option, str2[i]);
 
+    printf ("value = %d \n", value);
+
     if (value == 0)
     {
         goto numbers;
@@ -118,12 +120,12 @@ main ()
         return 0;
     }
 
-    else
-    {
-        goto enter;
-    }
-
    } while (i < 3);
+
+   if (value != 0 && value2 != 0)
+   {
+        goto enter;
+   }
 
    // */
 
