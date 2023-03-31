@@ -350,4 +350,6 @@ main ()
         }
     }
 
+    printf ("Hello world, this is a test \n");
+
 }
