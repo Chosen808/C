@@ -24,7 +24,7 @@ main ()
     scanf ("%s", option);
 
     // Here is where your response is checked
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 5; i++)
     {
         /*
         Here option (what you entered) is compared with the 2d array.
@@ -40,26 +40,30 @@ main ()
 
             puts ("Do you have an umbrella?: \n");
             scanf ("%s", option);
-
-            /*
-            Here option (what you entered) is compared with the 2d array.
-            If there is amatch strcmp will output a value of 0.
-            */
-            val = strcmp (option, yes[i]);
-            val2 = strcmp (option, no[i]);
-
-            // If val has a match this statement will be executed
-            if ( val == 0)
+            for (int i = 0; i < 5; i++)
             {
-                puts ("Go outside.");
 
-                return 0;
-            }
+                /*
+                Here option (what you entered) is compared with the 2d array.
+                If there is amatch strcmp will output a value of 0.
+                */
+                val = strcmp (option, yes[i]);
+                val2 = strcmp (option, no[i]);
 
-            // If val2 has a match this statement will be executed
-            if ( val2 == 0)
-            {
-                goto start;
+                // If val has a match this statement will be executed
+                if ( val == 0)
+                {
+                    puts ("Go outside.");
+
+                    return 0;
+                }
+
+                // If val2 has a match this statement will be executed
+                if ( val2 == 0)
+                {
+                    goto start;
+                }
+
             }
         }
 
