@@ -59,7 +59,7 @@ main ()
                 }
 
                 // If val2 has a match this statement will be executed
-                if ( val2 == 0)
+                else if ( val2 == 0)
                 {
                     goto start;
                 }
