@@ -15,7 +15,7 @@ main ()
     puts ("Please enter how many yards: ");
     scanf ("%lf", &yd);
 
-    km = 1.60934 * (m + yd / 1760);
+    km = 1.60934 * (m + yd / 1760.0);
 
     printf ("%lf km \n", km);
 
