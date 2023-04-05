@@ -17,7 +17,7 @@ main ()
 
     for (i = 1; scanf ("%lf", &x) == 1; ++i)
     {
-        printf ("i = %d \n", i);
+        //printf ("i = %d \n", i);
         avg += (x - avg) / i;
         sum += x;
         navg = sum / i;
