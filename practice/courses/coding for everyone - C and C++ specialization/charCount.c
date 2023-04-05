@@ -16,7 +16,7 @@ main ()
             ++blanks;
         }
 
-        else if ( c >= '0' && c >= '9')
+        else if ( c >= '0' && c <= '9')
         {
             ++digits;
         }
