@@ -11,7 +11,7 @@ int main (void)
 
         interval = i / 10.0;
 
-        printf ("sin (%lf) = %lf \n", interval, fabs (sin (interval)));
+        printf ("sin (%lf) = %lf \t", interval, fabs (sin (interval)));
     }
 
     printf ("\n+++++++\n");
