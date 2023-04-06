@@ -13,7 +13,7 @@ v1.00
 
 main ()
 {
-    // Variable that will receive the values of sine and cosine
+    // Variables that will receive the values of sine and cosine
     double a, b;
 
     // This where the labels and columns for the tables are created
@@ -27,11 +27,10 @@ main ()
     for (double i = 0.1; b > 0 && b < 1 && a > 0 && a < 1; i+=0.1)
     {
         // sine and cosine are calculated here and stored in variables a and b
-
         a = sin (i);
         b = cos (i);
 
-        // The program is terminated here if it attempts to 1 unit below 0
+        // The program is terminated here if it attempts to go 1 unit below 0
         if ( b < 0)
         {
             return 0;
