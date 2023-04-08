@@ -2,17 +2,29 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <limits.h>
-#include <string.h>
+#include <math.h>
 
 main ()
 {
-    int i = 1, j = 2, n;
+    int a;
+    double b, j, i;
 
-    n = (i == j)? 4: (i < j)? 3: 5;
+    puts ("Please enter a number: ");
+    scanf ("%d", &a);
 
-    printf ("n = %d \n", n);
+    printf ("%15s%15s%15s \n", "Count", "Value", "Solution");
+    printf ("%15s%15s%15s \n", "_____", "_____", "_____");
 
-    return 0;
+    for (i = 0.0, j = 1.1; i < j; i+=0.1, j+=0.1)
+    {
+        b = pow (j, a);
 
+        printf (" %15lf%15lf%15lf \n", i, j, b);
+        
+        if (b > 10000000)
+        {
+            return 0;
+        }
+    }
 
 }
