@@ -3,12 +3,13 @@
 #include <time.h>
 
 #define NCALLS 10000000 // number of fct calls
-#define NCOLS 8 // number of columns
+#define NCOLS 20 // number of columns
 #define NLINES 3    // number of line 
 
 main (void)
 {
     int i, val;
+    //double val;
     long begin, diff, end;
 
     begin = time (NULL);
@@ -22,7 +23,7 @@ main (void)
 
         if ( i <= NCOLS * NLINES)
         {
-            printf ("%7d", val);
+            printf ("ID%d %7d \n", i, val);
 
             if ( i % NCOLS == 0)
             {
