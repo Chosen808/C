@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define NCALLS 10000000 // number of fct calls
+#define NCALLS 999999999 // number of fct calls
 #define NCOLS 20 // number of columns
 #define NLINES 3    // number of line 
 
