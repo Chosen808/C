@@ -18,7 +18,7 @@ main ()
 
     start = time (NULL);
 
-    for (int i = 1; i < 10000001; i++)
+    for (int i = 1; i < 900001; i++)
     {
         a = rand ();
 
@@ -34,7 +34,7 @@ main ()
 
         diff = above_cnt - below_cnt;
         total+= diff;
-        avg = total / 10000000.00;
+        avg = total / 900000.00;
 
         finish = time (NULL);
 
