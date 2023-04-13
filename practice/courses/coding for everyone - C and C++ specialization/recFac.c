@@ -32,5 +32,14 @@ long int recursive_factorial (int n)
 
 main ()
 {
-    
+    int num;
+
+    puts ("Please enter a number: ");
+    scanf ("%d", &num);
+
+    factorial (num);
+
+    recursive_factorial (num);
+
+    return 0;
 }
