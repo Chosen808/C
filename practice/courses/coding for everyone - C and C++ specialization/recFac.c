@@ -3,9 +3,9 @@
 #include <string.h>
 #include <stdint.h>
 
-long int factorial (int n)
+long long int factorial (int n)
 {
-    long f = 1;
+    long long f = 1;
     int i;
 
     for (i = 1; i <= n; i++)
@@ -16,7 +16,7 @@ long int factorial (int n)
     return f;
 }
 
-long int recursive_factorial (int n)
+long long int recursive_factorial (int n)
 {
     if (n == 1)
     {
@@ -37,9 +37,19 @@ main ()
     puts ("Please enter a number: ");
     scanf ("%d", &num);
 
-    factorial (num);
+    for (int i = 1; i <= num; i++)
+    {
+        printf ("\n%d\t %lld\n", i, factorial (i));
+    }
 
-    recursive_factorial (num);
+    puts ("\n\n");
+
+    for ( int i = 1; i <= num; i++)
+    {
+        printf ("\n%d\t %lld\n", i, recursive_factorial (i));
+    }
+
+    puts ("\n\n");
 
     return 0;
 }
