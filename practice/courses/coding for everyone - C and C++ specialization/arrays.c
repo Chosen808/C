@@ -2,25 +2,52 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-main ()
+int array_initializer (int size)
 {
-    int arr[100];
-    int size, sum;
+    int arr[10000];
+    int *q = size;
 
     puts ("Please enter how many numbers you are entering: ");
     scanf ("%d", &size);
 
-    puts ("Please enter your numbers: ");
-
     printf ("%10s%10s \n", "ID", "Number");
     printf ("%10s%10s \n", "_____", "_____");
 
-
-    for (int i = 0; i < size; i++)
+    for ( int i = 0; i < size; i++)
     {
         printf ("%10d\t", i);
-        scanf ("%10d", &arr[i]);
+        scanf ("%d", &arr[i]);
+
+        if (i == size)
+        {
+            return arr[i];
+        }
     }
+
+    //return arr;
+
+}
+
+int test_func (int a)
+{
+    int sum = 0;
+
+    sum = a;
+
+    //printf ("sum = %d \n", sum);
+
+    return sum;
+
+}
+
+main ()
+{
+    int arr[10000];
+    int size, sum, n;
+
+    array_initializer (n);
+
+    printf ("sum = %d \n", test_func(10));
 
     puts ("Your numbers entered are: \n");
 
@@ -29,10 +56,10 @@ main ()
 
     for (int i = 0; i < size; i++)
     {
-        printf ("%10d%10d \n", i, arr[i]);
+        printf ("%10d%10d \n", i, array_initializer(n));
     }
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < n; i++)
     {
         sum = sum + arr[i];
     }
