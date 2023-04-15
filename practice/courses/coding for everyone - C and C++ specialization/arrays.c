@@ -2,10 +2,16 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-int array_initializer (int size)
+typedef struct 
 {
     int arr[10000];
-    int *q = size;
+    int size;
+} func_var;
+
+int array_initializer (int size, func_var *b, func_var *c)
+{
+    b->arr[10000];
+    c->size;
 
     puts ("Please enter how many numbers you are entering: ");
     scanf ("%d", &size);
@@ -37,7 +43,6 @@ int test_func (int a)
     //printf ("sum = %d \n", sum);
 
     return sum;
-
 }
 
 main ()
