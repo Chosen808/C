@@ -44,7 +44,8 @@ void print_array (int how_many, int data[], char *str)
 /*
 This bubble function combines the swap() and print_array() functions
 with its own parameters to execute sorting the values in the array
-according to its parameters.( Smallest to largest it the sort here)
+according to its parameters.( Smallest to largest it the sort here
+and largest to smallest)
 */
 void bubble (int data[], int how_many)
 {
@@ -54,6 +55,7 @@ void bubble (int data[], int how_many)
     puts ("Please select how to sort:\nAscending press 1\nDescending press 2\n ");
     scanf ("%d", &option);
 
+    // Ascending sort is done here
     if ( option == 1)
     {
         for (i = 0; i < how_many; i++)
@@ -73,6 +75,7 @@ void bubble (int data[], int how_many)
         }
     }
 
+    // Descending sort is done here
     else if ( option == 2)
     {
         for ( i = 0; i < how_many; i++)
