@@ -36,9 +36,6 @@ void bubble (int grades[], int size)
 {
     int option;
 
-    puts ("Please select:\n1 Ascending sort\n2 Descending sort\n");
-    scanf ("%d", &option);
-
     puts ("Please enter your scores: ");
 
     initialize_array (size, grades);
@@ -46,15 +43,17 @@ void bubble (int grades[], int size)
     puts ("Please enter:\n1 for Ascending Sort\n2 for Descending sort\n");
     scanf ("%d", &option);
 
-    for ( int i = 0; i < size; i++)
+    for ( int i = 0; i < size; i++ )
     {
-        print_array (size, grades, "\ninside bubble\n");
+        printf ("%d\n", i);
+        //print_array (size, grades, "\ninside bubble\n");
+        printf ("%d\n", i);
 
         for (int j = size -1; j > i; j--)
         {
-            if ( grades[j - 1] > grades[j])
+            if ( grades[j - 1] > grades[j] )
             {
-                swap ( &grades[ j - 1], &grades[j]);
+                swap ( &grades[j-1], &grades[j] );
             }
         }
     }
@@ -67,9 +66,14 @@ void bubble (int grades[], int size)
 main ()
 {
     int size;
+    int grades[size];
 
     printf ("Please enter how many scores you are entering: ");
     scanf ("%d", &size);
 
-    
+    bubble (grades, size);
+
+    print_array (size, grades, "\n\nMy sorted grades");
+
+    return 0;
 }
