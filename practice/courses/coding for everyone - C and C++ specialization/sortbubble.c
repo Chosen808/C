@@ -3,11 +3,9 @@
 
 /*
 To do:
-    1. You need to fix the printer function to print the string at the end
-    of the numbers
-    2. You still need to add the descending sort
-    3. Add an option to run the function again or exit instead of the 
-    program terminating aftering sorting
+    1. Option to load numbers from file
+    2. Option to add and remove numbers
+    
     */
 
 void swap (int *a, int *b)
@@ -48,10 +46,11 @@ int initialize_array (int size, int data[])
         scanf ("%d", &data[i]);
     }
 
+    puts ("\n");
     return data;
 }
 
-void bubble (int data[], int size)
+void bubble (int data[], int size, char *str1, char *str2)
 {
     int option;
 
@@ -59,22 +58,67 @@ void bubble (int data[], int size)
 
     initialize_array (size, data);
 
-    puts ("Please enter:\n1 for Ascending Sort\n2 for Descending sort\n");
+    start: puts ("Please enter:\n1 for Ascending Sort\n2 for Descending sort\n3 to Exit\n");
     scanf ("%d", &option);
 
-    for ( int i = 0; i < size; i++ )
+    if ( option == 1)
     {
-        //print_array (size, grades, "\ninside bubble\n");
-
-        for (int j = size -1; j > i; j--)
+        for ( int i = 0; i < size; i++ )
         {
-            if ( data[j - 1] > data[j] )
+            printer (size, data, str1);
+
+            for (int j = size -1; j > i; j--)
             {
-                swap ( &data[j-1], &data[j] );
+                if ( data[j - 1] > data[j] )
+                {
+                    swap ( &data[j-1], &data[j] );
+                }
+            }
+
+            if ( i == size -1)
+            {
+                puts ("\n\n__________");
+
+                printer (size, data, str2);
+
+                puts ("\n");
+
+                goto start;
             }
         }
     }
 
+    else if (option == 2)
+    {
+        for ( int i = 0; i < size; i++)
+        {
+            printer (size, data, str1); 
+
+            for ( int j = size - 1; j > i; j-- )
+            {
+                if ( data[j - 1] < data[j] )
+                {
+                    swap ( &data[j - 1], &data[j] );
+                }
+            }
+
+            if ( i == size - 1)
+            {
+                puts ("\n\n__________");
+
+                printer (size, data, str2);
+
+                puts ("\n");
+
+                goto start;
+            }
+        }
+    }
+
+    else if ( option == 3)
+    {
+        return 0;
+    }
 }
 
 main ()
@@ -86,11 +130,8 @@ main ()
 
     int grades[size];
 
-    bubble (grades, size);
+    bubble (grades, size, "\ninside bubble\n", "\nMy sorted grades\n");
 
-    //print_array (size, grades, "\n\nMy sorted grades");
-
-    printer (size, grades, "\nHello\n");
 
     return 0;
 }
