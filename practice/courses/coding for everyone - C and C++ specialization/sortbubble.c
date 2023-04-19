@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
+To do:
+    1. You need to fix the printer function to print the string at the end
+    of the numbers
+    2. You still need to add the descending sort
+    3. Add an option to run the function again or exit instead of the 
+    program terminating aftering sorting
+    */
+
 void swap (int *a, int *b)
 {
     int temp = *a;
