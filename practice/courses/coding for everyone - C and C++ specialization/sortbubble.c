@@ -19,7 +19,7 @@ void swap (int *a, int *b)
 
 void print_array (int size, int data[], char *str)
 {
-    printf ("%s", *str);
+    printf ("%s", str);
 
     for ( int i = 0; i < size; i++)
     {
@@ -29,14 +29,12 @@ void print_array (int size, int data[], char *str)
 
 void printer (int size, int data[], char str[20])
 {
-    //printf ("%s", str);
+    printf ("%s", str);
 
     for (int i = 0; i < size; i ++)
     {
         printf ("%d\t", data[i]);
     }
-
-    printf ("%s", str);
 }
 
 int initialize_array (int size, int data[])
