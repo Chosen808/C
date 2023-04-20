@@ -12,13 +12,13 @@ void print_array (int how_many, int data[], char *str)
     }
 }
 
-void merge (int a[], int b[], int c[], int how_many)
+void merge ( int a[], int b[], int c[], int how_many)
 {
     int i = 0, j = 0, k = 0;
 
-    while ( i < how_many && j < j < how_many)
+    while ( i < how_many && j < how_many)
     {
-        if (a[i] < b[j])
+        if ( a[i] < b[j])
         {
             c[k++] = a[i++];
         }
@@ -27,24 +27,25 @@ void merge (int a[], int b[], int c[], int how_many)
         {
             c[k++] = b[j++];
         }
-
-        while ( i < how_many )
-        {
-            c[k++] = a[i++];
-        }
-
-        while ( j < how_many)
-        {
-            c[k++] = b[j++];
-        }
     }
+
+    while (i < how_many)
+    {
+        c[k++] = a[i++];
+    }
+
+    while (j < how_many)
+    {
+        c[k++] = b[j++];
+    }
+
 }
 
 main (void)
 {
     const int size = 5;
-    int a[size] = {99, 67, 88, 82, 83};
-    int b[size] = {88, 58, 81,69, 72};
+    int a[] = {67, 82, 83, 88, 99};
+    int b[] = {58, 69, 72, 81, 88};
     int c[2 * size];
 
     print_array (size, a, "My grades\n");
