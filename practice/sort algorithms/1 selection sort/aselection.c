@@ -95,8 +95,15 @@ main ()
         }
     }
 
+    /*
+    File Reading:
+        1. filename[] will collect the name of the file input. str[] will
+        check to see if the file is empty. value will receive the result
+        of the comparison between filename[] and str[]
+        2. The user is prompted for file name input*/
     if ( option == 2)
     {
+        //1.
         char filename[20];
         char str[10] = "0";
         int value;
@@ -136,6 +143,7 @@ main ()
             {
                 j++;
                 size++;
+                printf ("SIZE = %d \n", size);
 
                 temp = atoi (numbers);
                 arr[j] = temp;
@@ -146,7 +154,7 @@ main ()
                 printf ("Score ID%d: %d \n", i, arr[i]);
             }
 
-            FILE *qopenn = fopen ("newfile.txt", "r");
+            FILE *qopenn = fopen (filename, "r");
 
             if ( p = NULL)
             {

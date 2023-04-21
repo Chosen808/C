@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void print_array ( int how_many, int data[], char *str)
 {
@@ -38,6 +39,7 @@ void merge ( int a[], int b[], int c[], int how_many)
         c[k++] = b[j++];
     }
 }
+
 
 void mergesort ( int key[], int how_many) // a power of 2
 {
