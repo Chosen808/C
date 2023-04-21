@@ -100,7 +100,8 @@ main ()
         1. filename[] will collect the name of the file input. str[] will
         check to see if the file is empty. value will receive the result
         of the comparison between filename[] and str[]
-        2. The user is prompted for file name input*/
+        2. The user is prompted for file name input
+        3. filename[] and str[] is compared */
     if ( option == 2)
     {
         //1.
@@ -108,14 +109,18 @@ main ()
         char str[10] = "0";
         int value;
 
+        //2.
         puts ("Please enter your file name: ");
         puts ("Enter 0 to cancel and go back to select: ");
         scanf ("%s", filename);
 
         value = strcmp (filename, str);
 
+        printf ("value = %d\n", value);
+
         if ( value == 0 )
         {
+
             goto select;
         }
 
