@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+#include <limits.h>
 
 void print_array (int how_many, int data[], char *str)
 {
@@ -38,29 +40,38 @@ void merge ( int a[], int b[], int c[], int how_many)
     }
 }
 
-void fileread ( char *filename)
+void fileread ( void)
 {
-    char *str = "0";
-    int value;
+    char filename[100];
+    int j = 0, size = 0, temp;
+    int numbers[100];
+    int data[10000000];
 
-    value = strcmp (filename, str);
+    printf ("j = %d\n", j);
 
-    if ( value == 0)
+    
+    FILE *popen = fopen ( "ele_seal.txt", "r");
+
+    if ( popen == NULL)
     {
-        puts ("This file is empty!\n");
+        puts ("No such file exist\n");
+
+        //return fileread;
     }
 
-    else 
+    while ( fscanf ( popen, "%*s", numbers) == 1)
     {
-        FILE *popen = fopen ( filename, "r");
-
-        if ( popen == NULL)
-        {
-            puts ("No such file exist\n");
-
-            return fileread;
-        }
+        j++;
+        printf ("j = %d\n", j);
+        temp = atoi (numbers);
+        data[j] = temp;
     }
+
+    for ( int i = 0; i < j; i++)
+    {
+        printf ("Data ID%d: %d\n", i, data[i]);
+    }
+
 }
 
 void mergesort ( int key[], int how_many)
@@ -71,4 +82,49 @@ void mergesort ( int key[], int how_many)
     {
 
     }
+}
+
+int main ()
+{
+    puts ("TEST\n");
+
+    char filename[100] = "ele_seal.txt";
+    int j = 0, size = 0, temp;
+    int numbers[100];
+    int data[10000000];
+
+    j+=1;
+
+    printf ("Test\n");
+
+    
+    FILE *popen = fopen ( "ele_seal.txt", "r");
+
+    if ( popen == NULL)
+    {
+        puts ("No such file exist\n");
+
+        //return fileread;
+    }
+
+    else 
+    {
+        while ( fscanf ( popen, "%*s", numbers) == 1)
+        {
+            j++;
+            printf ("j = %d\n", j);
+            temp = atoi (numbers);
+            data[j] = temp;
+        }
+
+        for ( int i = 0; i < j; i++)
+        {
+            printf ("Data ID%d: %d\n", i, data[i]);
+        }
+
+        puts ("Test\n");
+
+        //fileread ();
+    }
+    return 0;
 }

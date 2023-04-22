@@ -101,7 +101,10 @@ main ()
         check to see if the file is empty. value will receive the result
         of the comparison between filename[] and str[]
         2. The user is prompted for file name input
-        3. filename[] and str[] is compared */
+        3. filename[] and str[] are compared. If 0 is entered if statement 4. 
+        is executed. If a file name is entered that does not exist if 
+        statement 6. is executed
+        4. If value equals 0 this if statement if executed and will go to Select  */
     if ( option == 2)
     {
         //1.
@@ -110,29 +113,33 @@ main ()
         int value;
 
         //2.
-        puts ("Please enter your file name: ");
+        fileenter: puts ("Please enter your file name: ");
         puts ("Enter 0 to cancel and go back to select: ");
         scanf ("%s", filename);
 
+        //3. 
         value = strcmp (filename, str);
 
         printf ("value = %d\n", value);
 
+        //4.
         if ( value == 0 )
         {
 
             goto select;
         }
 
+        //5.
         else
         {
             FILE *popenn = fopen ( filename, "r");
 
+            //6.
             if ( popenn == NULL)
             {
-                puts ("No such file exist.");
+                puts ("\nNo such file exist.\n");
 
-                return 1;
+                goto fileenter;
             }
 
             int numbers[100];
