@@ -54,6 +54,7 @@ int fileread ( char *filename, int size, int data[])
 
     }
 
+
     while ( fscanf ( popen, "%s", nums) == 1)
     {
         size = j++;
@@ -92,14 +93,47 @@ void mergesort ( int key[], int how_many)
 
 int main ()
 {
-    int size;
-    int data[0];
+    int size = 0, j = 0, temp = 0;
+    int d[1001] = {0};
+    char numbers[100];
 
-    fileread ("elephant_seal.txt", size, data);
+    //fileread ("elephant_seal.txt", size, d);
 
-    mergesort (data, size);
+    FILE *open = fopen ("elephant_seal.txt", "r");
 
-    print_array (size, data, "My sorted data\n");
+    if ( open == NULL)
+    {
+        puts ("No such file exist\n");
+    }
+
+    printf ("j = %d\n", j);
+
+    while ( fscanf ( open, "%s", numbers) == 1)
+    {
+        size = j++;
+
+        temp = atoi (numbers);
+        printf ("temp ID%d = %d\n", j, temp);
+
+        d[j] = temp;
+
+        printf ("j = %d\n", j);
+        printf ("D ID%d = %d\n", j, d[j]);
+    }
+
+    for ( int i = 0; i < size; i++)
+    {
+        printf ("Data ID%d: %d\n", i, d[i]);
+    }
+
+    mergesort (d, size);
+
+    for ( int i = 0; i < 1001; i++)
+    {
+        printf ("D ID%d = %d\n", i, d[i]);
+    }
+
+    print_array (size, d, "My sorted data\n");
 
     return 0;
 }
