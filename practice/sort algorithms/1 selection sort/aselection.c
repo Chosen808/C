@@ -155,7 +155,7 @@ main ()
             {
                 j++;
                 size++;
-                printf ("SIZE = %d \n", size);
+                //printf ("SIZE = %d \n", size);
 
                 temp = atoi (numbers);
                 arr[j] = temp;
@@ -163,7 +163,7 @@ main ()
 
             for ( int i = 0; i < tempp + 1; i++)
             {
-                printf ("Score ID%d: %d \n", i, arr[i]);
+                //printf ("Score ID%d: %d \n", i, arr[i]);
             }
 
             FILE *qopenn = fopen (filename, "r");
@@ -182,7 +182,7 @@ main ()
 
             while ( fscanf (qopenn, "%s %*s", str) ==1 )
             {
-                printf ("Names: %s \n", str);
+                //printf ("Names: %s \n", str);
 
                 k++;
 

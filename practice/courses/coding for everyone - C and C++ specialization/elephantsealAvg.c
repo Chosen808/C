@@ -2,7 +2,7 @@
 #include <string.h>
 #include <limits.h>
 
-void print_array (int how_many, int data[], char *str)
+void print_array (long how_many, int data[], char *str)
 {
     printf ("%s", str);
 
@@ -12,7 +12,7 @@ void print_array (int how_many, int data[], char *str)
     }
 }
 
-void merge ( int a[], int b[], int c[], int how_many)
+void merge ( int a[], int b[], int c[], long how_many)
 {
     int i = 0, j = 0, k = 0;
 
@@ -34,13 +34,13 @@ void merge ( int a[], int b[], int c[], int how_many)
         c[k++] = a[i++];
     }
 
-    while ( i < how_many)
+    while ( j < how_many)
     {
         c[k++] = b[j++];
     }
 }
 
-int fileread ( char *filename, int size, int data[])
+void fileread ( char *filename, int size, int data[])
 {
     int j = 1, temp = 0;
     char numbers[100];
@@ -58,7 +58,7 @@ int fileread ( char *filename, int size, int data[])
     while ( fscanf ( popen, "%s", nums) == 1)
     {
         size = j++;
-        data[size];
+        //data[size];
         temp = atoi (nums);
         data[j] = temp;
     }
@@ -67,17 +67,14 @@ int fileread ( char *filename, int size, int data[])
     {
        printf ("Data ID%d: %d\n", i, data[i]);
     }
-
-    return data;
 }
 
-void mergesort ( int key[], int how_many)
+void mergesort ( int key[], long how_many)
 {
     int j, k;
-
     int w[how_many];
 
-    for ( k = 1; k < how_many; k++)
+    for ( k = 1; k < how_many; k *= 2)
     {
         for ( j = 0; j < how_many - k; j += 2*k)
         {
@@ -93,8 +90,9 @@ void mergesort ( int key[], int how_many)
 
 int main ()
 {
-    int size = 0, j = 0, temp = 0;
-    int d[1001] = {0};
+    const int size = 1001;
+    int j = 0, temp = 0;
+    int d[] = {};
     char numbers[100];
 
     //fileread ("elephant_seal.txt", size, d);
@@ -110,25 +108,21 @@ int main ()
 
     while ( fscanf ( open, "%s", numbers) == 1)
     {
-        size = j++;
+        j++;
 
         temp = atoi (numbers);
-        printf ("temp ID%d = %d\n", j, temp);
 
         d[j] = temp;
-
-        printf ("j = %d\n", j);
-        printf ("D ID%d = %d\n", j, d[j]);
     }
 
-    for ( int i = 0; i < size; i++)
+    for ( int i = 1; i < size; i++)
     {
         printf ("Data ID%d: %d\n", i, d[i]);
     }
 
     mergesort (d, size);
 
-    for ( int i = 0; i < 1001; i++)
+    for ( int i = 0; i < size; i++)
     {
         printf ("D ID%d = %d\n", i, d[i]);
     }
