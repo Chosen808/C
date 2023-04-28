@@ -18,9 +18,13 @@ void merge ( int a[], int b[], int c[], int how_many)
 
     while ( i < how_many && j < how_many)
     {
+        printf ("a = %ld, b = %ld\n", a, b);
+
         if (a[i] < b[j])
         {
+            printf ("\nc = %ld, a = %ld\n\n", c, a);
             c[k++] = a[i++];
+            printf ("\n2c = %ld, 2a = %ld\n\n", c, a);
         }
 
         else 
@@ -48,14 +52,22 @@ void mergesort ( int key[], int how_many) // a power of 2
 
     for ( k = 1; k < how_many; k *= 2)
     {
+        printf ("k1 = %d \n", k);
+
         for ( j = 0; j < how_many - k; j += 2*k)
         {
+            printf ("k2 = %d \n", k);
+
             merge (key +j, key + j + k, w + j, k);
+
+            printf ("key = %d, w = %d \n", key[j], w[j]);
         }
 
         for ( j = 0; j < how_many; j++)
         {
             key[j] = w[j];
+
+            printf ("2key = %d, 2w = %d \n", key[j], w[j]);
         }
     }
 }

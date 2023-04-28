@@ -2,7 +2,7 @@
 #include <string.h>
 #include <limits.h>
 
-void print_array (long how_many, int data[], char *str)
+void print_array (int how_many, int data[], char *str)
 {
     printf ("%s", str);
 
@@ -12,7 +12,7 @@ void print_array (long how_many, int data[], char *str)
     }
 }
 
-void merge ( int a[], int b[], int c[], long how_many)
+void merge ( int a[], int b[], int c[], int how_many)
 {
     int i = 0, j = 0, k = 0;
 
@@ -69,7 +69,7 @@ void fileread ( char *filename, int size, int data[])
     }
 }
 
-void mergesort ( int key[], long how_many)
+void mergesort ( int key[], int how_many)
 {
     int j, k;
     int w[how_many];
@@ -92,7 +92,7 @@ int main ()
 {
     const int size = 1001;
     int j = 0, temp = 0;
-    int d[] = {};
+    int d[1000];
     char numbers[100];
 
     //fileread ("elephant_seal.txt", size, d);
@@ -124,7 +124,7 @@ int main ()
 
     for ( int i = 0; i < size; i++)
     {
-        printf ("D ID%d = %d\n", i, d[i]);
+        //printf ("D ID%d = %d\n", i, d[i]);
     }
 
     print_array (size, d, "My sorted data\n");
