@@ -1,59 +1,69 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void print_array (int data[], int size, char *str1, char *str2, char *str3)
+void merge (int data[], int l, int m, int r)
 {
-    printf ("%s\n", str1);
-    printf ("%10s%10s\n", str2, str3);
-    printf ("%10s%10s\n", "_____", "_____");
+    int i, j, k;
+    int n1 = l - m + 1;
+    int n2 = r - m;
 
-    for (int i = 0; i < size; i++)
+    int L[n1], R[n2];
+
+    for ( i = 0; i < n1; i++)
     {
-        printf ("%10d%10d\n", i, data[i]);
-    }
-}
-
-void fileread (int data[], int size)
-{
-    char number[100];
-    char filename[100];
-    int temp = 0, j = 0;
-
-    printf ("Please enter the name of your file: ");
-    scanf ("%s", filename);
-
-    FILE *open = fopen (filename, "r");
-
-    if (open == NULL)
-    {
-        puts ("No such file exist");
-
-        return fileread(data, size);
+        L[i] = data[l + i];
     }
 
-    while (fscanf (open, "%s", number) == 1)
+    for (j = 0; j < n2; j++)
     {
+        R[j] = data[m + 1 + j];
+    }
+
+    i = 0;
+    j = 0;
+    k = l;
+
+    while (i < n1 && j < n2)
+    {
+        if (L[i] < R[j])
+        {
+            data[k] = L[i];
+            i++;
+        }
+
+        else 
+        {
+            data[k] = R[j];
+            j++;
+        }
+
+        k++;
+    }
+
+    while (i < n1)
+    {
+        data[k] = L[i];
+        i++;
+        k++;
+    }
+
+    while (j < n2)
+    {
+        data[k] = R[j];
         j++;
-
-        temp = atoi (number);
-
-        data[j] = temp;
+        k++;
     }
 }
 
-void merge (int data[], int size)
-
-main ()
+void mergesort (int data[], int l, int r)
 {
-    int size = 1001;
-    int data[1001] = {};
+    if (l < r)
+    {
+        int m = l + (r - l) / 2;
 
-    fileread (data, size);
+        mergesort (data, l, m);
+        mergesort (data, m + 1, r);
 
-    print_array (data, size, "My Unsorted Data", "ID", "Data");
-
-    return 0;
+        merge (data, l, m, r);
+    }
 }
-
-/*
-Continue to see how code is running and understand its functions*/
