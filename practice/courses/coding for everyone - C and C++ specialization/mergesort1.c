@@ -179,7 +179,7 @@ void average (int data[], int size)
     // Values are printed here
     printf ("%10.2Lf%10.2Lf\n", temp, avg);
 }
-
+/*
 main ()
 {
     int size = 1001;    // This is as the size for counting
@@ -196,4 +196,4 @@ main ()
     average (data, size);
 
     return 0;
-}
+}*/
