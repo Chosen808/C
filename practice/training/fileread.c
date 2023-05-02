@@ -4,7 +4,7 @@
 main ()
 {
     int size = 1001;
-    int arr[1001] = {};
+    int arr[1000] = {};
 
     fileread (arr, size);
 

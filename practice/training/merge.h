@@ -4,8 +4,8 @@
 int fileread ( int data[], int size)
 {
     char filename[100];
-    int i = 0, temp = 0;
-    char numbers[100];
+    int i = 0, j = 0, k = 0;
+    int numbers[100];
 
     puts ("Please enter your files name: ");
     scanf ("%s", filename);
@@ -19,13 +19,25 @@ int fileread ( int data[], int size)
         return fileread (data, size);
     }
 
-    while (fscanf (open, "%s", numbers) == 1)
+    while (fscanf (open, "%d", &numbers) == 1)
     {
         i++; 
 
-        temp = atoi (numbers);
+        if (numbers[0] > 8000)
+        {
+            j++;
 
-        data[i] = temp;
+            printf ("%d Yes: ID%d\n", j, i);
+        }
+
+        if (numbers[0] > 7000 && numbers[0] < 8000)
+        {
+            k++;
+
+            printf ("%d Yesss: ID%d \n", k, i);
+        }
+
+        data[i] = numbers[0];
     }
 
 }
