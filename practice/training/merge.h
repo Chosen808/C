@@ -28,9 +28,11 @@ int fileread ( int data[], int size)
             j++;
 
             printf ("%d Yes: ID%d\n", j, i);
+
+            
         }
 
-        if (numbers[0] > 7000 && numbers[0] < 8000)
+        else if (numbers[0] > 7000 && numbers[0] < 8000)
         {
             k++;
 
