@@ -4,7 +4,7 @@
 int fileread ( int data[], int size)
 {
     char filename[100];
-    int i = 0, j = 0, k = 0;
+    int i = 0, j = 0, k = 0, l = 0, m = 0;
     int numbers[100];
 
     puts ("Please enter your files name: ");
@@ -19,24 +19,41 @@ int fileread ( int data[], int size)
         return fileread (data, size);
     }
 
+    printf ("%10s%10s%10s%5s%10s%10s%10s%10s%10s%10s%10s%10s%10s\n", "ID", "5000", "Order", "|", "ID", "6000", "Order", "ID", "7000", "Order", "ID", "8000", "Order");
+    printf ("%10s%10s%10s%5s%10s%10s%10s%10s%10s%10s%10s%10s%10s\n", "_____", "_____", "_____", " ", "_____", "_____", "_____", "_____", "_____", "_____", "_____", "_____", "_____");
+
+
     while (fscanf (open, "%d", &numbers) == 1)
     {
         i++; 
 
-        if (numbers[0] > 8000)
+        if (numbers[0] > 5000 && numbers[0] < 6000)
         {
             j++;
 
-            printf ("%d Yes: ID%d\n", j, i);
+            printf ("%10d%10d%10d\n", i, numbers[0], j);
 
-            
+        }
+
+        else if (numbers[0] > 6000 && numbers[0] < 7000)
+        {
+            k++;
+
+            printf ("%10s%10s%10s%10d%10d%10d\n", " ", " ", " ", i, numbers[0], k);
         }
 
         else if (numbers[0] > 7000 && numbers[0] < 8000)
         {
-            k++;
+            l++;
 
-            printf ("%d Yesss: ID%d \n", k, i);
+            printf ("%10s%10s%10s%10s%10s%10s%10d%10d%10d\n", " ", " ", " ", " ", " ", " ", i, numbers[0], l);
+        }
+
+        else if (numbers[0] > 8000 && numbers[0] < 9000)
+        {
+            m++; 
+
+            printf ("%10s%10s%10s%10s%10s%10s%10s%10s%10s%10d%10d%10d\n", " ", " ", " ", " ", " ", " ", " ", " ", " ", i, numbers[0], m);
         }
 
         data[i] = numbers[0];
