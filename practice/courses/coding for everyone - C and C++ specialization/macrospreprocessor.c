@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 #define MAX_ELEPHANT_SEAL_WT_MALE 8000
 #define MIN_ELEPHANT_SEAL_WT_MALE 4400
@@ -28,6 +29,37 @@ void data_print (int d[], int size)
     }
 }
 
+int filewirte (int data[], int size)
+{
+    char filename[100];
+    int temp;
+
+    char str[100];
+
+
+    puts ("Please enter your file name: ");
+    scanf ("%s", filename);
+
+    FILE *open = fopen (filename, "w+");
+
+    if (open == NULL)
+    {
+        puts ("Please enter a valid file name.");
+
+        return filewirte (data, size);
+    }
+
+    for (int i = 0; i < size; i++)
+    {
+        temp = data[i];
+
+        putw (data[i], open);
+    }
+
+    fclose (open);
+
+}
+
 int main ()
 {
     int i;
@@ -36,6 +68,8 @@ int main ()
     FILL;
     data_print (data, POPULOATION);
     printf ("\n\n");
+
+    filewirte (data, POPULOATION);
 
     return 0;
 }
