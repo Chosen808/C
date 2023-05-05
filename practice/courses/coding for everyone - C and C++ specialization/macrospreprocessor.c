@@ -32,12 +32,8 @@ void data_print (int d[], int size)
 int filewirte (int data[], int size)
 {
     char filename[100];
-    char temp;
-    char intstr[1000];
-
-    char exam[100][100] = {"test", "Yum"};
-
-    char str[100];
+    char temp[100][100] = {"teres ", "rerre ", "ereffdfd ", "ttrte "};
+    int *intstr;
 
     puts ("Please enter your file name: ");
     scanf ("%s", filename);
@@ -51,16 +47,24 @@ int filewirte (int data[], int size)
         return filewirte (data, size);
     }
 
-    for (int i = 0; i < size; i++)
+    printf ("SIZE = %d \n", sizeof (data[1]));
+
+    intstr = (int*) malloc (size * sizeof (int));
+
+    if (intstr == NULL)
     {
-        temp = data[i];
-        //intstr[i] = temp;
+        puts ("Memory not allocated");
 
-        //itoa (data[i], intstr[i], 10);
+        return 0;
+    }
 
-        printf ("intstr ID%d = %s\n", i, temp);
+    for (int i = 0; i < 4; i++)
+    {
+        intstr[i] = data[i];
+
+        printf ("intstr ID%d = %d\n", i, intstr[i]);
         
-        fputs (intstr[i], open);
+        fputs (temp[i], open);
     }
 
     fclose (open);
