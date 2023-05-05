@@ -33,6 +33,9 @@ int filewirte (int data[], int size)
 {
     char filename[100];
     int temp;
+    char intstr[1000];
+
+    char exam[100][100] = {"test", "Yum"};
 
     char str[100];
 
@@ -51,9 +54,13 @@ int filewirte (int data[], int size)
 
     for (int i = 0; i < size; i++)
     {
-        temp = data[i];
+        intstr[i] = data[i];
 
-        putw (data[i], open);
+        itoa (data[i], intstr[i], 10);
+
+        //printf ("intstr ID%d = %s\n", i, intstr[i]);
+        
+        //fputs (intstr[i], open);
     }
 
     fclose (open);
