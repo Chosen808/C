@@ -32,13 +32,12 @@ void data_print (int d[], int size)
 int filewirte (int data[], int size)
 {
     char filename[100];
-    int temp;
+    char temp;
     char intstr[1000];
 
     char exam[100][100] = {"test", "Yum"};
 
     char str[100];
-
 
     puts ("Please enter your file name: ");
     scanf ("%s", filename);
@@ -54,13 +53,14 @@ int filewirte (int data[], int size)
 
     for (int i = 0; i < size; i++)
     {
-        intstr[i] = data[i];
+        temp = data[i];
+        //intstr[i] = temp;
 
-        itoa (data[i], intstr[i], 10);
+        //itoa (data[i], intstr[i], 10);
 
-        //printf ("intstr ID%d = %s\n", i, intstr[i]);
+        printf ("intstr ID%d = %s\n", i, temp);
         
-        //fputs (intstr[i], open);
+        fputs (intstr[i], open);
     }
 
     fclose (open);
