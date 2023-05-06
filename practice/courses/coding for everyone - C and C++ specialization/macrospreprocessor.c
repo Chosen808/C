@@ -1,7 +1,19 @@
+/*
+This program create numerical data in a range the engineer can change 
+and passes it to a file
+
+Dedicated to Jesus my Lord and Savior who built this program
+
+5523
+
+v1.00
+ */
 #include <stdio.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <ctype.h>
 
 #define MAX_ELEPHANT_SEAL_WT_MALE 8000
 #define MIN_ELEPHANT_SEAL_WT_MALE 4400
@@ -9,7 +21,6 @@
 /*
 Produce a macro that randomly generate a male weight
 */
-
 #define RANGE 4400
 #define POPULOATION 1000
 #define WEIGHT_OVER rand () % RANGE
@@ -33,7 +44,7 @@ int filewirte (int data[], int size)
 {
     char filename[100];
     char temp[100][100] = {"teres ", "rerre ", "ereffdfd ", "ttrte "};
-    int *intstr;
+    char intstr[size][size];
 
     puts ("Please enter your file name: ");
     scanf ("%s", filename);
@@ -47,24 +58,16 @@ int filewirte (int data[], int size)
         return filewirte (data, size);
     }
 
-    printf ("SIZE = %d \n", sizeof (data[1]));
+    
 
-    intstr = (int*) malloc (size * sizeof (int));
-
-    if (intstr == NULL)
+    for (int i = 0; i < size; i++)
     {
-        puts ("Memory not allocated");
 
-        return 0;
-    }
+        sprintf (intstr[i], "%d\t", data[i]);
 
-    for (int i = 0; i < 4; i++)
-    {
-        intstr[i] = data[i];
-
-        printf ("intstr ID%d = %d\n", i, intstr[i]);
+        printf ("intstr ID%d = %s\n", i, intstr[i]);
         
-        fputs (temp[i], open);
+        fputs (intstr[i], open);
     }
 
     fclose (open);
@@ -82,5 +85,20 @@ int main ()
 
     filewirte (data, POPULOATION);
 
+    char c = "Testing";
+    char d = 't';
+
+    if (islower (d) == 0)
+    {
+        puts ("This is a not a lower case charater");
+    }
+
+    else
+    {
+        puts ("It is a lower case character");
+    }
+
+
+    printf ("char = %d, lower = %d \n", isalpha (c), islower (d));
     return 0;
 }
