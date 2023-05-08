@@ -90,13 +90,17 @@ int main ()
 
     if (islower (d) == 0)
     {
-        puts ("This is a not a lower case charater");
+        puts ("False");
     }
 
     else
     {
-        puts ("It is a lower case character");
+        puts ("True");
     }
+
+    char e = 'vv';
+
+    printf ("%c \n", toupper (e));
 
 
     printf ("char = %d, lower = %d \n", isalpha (c), islower (d));
