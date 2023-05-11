@@ -71,5 +71,7 @@ int main ()
     
     puts ("");
 
+    printf ("%d \n", EMPTY);
+
     return 0;
 }
