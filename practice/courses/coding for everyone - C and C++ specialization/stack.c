@@ -16,15 +16,21 @@ void reset (stack *stk)
     stk -> top = EMPTY;
 }
 
+
 void push (int c, stack *stk)
 {
-    if (is_full (stk))
-    {
-        return;
-    }
-    stk -> top++;
+    stk -> top = stk -> top++;
     stk -> arr[stk -> top] = c;
 }
+
+/*
+void push (int c, struct stack *stk)
+{
+    //stk -> top++;
+    return (stk -> arr[stk -> top++] = c);
+};
+*/
+
 
 int pop (stack *stk)
 {
@@ -48,8 +54,8 @@ int is_full (const stack *stk)
 
 main ()
 {
-    //int num[10] = {10, 34, 120, 54, 54, 55, 76, 223, 32, 23};
-    int num[0] = {2};
+    //stack
+    int num[10];
     int num_back[10];
     stack stackOfInt;
 
@@ -61,12 +67,20 @@ main ()
 
     for (i = 0; i < 10; i++)
     {
+        num[i] = i+17*4;
+    }
+
+    for (i = 0; i < 10; i++)
+    {
         printf ("Original is: %d \n", num[i]);
     }
 
+   
+
     while (num[i] != '\0')
     {
-        printf ("%d \n", num[i]);
+        printf ("%d \n", num[i++]);
+        
         push (num[i++], &stackOfInt);
     }
 
