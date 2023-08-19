@@ -2,6 +2,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
+#include <ctype.h>
 //#include <conio.h/conio.h>
 
 
@@ -50,58 +52,27 @@ int fileread (char data[], int size)
     }
 }
 
-char *alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+=<>,./';:""";
-char *number = "0123456789!@#$%^&*()_+=<>,./';:""";
 
-int nameCal (int min, int max)
+void nameGen (int namelen)
 {
-    return (rand () % (max - min - 1) + min);
-}
+    char *name;
+    char *letters[2] = {"bcdfghjklmnpqrstvwxyz", "aeiouy"};
+    const letterlen[2] = {strlen (letters[0]), strlen (letters[1])};
 
-void genName (int length, char n[])
-{
-    int i = 0;
-
-    for (i = 0; i < length; i++)
+    for (int i = 0; i < namelen; i++)
     {
-        int k = nameCal (1, 83);
-
-        printf ("k  = %d \n", k);
-
-        n[i] = alphabet [k - 1];
+        name += letters[i % 2][rand () % letterlen[i % 2]];
     }
 
-    n[i] = '\0';
+    name[0] = toupper (name[0]);
+
+    printf ("%s \n", name);
+
+    return 0;
 }
-
-void genNum (int length, char n[])
-{
-    int i = 0;
-
-    for (i = 0; i < length; i++)
-    {
-        int j = nameCal (1, 31);
-
-        n[i] = number [j - 1];
-    }
-
-    n[i] = '\0';
-}
-
 main ()
 {   
-    char aa[64];
-    char dd[64];
-    int b;
-
-    srand (time (NULL));
-    b = nameCal (1, 83);
-    genName (b, aa);
-
-    //genNum (b, dd);
-
-
-    printf ("%s \n", aa);
+    nameGen (15);
 
     return 0;
 }
