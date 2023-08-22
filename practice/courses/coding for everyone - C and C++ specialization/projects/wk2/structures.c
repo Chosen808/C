@@ -14,6 +14,25 @@ struct next
     char *water;
 };
 
+typedef enum resources
+{
+    STAFF = 999,
+    BRICKS = 2000,
+    CEMENT,
+    STEEL,
+    WOOD,
+    TOOLS,
+} res;
+
+struct proj
+{
+    res m;
+
+    double finances;
+    char *stakeholders;
+    int duration;
+};
+
 int func (struct data place)
 {
     struct next leap;
@@ -32,10 +51,23 @@ int func (struct data place)
 
 main ()
 {
+    struct proj heritage;
+
+    heritage.m = STAFF;
+
     ran.car = 5000323;
     ran.people = "Rimmms";
 
     printf ("UUU = %s \n", ran.people);
+    printf ("STAFF = %d \n", heritage.m);
+
+    heritage.m = BRICKS;
+
+    printf ("BRICKS = %d \n", heritage.m);
+
+    heritage.m = CEMENT;
+
+    printf ("CEMENT = %d \n", heritage.m);
 
     func (ran);
 
