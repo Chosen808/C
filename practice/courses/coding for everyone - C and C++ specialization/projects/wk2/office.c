@@ -20,11 +20,6 @@ struct llc
 
 struct llc salary;
 
-int func ()
-{
-    
-}
-
 int salGen ()
 {
     struct llc depart;

@@ -53,9 +53,9 @@ void salgen ()
     double store; // To store ssn numbers
     double sal;
     char myvar;
-    char var[1][1];
+    char var[20][20];
 
-    for ( int i = 1, k = 0; i < 11, k < 10; i++, k++)
+    for ( int i = 1; i < 11; i++)
     {
 
         store += (ssn * 2.0);
@@ -64,21 +64,27 @@ void salgen ()
 
         if (i < 1)
         {
-            enum department sector = hr;
-            myvar = 'hr';
-            strcpy (var[0], 'hr');
+            //enum department sector = hr;
+            strcpy (var[0], "HR");
+
+            printf ("Var = %s \n", var[0]);
         }
 
-        else if (i = 2)
+        else if (i = 5)
         {
-            enum department sector = sales;
-            //var = 'sales';
+            //enum department sector = sales;
+            strcpy (var[1], "Sales");
+
+            printf ("Var = %s \n", var[1]);
+
         }
 
         else if ( i = 3)
         {
-            enum department sector = research;
-            //var = 'research';
+            //enum department sector = research;
+            strcpy (var[2], "Research");
+
+            printf ("Var = %s \n", var[2]);
         }
 
         else 
@@ -87,7 +93,7 @@ void salgen ()
             //var = 'executive';
         }
 
-        printf ("%5d%11ld%10s%5s%.2f%5s \n", i, ssnums[k], names[k]," ", sal, var);
+        printf ("%5d%11ld%10s%5s%.2f%5s \n", i, ssnums[i], names[i]," ", sal, var[i]);
     }
 }
 
@@ -96,7 +102,7 @@ main ()
     printer ();
     salgen ();
 
-    printf ("%c \n", hr);
+    //printf ("%c \n", hr);
 
     return 0;
 }
