@@ -58,33 +58,35 @@ void salgen ()
     for ( int i = 1; i < 11; i++)
     {
 
+        printf ("i = %d \n", i);
+
         store += (ssn * 2.0);
         temp += store;
         sal = temp / 10.00;
 
-        if (i < 1)
+        if (i = 0)
         {
             //enum department sector = hr;
             strcpy (var[0], "HR");
 
-            printf ("Var = %s \n", var[0]);
+            //printf ("Var = %s \n", var[0]);
         }
 
-        else if (i = 5)
+        if (i = 3)
         {
             //enum department sector = sales;
             strcpy (var[1], "Sales");
 
-            printf ("Var = %s \n", var[1]);
+            //printf ("Var = %s \n", var[1]);
 
         }
 
-        else if ( i = 3)
+        else if ( i = 5)
         {
             //enum department sector = research;
             strcpy (var[2], "Research");
 
-            printf ("Var = %s \n", var[2]);
+            //printf ("Var = %s \n", var[2]);
         }
 
         else 
