@@ -8,6 +8,8 @@ typedef struct list
     struct list *next;
 } list;
 
+
+
 int is_empty (const list *l)
 {
     return (l == NULL);
@@ -24,13 +26,16 @@ void print_list (list *h, char *title)
     }
 }
 
-list asdr (int d)
+list asdr (int d) // list *asdr (int d)
 {
-    list *fasd;
+    //list *fasd = malloc (sizeof (list));
+    //fasd -> data = d;
+    //printf ("DATA = %d \n", fasd -> data);
 
-    fasd -> data = d;
+    list fasd;
+    fasd.data = 100;
 
-    printf ("DATA = %d \n", fasd -> data);
+    printf ("DATA = %d \n", fasd.data);
 
 }
 
@@ -46,7 +51,7 @@ int main ()
     print_list (head, "single element list");
     printf ("\n\n");
 
-    asdr (100);
+    asdr (23433);
     
     return 0;
 }
