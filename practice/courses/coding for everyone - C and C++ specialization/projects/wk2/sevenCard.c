@@ -16,9 +16,6 @@ struct deck
 int shuff ()
 {
     rand();
-
-    printf ("%d \n", rand());
-
 }
 
 
