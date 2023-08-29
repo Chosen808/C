@@ -65,7 +65,7 @@ main ()
 
     head = array_to_list (data, 6);
     
-    printf (head, "single element list");
+    print_list (head, "single element list");
     printf ("\n\n");
 
     return 0;
