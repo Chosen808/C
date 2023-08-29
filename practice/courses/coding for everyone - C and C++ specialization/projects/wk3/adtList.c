@@ -24,6 +24,16 @@ void print_list (list *h, char *title)
     }
 }
 
+list asdr (int d)
+{
+    list *fasd;
+
+    fasd -> data = d;
+
+    printf ("DATA = %d \n", fasd -> data);
+
+}
+
 int main ()
 {
     list list_of_int;
@@ -36,5 +46,7 @@ int main ()
     print_list (head, "single element list");
     printf ("\n\n");
 
+    asdr (100);
+    
     return 0;
 }
