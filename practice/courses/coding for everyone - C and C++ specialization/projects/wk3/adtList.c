@@ -33,7 +33,7 @@ list asdr (int d) // list *asdr (int d)
     //printf ("DATA = %d \n", fasd -> data);
 
     list fasd;
-    fasd.data = 100;
+    fasd.data = d;
 
     printf ("DATA = %d \n", fasd.data);
 
