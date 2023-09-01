@@ -1,6 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef enum 
+{
+    sun = 100,
+    mon,
+    tue
+} test;
+
+typedef struct test
+{
+    char arr[10][10];
+    int info;
+
+    test weekdays;
+
+    struct rad *place;
+} rad;
+
+struct open
+{
+    struct kad *lad;
+} uff;
+
 main ()
 {
     int num, num2, numA, temp = 0;

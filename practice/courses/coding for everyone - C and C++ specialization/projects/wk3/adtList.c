@@ -13,6 +13,7 @@ int is_empty (const list *l)
     return (l == NULL);
 }
 
+
 void print_list (list *h, char *title)
 {
     printf ("%s \n", title);
