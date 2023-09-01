@@ -8,8 +8,6 @@ typedef struct list
     struct list *next;
 } list;
 
-
-
 int is_empty (const list *l)
 {
     return (l == NULL);
