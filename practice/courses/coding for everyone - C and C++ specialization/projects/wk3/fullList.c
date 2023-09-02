@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <assert.h>
 
 typedef struct list
 {
@@ -58,6 +59,13 @@ void print_list (list *h, char *title)
 
 main ()
 {
+
+    int x = 7;
+
+    //x = 9;
+
+    assert (x == 20);
+
     list list_of_int;
     list *head = NULL;
 
