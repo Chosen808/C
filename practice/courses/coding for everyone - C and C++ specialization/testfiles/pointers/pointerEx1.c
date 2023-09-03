@@ -18,6 +18,7 @@ Expected Output :
                                                                                                               
  &z stores the address of z = 0x7ffd40630d50 
  */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -35,6 +36,8 @@ main ()
     printf ("N addr = %p \n", &n);    // &n stores sthe address of n
     printf ("O addr = %p \n", &o);    // &o stores the address of o
     printf ("Z addr = %p \n", &z);    // &z stores the address of z
+
+    printf ("M addr = %p \n", (void *) &m);
 
     return 0;
 }
