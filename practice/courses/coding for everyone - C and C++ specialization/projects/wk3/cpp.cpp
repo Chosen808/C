@@ -16,6 +16,7 @@ main ()
         printf ("Answer b = %ld \n", b);
         printf ("Answer c = %ld \n", c);
         printf ("Answer a = %ld \n", a);
+        printf ("Total = %d \n", a + b + c);
     }
 
     return 0;
