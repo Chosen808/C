@@ -14,5 +14,19 @@ main ()
 
     printf ("%d \n", r);
 
+    int *y = &l;
+
+    printf ("y = %d \n", *y);
+
+    *y = 50;
+
+    printf ("y = %d \n", *y);
+    printf ("l = %d \n", l);
+
+    l = 70;
+
+    printf ("l = %d \n", l);
+    printf ("y = %d \n", *y);
+
     return 0;
 }

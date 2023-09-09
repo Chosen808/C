@@ -13,5 +13,5 @@ struct atomicEl
     double F;
     double Ne;
 
-
+    char array;
 } ;
