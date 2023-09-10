@@ -62,12 +62,10 @@ main ()
 
     int x = 7;
 
-    //x = 9;
-
-    assert (x == 20);
-
     list list_of_int;
     list *head = NULL;
+
+    printf ("List %d \n", sizeof (list));
 
     int data[6] = {2,3,5,7,8,9};
 
