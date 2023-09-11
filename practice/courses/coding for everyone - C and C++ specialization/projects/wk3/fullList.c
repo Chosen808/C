@@ -45,7 +45,7 @@ list *array_to_list (int d[], int size)
     return head;
 }
 
-void print_list (list *h, char *title, int size)
+void print_list (list *h, char *title)
 {
     printf ("%s \n", title);
 /*
@@ -53,13 +53,28 @@ void print_list (list *h, char *title, int size)
     {
         printf ("%d: ", h -> data);
         h = h -> next;
+    }
+    */
+
+   /*
+    for (int i = 0; i < h; i++)
+    {
+        printf ("%d: ", h -> data);
+        h = h -> next;
     }*/
 
+    /*
     for (int i = 0; i < size; i++)
     {
         printf ("%d: ", h -> data);
         h = h -> next;
-    }
+    }*/
+
+    do 
+    {
+        printf ("%d: ", h -> data);
+        h = h -> next;
+    } while (h != NULL);
 }
 
 
@@ -79,7 +94,7 @@ main ()
 
     printf ("Head %d \n", sizeof (head));
     
-    print_list (head, "data[6] made into a 6 element list", 6);
+    print_list (head, "data[6] made into a 6 element list");
     printf ("\n\n");
 
     return 0;
