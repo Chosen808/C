@@ -7,6 +7,7 @@ typedef struct list
 {
     int data;
     int gad;
+    char dbase;
     struct list *next;
 } list;
 
@@ -18,7 +19,7 @@ int is_empty (const list *l)
 list *create_list (int d)
 {
     list *head = malloc (sizeof (list));
-    head -> gad = d;
+    head -> data = d;
     head -> next = NULL;
     
     return head;
@@ -73,7 +74,7 @@ void print_list (list *h, char *title)
 
     do 
     {
-        printf ("%d: ", h -> gad);
+        printf ("%d: ", h -> data);
         h = h -> next;
     } while (h != NULL);
 }
@@ -90,6 +91,7 @@ main ()
     //printf ("List %d \n", sizeof (list));
 
     int data[6] = {2,3,5,7,8,9};
+    char dbase[] = {'a', 's', 's', 'rr', 'y'};
 
     head = array_to_list (data, 6);
 
