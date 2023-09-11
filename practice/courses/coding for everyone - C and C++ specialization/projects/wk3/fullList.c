@@ -19,6 +19,7 @@ list *create_list (int d)
     list *head = malloc (sizeof (list));
     head -> data = d;
     head -> next = NULL;
+    //head -> data = d;
 
     return head;
 }
