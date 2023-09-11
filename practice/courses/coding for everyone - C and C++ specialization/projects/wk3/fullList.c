@@ -70,6 +70,8 @@ main ()
     int data[6] = {2,3,5,7,8,9};
 
     head = array_to_list (data, 6);
+
+    printf ("Head %d \n", sizeof (head));
     
     print_list (head, "data[6] made into a 6 element list");
     printf ("\n\n");
