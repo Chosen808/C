@@ -6,6 +6,7 @@
 typedef struct list
 {
     int data;
+    int gad;
     struct list *next;
 } list;
 
@@ -17,7 +18,7 @@ int is_empty (const list *l)
 list *create_list (int d)
 {
     list *head = malloc (sizeof (list));
-    head -> data = d;
+    head -> gad = d;
     head -> next = NULL;
     
     return head;
@@ -72,7 +73,7 @@ void print_list (list *h, char *title)
 
     do 
     {
-        printf ("%d: ", h -> data);
+        printf ("%d: ", h -> gad);
         h = h -> next;
     } while (h != NULL);
 }
