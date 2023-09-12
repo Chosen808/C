@@ -56,16 +56,38 @@ void print_list (list *h, char *title)
     } while (h != NULL);
 }
 
+int array_n (list *h, char arr[], int size) // this is used to tranfer the rotated list into an array
+{
+    for (int i = 0; i < size; i++)
+    {
+        //printf ("h = %c \n", h -> dbase);
+        arr[i] = h -> dbase;
+        h = h -> next;
+    }
+}
+
 main ()
 {
     list list_of_int;
     list *head = NULL;
 
     char dbase[] = {'a', 's', 'e', 'f', 's', 'r', 't', 'h'};
+    //char arr[8];
+
+    //printf ("Array = %c \n", arr[0]);
 
     head = array_to_list (dbase, 8);
 
     print_list (head, "dbase");
+    printf ("\n\n");
+
+    array_n (head, dbase, 8);
+
+    printf ("\n\n");
+
+    head = array_to_list (dbase, 8);
+
+    print_list (head, "dbase ver2");
     printf ("\n\n");
 
     return 0;
