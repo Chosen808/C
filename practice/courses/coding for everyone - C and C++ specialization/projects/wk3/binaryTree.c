@@ -13,7 +13,7 @@ struct node
 
 typedef struct node NODE;
 
-typedef NODE    *BTREE;
+typedef NODE *BTREE;
 
 void inorder (BTREE root)
 {
