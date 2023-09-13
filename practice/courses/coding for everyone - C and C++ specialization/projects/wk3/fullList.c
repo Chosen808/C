@@ -9,7 +9,7 @@ typedef struct list
     int gad;
     char dbase;
     struct list *next;
-} list;
+} list, place;
 
 int is_empty (const list *l)
 {
@@ -87,6 +87,7 @@ main ()
 
     list list_of_int;
     list *head = NULL;
+    
 
     //printf ("List %d \n", sizeof (list));
 

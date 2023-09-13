@@ -71,6 +71,8 @@ main ()
     list list_of_int;
     list *head = NULL;
 
+    list *hd;
+
     char dbase[] = {'a', 's', 'e', 'f', 's', 'r', 't', 'h'};
     //char arr[8];
 
@@ -88,6 +90,16 @@ main ()
     head = array_to_list (dbase, 8);
 
     print_list (head, "dbase ver2");
+    printf ("\n\n");
+
+    hd = array_to_list (dbase, 8);
+
+    for (int i = 0; i < 8; i++)
+    {
+        printf ("%c", hd -> dbase);
+        hd = hd -> next;
+    }
+
     printf ("\n\n");
 
     return 0;
