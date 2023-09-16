@@ -50,7 +50,7 @@ int main ()
     print_list (head, "single element list");
     printf ("\n\n");
 
-    asdr (23433);
+    asdr (head);
     
     return 0;
 }
