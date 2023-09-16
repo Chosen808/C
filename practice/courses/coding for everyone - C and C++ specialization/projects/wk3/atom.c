@@ -9,56 +9,65 @@ typedef struct atom
     struct atom *ATOMWght;
 } atom;
 
-int array (atom *atomn[])
+int array (char *an[], char *as[], double aw[])
 {
-    printf ("Please enter 10 elements \n");
-
-    for (int i = 0; i < 10; i++)
+    for (int i = 0, k = 1; i < 10, k < 11; i++, k++)
     {
-        printf ("Please enter element %d: ", i);
-        scanf ("%s", &atomn[i]);
+        printf ("Please enter element %d: ", k);
+        scanf ("%s", &an[i]);
+        printf ("\n\n");
 
-        //printf ("Array %s \n", atomn[0]);
-/*
-        if (i > 9)
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                printf ("Array: %s \n", atomn[i]);
-            }
-        }*/
+        printf ("Please enter the atomic symbol: ");
+        scanf ("%s", &as[i]);
+        printf ("\n\n");
+
+        printf ("Please enter the atomic weight: ");
+        scanf ("%lf", &aw[i]);
+        printf ("\n\n");
     }
 }
 
 main ()
 {
-    atom *atome[10][10];
+    char atomname[10][10];
+    char atomsym[10][10];
+    double atomwght[10];
 
+/*
+    for (int i = 0, k = 1; i < 10, k < 10; i++, k++)
+    {
+        printf ("Please enter element %d: ", k);
+        scanf ("%s", atomname[i]);
+        printf ("\n\n");
+
+        printf ("Please enter the atomic symbol: ");
+        scanf ("%s", atomsym[i]);
+        printf ("\n\n");
+
+        printf ("Please enter the atomic weight: ");
+        scanf ("%lf", &atomwght[i]);
+        printf ("\n\n");
+    }*/
+
+    array (atomname, atomsym, atomwght);
+
+    printf ("\n\n%10s%10s%13s \n", "Element", "Symbol", "Weight");
 
     for (int i = 0; i < 10; i++)
     {
-        printf ("Please enter element %d: ", i);
-        scanf ("%s", atome[i]);
-
-        //strcpy (atomname[i], list);
-
-        //printf ("%s \n", atomname[0]);
-
-        if (i == 9)
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                printf ("Array: %s \n", atome[i]);
-            }
-        }
+        printf ("%10s%10s%13lf \n", atomname[i], atomsym[i], atomwght[i]);
     }
 
-    //array (atome);
-
+/*
     for (int i = 0; i < 10; i++)
     {
-        printf ("%s \n", atome[i]);
+        printf ("%s \n", atomname[i]);
     }
 
+    for (int i = 0; i < 1; i++)
+    {
+        printf ("%f \n", atomwght[i]);
+    }
+*/
     return 0;
 }
