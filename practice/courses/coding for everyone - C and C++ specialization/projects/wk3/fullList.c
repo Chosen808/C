@@ -9,7 +9,7 @@ typedef struct list
     int gad;
     char dbase;
     struct list *next;
-} list, place;
+} list;
 
 int is_empty (const list *l)
 {

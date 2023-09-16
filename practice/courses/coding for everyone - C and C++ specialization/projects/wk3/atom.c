@@ -4,47 +4,41 @@
 
 typedef struct atom
 {
-    char ATOMNAME;
-    char ATOMSYM;
-    int ATOMWght;
+    struct atom *ATOMNAME;
+    struct atom *ATOMSYM;
+    struct atom *ATOMWght;
 } atom;
 
-void array (char atomname[])
+int array (atom *atomn[])
 {
-    char list[10];
-
     printf ("Please enter 10 elements \n");
 
     for (int i = 0; i < 10; i++)
     {
         printf ("Please enter element %d: ", i);
-        scanf ("%s", &atomname[i]);
+        scanf ("%s", &atomn[i]);
 
-        //strcpy (atomname[0], list);
-
-        //printf ("%s \n", atomname[0]);
-
-        if (i == 9)
+        //printf ("Array %s \n", atomn[0]);
+/*
+        if (i > 9)
         {
             for (int i = 0; i < 10; i++)
             {
-                printf ("Array: %s \n", atomname[i]);
+                printf ("Array: %s \n", atomn[i]);
             }
-        }
+        }*/
     }
-
-    //return atomname;
 }
 
 main ()
 {
-    char atomname[10][10];
-    //char list[10];
+    atom *atome[10][10];
+
 
     for (int i = 0; i < 10; i++)
     {
         printf ("Please enter element %d: ", i);
-        scanf ("%s", &atomname[i]);
+        scanf ("%s", atome[i]);
 
         //strcpy (atomname[i], list);
 
@@ -54,16 +48,16 @@ main ()
         {
             for (int i = 0; i < 10; i++)
             {
-                printf ("Array: %s \n", atomname[i]);
+                printf ("Array: %s \n", atome[i]);
             }
         }
     }
 
-    //array (atomname);
+    //array (atome);
 
     for (int i = 0; i < 10; i++)
     {
-        printf ("%s \n", atomname[i]);
+        printf ("%s \n", atome[i]);
     }
 
     return 0;
