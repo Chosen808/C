@@ -33,7 +33,7 @@ atom *create_asym (char atomsym)
 {
     atom *head = malloc (sizeof (atom));
     head -> ATOMSYM = atomsym;
-    head -> next = NULL;
+    head -> next1 = NULL;
 
     return head;
 }
@@ -42,7 +42,7 @@ atom *create_awght (double atomwght)
 {
     atom *head = malloc (sizeof (atom));
     head -> ATOMWght = atomwght;
-    head -> next = NULL;
+    head -> next2 = NULL;
 
     return head;
 }
@@ -73,7 +73,12 @@ atom *add_to_front_awght (double atomwght, atom *h)
 
 atom *array_to_list_aname (char an[], int size)
 {
-    atom *head = create_aname (an[0]);
+    atom *head;
+
+    for (int i = 0; i < size; i++)
+    {
+        head = create_aname (an[i]);
+    }
 
     for (int i = 1; i < size; i++)
     {
@@ -113,7 +118,7 @@ void print_list_aname (atom *h, char *title)
 
     do 
     {
-        printf ("%s: ", h -> ATOMNAME);
+        printf ("%c: ", h -> ATOMNAME);
         h = h -> next;
 
     } while (h != NULL);
@@ -167,7 +172,7 @@ main ()
     atom *head1 = NULL;
     atom *head2 = NULL;
 
-    char atomname[10][10];
+    char atomname[1000][1000];
     char atomsym[10][10];
     double atomwght[10];
 
