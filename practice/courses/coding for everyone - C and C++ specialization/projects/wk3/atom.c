@@ -6,11 +6,13 @@
 
 typedef struct atom
 {
-    struct atom *ATOMNAME;
-    struct atom *ATOMSYM;
+    char ATOMNAME;
+    char ATOMSYM;
     double ATOMWght;
 
     struct atom *next;
+    struct atom *next1;
+    struct atom *next2;
 } atom;
 
 int is_empty (const atom *l)
@@ -18,50 +20,127 @@ int is_empty (const atom *l)
     return (l = NULL);
 }
 
-//atom *create_list (char an, char as, double aw)
-atom *create_list (char an, char as)
+atom *create_aname (char atomname)
 {
     atom *head = malloc (sizeof (atom));
-    head -> ATOMNAME = an;
-    head -> ATOMSYM = as;
-    //head -> ATOMWght = aw;
+    head -> ATOMNAME = atomname;
     head -> next = NULL;
 
     return head;
 }
 
-//atom *add_to_front (char an, char as, double aw, atom *h)
-atom *add_to_front (char an, char as, atom *h)
+atom *create_asym (char atomsym)
 {
-    atom *head = create_list (an, as);
+    atom *head = malloc (sizeof (atom));
+    head -> ATOMSYM = atomsym;
+    head -> next = NULL;
+
+    return head;
+}
+
+atom *create_awght (double atomwght)
+{
+    atom *head = malloc (sizeof (atom));
+    head -> ATOMWght = atomwght;
+    head -> next = NULL;
+
+    return head;
+}
+
+atom *add_to_front_aname (char atomnme, atom *h)
+{
+    atom *head = create_aname (atomnme);
     head -> next = h;
 
     return head;
 }
 
-//atom *array_to_list (char an[], char as[], double aw[], int size)
-atom *array_to_list (char an[], char as[], int size)
+atom *add_to_front_asym (char atomsym, atom *h)
 {
-    atom *head = create_list (an[0], as[0]);
+    atom *head = create_asym (atomsym);
+    head -> next = h;
 
-    for (int i = 0; i < size; i++)
+    return head;
+}
+
+atom *add_to_front_awght (double atomwght, atom *h)
+{
+    atom *head = create_awght (atomwght);
+    head -> next = h;
+
+    return head;
+}
+
+atom *array_to_list_aname (char an[], int size)
+{
+    atom *head = create_aname (an[0]);
+
+    for (int i = 1; i < size; i++)
     {
-        head = add_to_front (an[i], as[i], head);
+        head = add_to_front_aname (an[i], head);
     }
 
     return head;
 }
 
-void print_list (atom *h, char *title)
+atom *array_to_list_asym (char as[], int size)
+{
+    atom *head = create_asym (as[0]);
+
+    for (int i = 1; i < size; i++)
+    {
+        head = add_to_front_asym (as[i], head);
+    }
+
+    return head;
+}
+
+atom *array_to_list_awght (double aw[], int size)
+{
+    atom *head = create_awght (aw[0]);
+
+    for (int i = 0; i < size; i++)
+    {
+        head = add_to_front_awght (aw[i], head);
+    }
+
+    return head;
+}
+
+void print_list_aname (atom *h, char *title)
 {
     printf ("%s \n", title);
 
     do 
     {
-        printf ("%s: %s: ", h -> ATOMNAME, h -> ATOMSYM);
+        printf ("%s: ", h -> ATOMNAME);
+        h = h -> next;
+
+    } while (h != NULL);
+}
+
+void print_list_asym (atom *h, char *title)
+{
+    printf ("%s \n", title);
+
+    do 
+    {
+        printf ("%s: ", h -> ATOMSYM);
         h = h -> next;
     } while (h != NULL);
 }
+
+void print_list_awght (atom *h, char *title)
+{
+    printf ("%s \n", title);
+
+    do 
+    { 
+        printf ("%s: \n", h -> ATOMWght);
+        h = h -> next;
+    } while (h != NULL);
+}
+
 /*
 int array (char *an[], char *as[], double aw[])
 {
@@ -85,6 +164,8 @@ main ()
 {
     atom list_of_int;
     atom *head = NULL;
+    atom *head1 = NULL;
+    atom *head2 = NULL;
 
     char atomname[10][10];
     char atomsym[10][10];
@@ -115,9 +196,13 @@ main ()
         printf ("%10s%10s%13lf \n", atomname[i], atomsym[i], atomwght[i]);
     }
 
-    head = array_to_list (atomname, atomsym, 10);
+    head = array_to_list_aname (atomname, 10);
+    head1 = array_to_list_asym (atomsym, 10);
+    head2 = array_to_list_awght (atomwght, 10);
 
-    print_list (head, "Test");
+    print_list_aname (head, "Aname");
+    print_list_asym (head1, "Asym");
+    print_list_awght (head2, "Awght");
 
 
 
