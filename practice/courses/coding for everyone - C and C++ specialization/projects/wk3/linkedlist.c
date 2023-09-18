@@ -37,7 +37,7 @@ void printlist (node_t *head)
 int main ()
 {
     node_t n1, n2, n3;
-    node_t k1, k2, k3;
+    
     node_t *head;
     node_t *headd;
 
@@ -51,6 +51,8 @@ int main ()
     n1.value = NULL;
 
     print_list (headd);
+
+    node_t k1, k2, k3;
 
     k1.word = "H";
     k2.word = "W";
