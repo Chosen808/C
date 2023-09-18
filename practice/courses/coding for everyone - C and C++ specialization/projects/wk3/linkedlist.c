@@ -23,7 +23,7 @@ void printlsit (node_t *head)
     printf ("\n");
 }
 
-void print_lsit (node_t *head)
+void print_list (node_t *head)
 {
     node_t *temporary = head;
 
@@ -64,7 +64,7 @@ main ()
     k2.next = &k1;
     k1.next = NULL;
 
-    print_lsit (headd);
+    print_list (headd);
 
     return 0;
 }
