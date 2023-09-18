@@ -1,71 +1,70 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node 
+struct node 
 {
     int value;
     char word;
     struct node *next;
-} node_t;
+};
 
-void print_list (node_t *head)
+typedef struct node node_t;
+
+void printlsit (node_t *head)
+{
+    node_t *temporary = head;
+
+    while (temporary != NULL)
+    {
+        printf ("%d: ", temporary -> value);
+        temporary = temporary -> next;
+    }
+
+    printf ("\n");
+}
+
+void print_lsit (node_t *head)
 {
     node_t *temporary = head;
 
     while (temporary != NULL)
     {
         printf ("%c: ", temporary -> word);
-        temporary = temporary -> next;
+        temporary = temporary -> word;
     }
 
     printf ("\n");
 }
 
-void printlist (node_t *headd)
-{
-    node_t *temporary = headd;
-    
-    while (temporary != NULL)
-    {
-        printf ("%d: ", temporary -> value);
-        temporary = temporary -> next;
-    }
-    
-    printf ("\n");
-}
-
-int main ()
+main ()
 {
     node_t n1, n2, n3;
-    
     node_t *head;
-    node_t *headd;
 
     n1.value = 45;
-    n2.value = 34;
-    n3.value = 676;
+    n2.value = 85;
+    n3.value = 95;
 
-    headd = &n3;
-    n3.value = &n2;
-    n2.value = &n1;
-    n1.value = NULL;
+    head = &n3;
+    n3.next = &n2;
+    n2.next = &n1;
+    n1.next = NULL;
 
-    print_list (headd);
+    printlsit (head);
 
     node_t k1, k2, k3;
+    node_t *headd;
 
-    k1.word = "H";
-    k2.word = "W";
-    k3.word = "C";
+    k1.word = "Hello";
+    k2.word = "World";
+    k3. word = "C";
 
-    // link up the nodes
-    head = &k3;
-    k3.word = &k2;
-    k2.word = &k1;
-    k1.word = NULL; // this is where to stop
+    headd = &k3;
+    k3.next = &k2;
+    k2.next = &k1;
+    k1.next = NULL;
 
-    //print_list (head);
-    printlist (headd);
-    
+    print_lsit (headd);
+
     return 0;
 }
