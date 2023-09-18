@@ -73,12 +73,7 @@ atom *add_to_front_awght (double atomwght, atom *h)
 
 atom *array_to_list_aname (char an[], int size)
 {
-    atom *head;
-
-    for (int i = 0; i < size; i++)
-    {
-        head = create_aname (an[i]);
-    }
+    atom *head = create_aname (an[0]);
 
     for (int i = 1; i < size; i++)
     {
@@ -172,7 +167,7 @@ main ()
     atom *head1 = NULL;
     atom *head2 = NULL;
 
-    char atomname[1000][1000];
+    char atomname[10][10];
     char atomsym[10][10];
     double atomwght[10];
 
