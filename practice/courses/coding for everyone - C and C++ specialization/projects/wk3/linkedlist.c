@@ -21,9 +21,9 @@ void print_list (node_t *head)
     printf ("\n");
 }
 
-void printlist (node_t *head)
+void printlist (node_t *headd)
 {
-    node_t *temporary = head;
+    node_t *temporary = headd;
     
     while (temporary != NULL)
     {
