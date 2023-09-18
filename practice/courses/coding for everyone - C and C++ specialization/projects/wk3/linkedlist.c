@@ -1,16 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node 
+typedef struct node 
 {
     int value;
     char word;
     struct node *next;
-};
+    struct node *nextt;
+} node_t;
 
-typedef struct node node_t;
-
-void printlsit (node_t *head)
+void printlist (node_t *head)
 {
     node_t *temporary = head;
 
@@ -50,13 +49,13 @@ main ()
     n2.next = &n1;
     n1.next = NULL;
 
-    printlsit (head);
+    printlist (head);
 
     node_t k1, k2, k3;
     node_t *headd;
 
-    k1.word = "Hello";
-    k2.word = "World";
+    k1.word = "H";
+    k2.word = "W";
     k3. word = "C";
 
     headd = &k3;
