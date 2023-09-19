@@ -4,9 +4,37 @@
 
 typedef struct testt
 {
-    int hfgd;
-    char kdsd;
+    char dag;
+    struct den *next;
 } den;
+
+int is_empty (const den *l)
+{
+    return (l = NULL);
+}
+
+den *create_name (char arr)
+{
+    den *head = malloc (sizeof (den));
+
+    head->dag = arr;
+    head->next = NULL;
+
+    return head;
+}
+
+den *add_to_front (char arr, den *h)
+{
+    den *head = create_name (arr);
+    head->next = h;
+
+    return head;
+}
+
+den *array_to_list (char arr[], int size)
+{
+    den *
+}
 
 
 main ()
