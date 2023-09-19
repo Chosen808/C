@@ -136,10 +136,7 @@ void print_list_awght (atom *h, char *title)
 
     do 
     { 
-        int i = 0;
-        i++;
-        
-        printf ("%f: %d \n", h -> ATOMWght, i);
+        printf ("%f: \n", h -> ATOMWght);
         h = h -> next;
     } while (h != NULL);
 }
