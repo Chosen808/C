@@ -24,14 +24,8 @@ atom *create_aname (char atomname)
 {
     atom *head = malloc (sizeof (atom));
 
-    for (int i = 0; i < 10; i++)
-    {
-        head -> ATOMNAME[i] = atomname;
-        head -> next = NULL;
-    }
-    /*
     head -> ATOMNAME = atomname;
-    head -> next = NULL;*/
+    head -> next = NULL;
 
     return head;
 }
