@@ -7,6 +7,8 @@ typedef struct list
 {
     char dbase;
     struct list *next;
+
+    char *models;
 } list;
 
 int is_empty (const list *l)
@@ -101,6 +103,24 @@ main ()
     }
 
     printf ("\n\n");
+
+    list a;
+    a.models;
+
+    char *p[10][10];
+
+    p[0][10] = 'wert';
+    p[1][10] = 'gdd';
+    p[2][10] = 't';
+
+
+    //scanf ("%s", &p);
+
+    for (int i = 0; i < 4; i++)
+    {
+        printf ("%s \n", p[i]);
+    }
+
 
     return 0;
 }
