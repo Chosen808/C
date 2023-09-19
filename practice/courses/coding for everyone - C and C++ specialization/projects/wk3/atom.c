@@ -6,7 +6,7 @@
 
 typedef struct atom
 {
-    char *ATOMNAME;
+    char ATOMNAME;
     char ATOMSYM;
     double ATOMWght;
 
@@ -116,7 +116,7 @@ void print_list_aname (atom *h, char *title)
 
     do 
     {
-        printf ("%c: \n", h -> ATOMNAME);
+        printf ("%c: ", h -> ATOMNAME);
         h = h -> next;
     } while (h != NULL);
 }
@@ -127,7 +127,7 @@ void print_list_asym (atom *h, char *title)
 
     do 
     {
-        printf ("%c: \n", h -> ATOMSYM);
+        printf ("%c: ", h -> ATOMSYM);
         h = h -> next;
     } while (h != NULL);
 }
@@ -138,7 +138,7 @@ void print_list_awght (atom *h, char *title)
 
     do 
     { 
-        printf ("%f: \n", h -> ATOMWght);
+        printf ("%f: ", h -> ATOMWght);
         h = h -> next;
     } while (h != NULL);
 }
@@ -169,7 +169,7 @@ main ()
     atom *head1 = NULL;
     atom *head2 = NULL;
 
-    char atomname[10][10];
+    char atomname[10][100];
     char atomsym[10][10];
     double atomwght[10];
 
