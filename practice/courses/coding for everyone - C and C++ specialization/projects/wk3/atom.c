@@ -165,6 +165,16 @@ int arr_to_arr (char ATOMNAME[], char ATOMN[], char ATOMSYMBOL[], char ATOMS[], 
         scanf ("%lf", &ATOMWGHT[i]);
     }
 }
+
+
+int array_n (atom *h, char arr[], int size)
+{
+    for (int i = 0; i <size; i++)
+    {
+        arr[i] = h->ATOMNAME;
+        h = h->next;
+    }
+}
 /*
 int array (char *an[], char *as[], double aw[])
 {
@@ -242,6 +252,8 @@ main ()
         printf ("Please enter atomic weight: ");
         scanf ("%lf", &atomwght[i]);
     }
+
+    array_n (head, atomname, 10);
 
     //arr_to_arr (atomname, atomn, atomsym, atoms, atomwght, 10);
 
