@@ -125,7 +125,7 @@ void print_list_asym (atom *h, char *title)
 
     do 
     {
-        printf ("%s: ", h -> ATOMSYM);
+        printf ("%c: ", h -> ATOMSYM);
         h = h -> next;
     } while (h != NULL);
 }
@@ -136,7 +136,10 @@ void print_list_awght (atom *h, char *title)
 
     do 
     { 
-        printf ("%f: \n", h -> ATOMWght);
+        int i = 0;
+        i++;
+        
+        printf ("%f: %d \n", h -> ATOMWght, i);
         h = h -> next;
     } while (h != NULL);
 }
