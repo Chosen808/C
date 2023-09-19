@@ -16,12 +16,16 @@ main ()
 
     char t[10][10];
 
-    t[0][10] = "ttt";
-    t[1][10] = "cdff";
-    t[2][10] = "ope";
+    char *p;
+
+    p = &t;
+
+    p[0] = "uutyyuy";
 
     for (int i = 0; i < 3; i++)
     {
-        printf ("%s \n", t[i]);
+        //scanf ("%s", &t[i]);
+        printf ("T = %s \n", p[i]);
+
     }
 }

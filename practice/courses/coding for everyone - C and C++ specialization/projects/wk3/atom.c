@@ -33,6 +33,7 @@ atom *create_aname (char atomname)
 atom *create_asym (char atomsym)
 {
     atom *head = malloc (sizeof (atom));
+
     head -> ATOMSYM = atomsym;
     head -> next1 = NULL;
 
@@ -42,6 +43,7 @@ atom *create_asym (char atomsym)
 atom *create_awght (double atomwght)
 {
     atom *head = malloc (sizeof (atom));
+
     head -> ATOMWght = atomwght;
     head -> next2 = NULL;
 
@@ -116,7 +118,6 @@ void print_list_aname (atom *h, char *title)
     {
         printf ("%c: \n", h -> ATOMNAME);
         h = h -> next;
-
     } while (h != NULL);
 }
 
