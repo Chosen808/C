@@ -6,7 +6,7 @@
 
 typedef struct atom
 {
-    char ATOMNAME;
+    char *ATOMNAME;
     char ATOMSYM;
     double ATOMWght;
 
@@ -23,8 +23,15 @@ int is_empty (const atom *l)
 atom *create_aname (char atomname)
 {
     atom *head = malloc (sizeof (atom));
+
+    for (int i = 0; i < 10; i++)
+    {
+        head -> ATOMNAME[i] = atomname;
+        head -> next = NULL;
+    }
+    /*
     head -> ATOMNAME = atomname;
-    head -> next = NULL;
+    head -> next = NULL;*/
 
     return head;
 }
@@ -113,7 +120,7 @@ void print_list_aname (atom *h, char *title)
 
     do 
     {
-        printf ("%c: ", h -> ATOMNAME);
+        printf ("%c: \n", h -> ATOMNAME);
         h = h -> next;
 
     } while (h != NULL);
@@ -125,7 +132,7 @@ void print_list_asym (atom *h, char *title)
 
     do 
     {
-        printf ("%c: ", h -> ATOMSYM);
+        printf ("%c: \n", h -> ATOMSYM);
         h = h -> next;
     } while (h != NULL);
 }
