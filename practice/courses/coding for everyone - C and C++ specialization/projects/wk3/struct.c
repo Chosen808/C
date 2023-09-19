@@ -14,9 +14,9 @@ main ()
 
     a.hfgd;
 
-    char *t[10][10];
+    char t[10][10];
 
-    t[0][10] = "trff";
+    t[0][10] = "ttt";
     t[1][10] = "cdff";
     t[2][10] = "ope";
 
