@@ -143,6 +143,26 @@ void print_list_awght (atom *h, char *title)
     } while (h != NULL);
 }
 
+int arr_to_arr (char ATOMNAME[], char ATOMN[], char ATOMSYMBOL[], char ATOMS[], double ATOMWGHT[], int size)
+{
+    for (int i = 0, k = 1; i < size, k < 11; i++, k++)
+    {
+        printf ("Please enter element %d: ", k);
+        scanf ("%s", &ATOMN);
+
+        printf ("H \n");
+
+        strcpy (ATOMNAME[i], ATOMN);
+
+        printf ("Please enter the atomic symbol: ");
+        scanf ("%s", &ATOMS);
+
+        strcpy (ATOMSYMBOL[i], ATOMS);
+
+        printf ("Please enter atomic weight: ");
+        scanf ("%lf", &ATOMWGHT[i]);
+    }
+}
 /*
 int array (char *an[], char *as[], double aw[])
 {
@@ -169,11 +189,18 @@ main ()
     atom *head1 = NULL;
     atom *head2 = NULL;
 
-    char atomname[10][100];
+    // Atomic name arrays
+    char atomn[10];
+    char atomname[10][10];
+
+    // Atomic symbol arrays
+    char atoms[10];
     char atomsym[10][10];
+
+    // Atomic weight array
     double atomwght[10];
 
-
+/*
     for (int i = 0, k = 1; i < 10, k < 11; i++, k++)
     {
         printf ("Please enter element %d: ", k);
@@ -196,7 +223,9 @@ main ()
     for (int i = 0; i < 10; i++)
     {
         printf ("%10s%10s%13lf \n", atomname[i], atomsym[i], atomwght[i]);
-    }
+    }*/
+
+    arr_to_arr (atomname, atomn, atomsym, atoms, atomwght, 10);
 
     head = array_to_list_aname (atomname, 10);
     head1 = array_to_list_asym (atomsym, 10);

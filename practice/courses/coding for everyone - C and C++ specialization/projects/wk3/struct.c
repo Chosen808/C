@@ -12,7 +12,7 @@ typedef struct testt
 main ()
 {
     char arr[10];
-    char array[10][10] = { };
+    char array[10][10];
 
     for (int i = 0; i < 10; i++)
     {
