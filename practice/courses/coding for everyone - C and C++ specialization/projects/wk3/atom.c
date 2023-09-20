@@ -74,17 +74,29 @@ atom *add_to_front_awght (double atomwght, atom *h)
     return head;
 }
 
-atom *array_to_list_aname (char ATOMNAME[], char ATOMN[], int size)
+atom *array_to_arr (char array[], char arr[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        strcpy (arr, array[i]);
+    }
+
+    return arr;
+}
+
+atom *array_to_list_aname (char ann[], char an[], int size)
 {
     atom *head;
 
-    for (int i = 1; i < size; i++)
+    for (int i = 0; i < size; i++)
     {
-        strcpy (ATOMN, ATOMNAME[i]);
-
-        head = create_aname (ATOMN);
-
-        head = add_to_front_aname (ATOMN, head);
+        //strcpy (an, ann[i]);
+        head = create_aname (an[0]);
+        printf ("%c \n", an[i]);
+        head = add_to_front_aname (an[i], head);
+        printf ("%c: ", head->ATOMNAME);
+        head = head->next;
+        printf ("AN = %c \n", an[i]);
     }
 
     return head;
@@ -94,9 +106,11 @@ atom *array_to_list_asym (char as[], int size)
 {
     atom *head = create_asym (as[0]);
 
-    for (int i = 1; i < size; i++)
+    for (int i = 0; i < size; i++)
     {
+        printf ("%c \n", as[i]);
         head = add_to_front_asym (as[i], head);
+        printf ("AM = %c \n", as[i]);
     }
 
     return head;
@@ -142,7 +156,7 @@ void print_list_awght (atom *h, char *title)
 
     do 
     { 
-        printf ("%f: ", h -> ATOMWght);
+        printf ("%f: \n", h -> ATOMWght);
         h = h -> next;
     } while (h != NULL);
 }
@@ -253,11 +267,13 @@ main ()
         scanf ("%lf", &atomwght[i]);
     }
 
-    array_n (head, atomname, 10);
+    //array_n (head, atomname, 10);
 
     //arr_to_arr (atomname, atomn, atomsym, atoms, atomwght, 10);
 
-    head = array_to_list_aname (atomname, atomn, 10);
+    //array_to_arr (atomname, atomn, 10);
+
+    head = array_to_list_aname (atomname, atomn, 30);
     head1 = array_to_list_asym (atomsym, 10);
     head2 = array_to_list_awght (atomwght, 10);
 
