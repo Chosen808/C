@@ -86,16 +86,14 @@ atom *array_to_arr (char array[], char arr[], int size)
 
 atom *array_to_list_aname (char ann[], char an[], int size)
 {
-    atom *head = create_aname (an[0]);
+    atom *head;
 
-    for (int i = 0; ; i++)
+    for (int i = 0; i < 95; i++)
     {
         //strcpy (an, ann[i]);
-        //head = create_aname (an[0]);
+        head = create_aname (ann[0]);
         head = add_to_front_aname (ann[i], head);
         printf ("%c ", head->ATOMNAME);
-        //strcpy (an, head->ATOMNAME);
-        //printf ("%c = ", an);
         head = head->next;
     }
 
@@ -284,7 +282,11 @@ main ()
 
     //array_to_arr (atomname, atomn, 10);
 
+    printf ("Test \n");
+
     head = array_to_list_aname (atomname, atomn, 30);
+
+    printf ("Test 2 \n");
     head1 = array_to_list_asym (atomsym, 10);
     head2 = array_to_list_awght (atomwght, 10);
 
