@@ -97,7 +97,6 @@ atom *array_to_list_aname (char ann[], char an[], int size)
         head = head->next;
     }
 
-
 /*
     do 
     {
@@ -108,7 +107,8 @@ atom *array_to_list_aname (char ann[], char an[], int size)
         printf ("%c ", head->ATOMNAME);
         head = head->next;
     } while (head != NULL);*/
-    //return head;
+
+    return head;
 }
 
 atom *array_to_list_asym (char as[], int size)
