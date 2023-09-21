@@ -86,20 +86,31 @@ atom *array_to_arr (char array[], char arr[], int size)
 
 atom *array_to_list_aname (char ann[], char an[], int size)
 {
-    atom *head;
+    atom *head = create_aname (an[0]);
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; head != NULL; i++)
     {
         //strcpy (an, ann[i]);
-        head = create_aname (an[0]);
-        printf ("%c \n", an[i]);
-        head = add_to_front_aname (an[i], head);
-        printf ("%c: ", head->ATOMNAME);
+        //head = create_aname (an[0]);
+        head = add_to_front_aname (ann[i], head);
+        printf ("%c ", head->ATOMNAME);
+        //strcpy (an, head->ATOMNAME);
+        //printf ("%c = ", an);
         head = head->next;
-        printf ("AN = %c \n", an[i]);
     }
 
-    return head;
+
+/*
+    do 
+    {
+        i++;
+        printf ("I = %d \n", i);
+
+        head = add_to_front_aname (ann[i], head);
+        printf ("%c ", head->ATOMNAME);
+        head = head->next;
+    } while (head != NULL);*/
+    //return head;
 }
 
 atom *array_to_list_asym (char as[], int size)
@@ -108,9 +119,9 @@ atom *array_to_list_asym (char as[], int size)
 
     for (int i = 0; i < size; i++)
     {
-        printf ("%c \n", as[i]);
+        //printf ("%c \n", as[i]);
         head = add_to_front_asym (as[i], head);
-        printf ("AM = %c \n", as[i]);
+        //printf ("AM = %c \n", as[i]);
     }
 
     return head;
