@@ -95,6 +95,8 @@ atom *array_to_list_aname (char ann[], char an[], int size)
         head = add_to_front_aname (ann[i], head);
         printf ("%c ", head->ATOMNAME);
         head = head->next;
+
+        printf ("%c \n", *head);
     }
 
 /*
