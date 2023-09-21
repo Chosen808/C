@@ -3,15 +3,31 @@
 
 main ()
 {
-    for (int i = 0; i < 10; i++)
-    {
-        printf ("I = %d \n", i);
+    int p = 10, o = 100;
+    int *i = &p;
+    int *k = &o;
 
-        for (int k = 1; k < 10; k++)
-        {
-            printf ("K = %d \n", k);
-        }
+    int temp = 0;
+
+    int *head = NULL;
+
+    while (i > head)
+    {
+        *i =+ 1;
+
+        temp =+ *i;
+
+        printf ("%d \n", temp);
+
     }
+
+   // printf ("%d \n", *i);
+
+/*
+    for (i = 0; i < 10; i++)
+    {
+        printf ("%d \n", i);
+    }*/
 
     return 0;
 }

@@ -88,7 +88,7 @@ atom *array_to_list_aname (char ann[], char an[], int size)
 {
     atom *head = create_aname (an[0]);
 
-    for (int i = 0; head != NULL; i++)
+    for (int i = 0; ; i++)
     {
         //strcpy (an, ann[i]);
         //head = create_aname (an[0]);
