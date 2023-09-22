@@ -88,27 +88,27 @@ atom *array_to_list_aname (char ann[], char an[], int size)
 {
     atom *head;
 
-    for (int i = 0; i < 95; i++)
+    char *p = &ann;
+    char *k = p + sizeof (ann);
+    char *o = &ann;
+
+    //printf ("P %p \n", p);
+
+
+    
+
+    for (int i = 0; ; i++)
     {
-        //strcpy (an, ann[i]);
         head = create_aname (ann[0]);
         head = add_to_front_aname (ann[i], head);
         printf ("%c ", head->ATOMNAME);
         head = head->next;
 
-        printf ("%c \n", *head);
+        /*if (sizeof (i) == sizeof (k));
+        {
+            return 0;
+        }*/
     }
-
-/*
-    do 
-    {
-        i++;
-        printf ("I = %d \n", i);
-
-        head = add_to_front_aname (ann[i], head);
-        printf ("%c ", head->ATOMNAME);
-        head = head->next;
-    } while (head != NULL);*/
 
     return head;
 }
@@ -237,6 +237,24 @@ main ()
     // Atomic weight array
     double atomwght[10];
 
+    char *o = &atomname;
+    char *p = &atomname;
+    int d;
+
+    int *j = &atomname;
+
+    printf ("J = %p \n", j);
+
+    char *k = p + sizeof (atomname);
+
+    printf ("*p = %p \n", p);
+
+    //printf ("O = %p \n", )
+    printf ("AN1 = %d \n", sizeof (atomname));
+    //printf ("P = %p \n", p + sizeof (atomname));
+    printf ("D = %d \n", sizeof (d));
+    printf ("K = %p \n", k);
+
 /*
     for (int i = 0, k = 1; i < 10, k < 11; i++, k++)
     {
@@ -269,14 +287,16 @@ main ()
 
         strcpy (atomname[i], atomn);
 
-        printf ("Please enter the atomic symbol: ");
-        scanf ("%s", &atoms);
+        //printf ("Please enter the atomic symbol: ");
+        //scanf ("%s", &atoms);
 
-        strcpy (atomsym[i], atoms);
+        //strcpy (atomsym[i], atoms);
 
-        printf ("Please enter atomic weight: ");
-        scanf ("%lf", &atomwght[i]);
+        //printf ("Please enter atomic weight: ");
+        //scanf ("%lf", &atomwght[i]);
     }
+
+    printf ("AN = %d \n", sizeof (atomname));
 
     //array_n (head, atomname, 10);
 
@@ -284,13 +304,11 @@ main ()
 
     //array_to_arr (atomname, atomn, 10);
 
-    printf ("Test \n");
+    //array_to_list_aname (atomname, atomn, 30);
 
-    head = array_to_list_aname (atomname, atomn, 30);
+    //head1 = array_to_list_asym (atomsym, 10);
 
-    printf ("Test 2 \n");
-    head1 = array_to_list_asym (atomsym, 10);
-    head2 = array_to_list_awght (atomwght, 10);
+    //head2 = array_to_list_awght (atomwght, 10);
 
     print_list_aname (head, "Aname");
     print_list_asym (head1, "Asym");
