@@ -13,8 +13,4 @@ main ()
     printf ("*p + sizeof (h) = %p \n", p + sizeof (h)); // this will add the size of the array h to the pointer *p and will print the end address of the array h[][]
     printf ("*q = %p \n", q); // this will print the end address of the array h[][]
 
-    if (printf ("%p ", p + sizeof (h)) > printf ("%p \n", p))
-    {
-        printf ("True \n");
-    }
 }
