@@ -88,15 +88,6 @@ atom *array_to_list_aname (char ann[], char an[], int size)
 {
     atom *head;
 
-    char *p = &ann;
-    char *k = p + sizeof (ann);
-    char *o = &ann;
-
-    //printf ("P %p \n", p);
-
-
-    
-
     for (int i = 0; ; i++)
     {
         head = create_aname (ann[0]);
@@ -236,24 +227,6 @@ main ()
 
     // Atomic weight array
     double atomwght[10];
-
-    char *o = &atomname;
-    char *p = &atomname;
-    int d;
-
-    int *j = &atomname;
-
-    printf ("J = %p \n", j);
-
-    char *k = p + sizeof (atomname);
-
-    printf ("*p = %p \n", p);
-
-    //printf ("O = %p \n", )
-    printf ("AN1 = %d \n", sizeof (atomname));
-    //printf ("P = %p \n", p + sizeof (atomname));
-    printf ("D = %d \n", sizeof (d));
-    printf ("K = %p \n", k);
 
 /*
     for (int i = 0, k = 1; i < 10, k < 11; i++, k++)
