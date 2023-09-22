@@ -1,24 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct gad
-{
-    int age;
-    struct bend *rex;
-} bend;
-
-
 main ()
 {
-    bend *head = NULL;
-    bend kad;
+    int nums[4] = {2, 5, 7, 15};
+    int target = 9;
+    int answer = 0;
 
-    kad.age = 19;
+    for (int i = 0, k = 1; i < 6, k < 7; i++, k++)
+    {
+        answer = nums[i] + nums[k];
 
-    head->age;
-
-    printf ("%ld \n", sizeof (head));
-    
+        if (answer == target)
+        {
+            printf ("The solution has been found \n");
+        }
+    }
 
     return 0;
 }
