@@ -17,7 +17,7 @@ typedef struct atom
 
 int is_empty (const atom *l)
 {
-    return (l = NULL);
+    return (l == NULL);
 }
 
 atom *create_aname (char atomname)

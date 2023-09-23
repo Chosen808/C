@@ -62,7 +62,7 @@ int array_n (list *h, char arr[], int size) // this is used to tranfer the rotat
 {
     for (int i = 0; i < size; i++)
     {
-        //printf ("h = %c \n", h -> dbase);
+        printf ("h = %c \n", h -> dbase);
         arr[i] = h -> dbase;
         h = h -> next;
     }

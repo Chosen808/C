@@ -15,7 +15,7 @@ typedef struct list
 
 int is_empty (const list *l)
 {
-    return (l = NULL);
+    return (l == NULL);
 }
 
 list *create_list (char name)
@@ -75,25 +75,36 @@ main ()
 
     list *hd;
 
-    char *name[10];
+    char name[10] = {'c', 'c', 'f'};
+/*
+    for (int i = 0; i < 3; i++)
+    {
+        printf ("Please enter: \n");
+        scanf ("%s", &name[i]);
+    }*/
 
-    printf ("Please enter elements followed by a space: \n");
-    scanf ("%s", name);
+    head = array_to_list (name, 3);
 
-    head = array_to_list (name, 30);
+   // print_list (head, "name");
+    //printf ("\n\n");
 
-    print_list (head, "name");
+    array_n (head, name, 3);
+    //printf ("\n\n");
+
+    hd = array_to_list (name, 3);
+
+    //print_list (head, "Name ver2");
+    //printf ("\n\n");
+
+    hd = array_to_list (name, 3);
+
+    for (int i = 0; i < 3; i++)
+    {
+        printf ("%c ", hd->name);
+        hd = hd->next;
+    }
+
     printf ("\n\n");
-
-    array_n (head, name, 30);
-    printf ("\n\n");
-
-    hd = array_to_list (name, 30);
-
-    print_list (head, "Name ver2");
-    printf ("\n\n");
-
-    hd = array_to_list (name, 30);
 
     return 0;
 }
