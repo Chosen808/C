@@ -86,19 +86,15 @@ atom *array_to_arr (char array[], char arr[], int size)
 
 atom *array_to_list_aname (char ann[], char an[], int size)
 {
-    atom *head;
+    atom *head = create_aname (an[0]);
 
-    for (int i = 0; ; i++)
+    for (int i = 0; i < size; i++)
     {
-        head = create_aname (ann[0]);
-        head = add_to_front_aname (ann[i], head);
+        //strcpy (an, ann[i]);
+        //head = create_aname (an[0]);
+        head = add_to_front_aname (an[i], head);
         printf ("%c ", head->ATOMNAME);
         head = head->next;
-
-        /*if (sizeof (i) == sizeof (k));
-        {
-            return 0;
-        }*/
     }
 
     return head;
@@ -220,6 +216,7 @@ main ()
     // Atomic name arrays
     char atomn[10];
     char atomname[10][10];
+    char atn[10];
 
     // Atomic symbol arrays
     char atoms[10];
@@ -227,6 +224,7 @@ main ()
 
     // Atomic weight array
     double atomwght[10];
+
 
 /*
     for (int i = 0, k = 1; i < 10, k < 11; i++, k++)
@@ -253,12 +251,18 @@ main ()
         printf ("%10s%10s%13lf \n", atomname[i], atomsym[i], atomwght[i]);
     }*/
 
+
+    printf ("Please enter an element followed by a space: \n");
+    scanf ("%s", &atn);
+
+
+/*
     for (int i = 0, k = 1; i < 10, k < 11; i++, k++)
     {
         printf ("Please enter element %d: ", k);
-        scanf ("%s", &atomn);
+        scanf ("%s", &atomname[i]);
 
-        strcpy (atomname[i], atomn);
+        //strcpy (atomname[i], atomn);
 
         //printf ("Please enter the atomic symbol: ");
         //scanf ("%s", &atoms);
@@ -267,9 +271,7 @@ main ()
 
         //printf ("Please enter atomic weight: ");
         //scanf ("%lf", &atomwght[i]);
-    }
-
-    printf ("AN = %d \n", sizeof (atomname));
+    }*/
 
     //array_n (head, atomname, 10);
 
@@ -277,15 +279,15 @@ main ()
 
     //array_to_arr (atomname, atomn, 10);
 
-    //array_to_list_aname (atomname, atomn, 30);
+    head = array_to_list_aname (atomname, atn, 100);
 
     //head1 = array_to_list_asym (atomsym, 10);
 
     //head2 = array_to_list_awght (atomwght, 10);
 
     print_list_aname (head, "Aname");
-    print_list_asym (head1, "Asym");
-    print_list_awght (head2, "Awght");
+    //print_list_asym (head1, "Asym");
+    //print_list_awght (head2, "Awght");
 
 
 
