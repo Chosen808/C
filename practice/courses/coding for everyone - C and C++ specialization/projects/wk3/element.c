@@ -19,37 +19,36 @@ list *create_list (char name)
     return head;
 }
 
-list *string_to_sll (char name[], char namen[], list *head)
+list *string_to_sll (char name[], list *head, int size)
 {
+    head = create_list (name[0]);
     list *curr = head;
-    head = create_list (namen[0]);
 
-    for (int i = 1; i < 3; i++)
+    for (int i = 1; i < size; i++)
     {
-        //strcpy (namen[0], name[i]);
-        //printf ("%s", namen);
-        //head = create_list (namen[0]);
-        curr->next = create_list (namen[i]);
+        curr->next = create_list (name[i]);
         curr = curr->next;
     }
 
     return head;
 }
 
-void scanfin (char name[], int size)
+list *scanfin (char name[], int size)
 {
     printf ("Please enter: \n");
 
-    //scanf ("%s", name);
-
     for (int i = 0; i < size; i++)
     {
-        scanf ("%s", &name[i]);
+        scanf ("%s", name[i]);
     }
+
+    return name;
 }
 
-void print_list (list *head)
+list *print_list (list *head)
 {
+    printf ("\n\n");
+
     list *curr = head;
 
     do 
@@ -63,12 +62,13 @@ main ()
 {
     char name[10][10];
     char namen[10];
-
-    scanfin (name, 3);
+    char h[10];
 
     list *head = NULL;
+
+    scanfin (namen, 1);
     
-    head = string_to_sll (name, namen, head);
+    head = string_to_sll (namen, head, 10);
 
     print_list (head);
 
