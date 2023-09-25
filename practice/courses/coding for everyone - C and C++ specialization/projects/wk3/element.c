@@ -26,8 +26,8 @@ list *string_to_sll (char name[], list *head, int size)
 
     for (int i = 1; i < size; i++)
     {
-        curr->next = create_list (name[i]);
-        curr = curr->next;
+        head->next = create_list (name[i]);
+        head = head->next;
     }
 
     return head;
