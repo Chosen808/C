@@ -14,6 +14,8 @@ void read_data (FILE *ptr, int d[], int *size)
     {
         (*size)++; // this stores how many numbers are in the file and passes it to int *size
     }
+
+    fclose (ptr);
 }
 
 /*
@@ -62,7 +64,7 @@ main ()
 
     FILE *ifp;
 
-    int data[MAX_HW] = {100, 0};
+    int data[MAX_HW];
 
     ifp = fopen ("myhw", "r");
 
@@ -76,7 +78,7 @@ main ()
 
     printf ("\n\n");
 
-    fclose (ifp);   //exit leads to close - so not strictly needed
+    //fclose (ifp);   //exit leads to close - so not strictly needed
 
     return 0;
 }
