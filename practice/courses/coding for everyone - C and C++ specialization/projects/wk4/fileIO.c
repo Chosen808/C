@@ -1,27 +1,36 @@
 #include <stdio.h>
 
 #define MAX_HW 20
-
+/*
+This function passes the data which come from the file which is
+passed to the pointer FILE *ptr and stores it in an array int d[]. 
+It also counts the amount of numbers and stores in in int *size
+*/
 void read_data (FILE *ptr, int d[], int *size)
 {
     *size = 0;
-    while (fscanf (ptr, "%d", &d[*size])== 1)
+    while (fscanf (ptr, "%d", &d[*size])== 1)   // this pass the data from ptr which come from the file to d[]
     {
-        (*size)++;
+        (*size)++; // this stores how many numbers are in the file and passes it to int *size
     }
 }
 
 void print_data (int d[], int size)
 {
     int i;
-    for (i = 0; i <size; i++)
+    for (i = 0; i <size; i++)   // this for loop will print the data stored in int d[]
     {
-        printf ("%d \t", d[i]);
+        printf ("%d \t", d[i]); // this prints the numbers stored in int d[]
 
-        if ((i + 1) % 10 == 0)
+        if (i == size -1)
         {
             printf ("\n");
         }
+        /*
+        if ((i + 1) % 10 == 0)
+        {
+            printf ("\n");
+        }*/
     }
 }
 
@@ -48,6 +57,7 @@ main ()
     int data[MAX_HW] = {100, 0};
 
     ifp = fopen ("myhw", "r");
+
     read_data (ifp, data, &sz);
 
     printf ("my %d homework scores are: ", sz);
