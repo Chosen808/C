@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #define MAX_HW 20
+
 /*
 This function passes the data which come from the file which is
 passed to the pointer FILE *ptr and stores it in an array int d[]. 
@@ -15,6 +16,9 @@ void read_data (FILE *ptr, int d[], int *size)
     }
 }
 
+/*
+This function will print the data that is stored in the array int d[].
+*/
 void print_data (int d[], int size)
 {
     int i;
@@ -22,10 +26,11 @@ void print_data (int d[], int size)
     {
         printf ("%d \t", d[i]); // this prints the numbers stored in int d[]
 
-        if (i == size -1)
+        if (i == size -1)   // this statement will print a new line when i is finished counting
         {
             printf ("\n");
         }
+
         /*
         if ((i + 1) % 10 == 0)
         {
@@ -34,6 +39,9 @@ void print_data (int d[], int size)
     }
 }
 
+/*
+This function will calculate the average of the data stored in int d[]
+*/
 double average (int d[], int size)
 {
     int i;
@@ -41,10 +49,10 @@ double average (int d[], int size)
 
     for (i = 0; i < size; i++)
     {
-        avg += d[i];
+        avg += d[i];    // this will add up all the data in int d[] and store it in double avg
     }
 
-    return (avg/size);
+    return (avg/size);  // this will divide double avg by int size to find the average
 }
 
 
