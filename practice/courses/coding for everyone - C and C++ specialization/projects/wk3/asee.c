@@ -21,7 +21,7 @@ list *create_list (char base)
     list *head = malloc (sizeof (100));
 
     head->dbase = base;
-    printf ("head->dbase CL = %c \n", head->dbase);
+    //printf ("head->dbase CL = %c \n", head->dbase);
     head->next = NULL;
 
     return head;
@@ -30,10 +30,10 @@ list *create_list (char base)
 list *add_to_front (char base, list *h)
 {
     list *head = create_list (base);
-    printf ("head 1 A2F = %s \n", head);
+    //printf ("head 1 A2F = %s \n", head);
 
     head->next = h;
-    printf ("head->next A2F = %s \n", head->next);
+    //printf ("head->next A2F = %s \n", head->next);
 
     return head;
 }
@@ -41,14 +41,15 @@ list *add_to_front (char base, list *h)
 list *array_to_list (char base[], int size)
 {
     list *head = create_list (base[0]);
-    printf ("A2L CL 1= %s \n", head);
+    //printf ("A2L CL 1= %s \n", head);
 
-    for (int i = 1; i < size; i++)
+    for (int i = 0; i < size; i++)
     {
         //strcpy (head, create_list (base[i]));
-        //head = create_list (base[i]);
         head = add_to_front (base[i], head);
-        printf ("A2L CL 2= %s \n", head);
+        printf ("%c", head->dbase);
+        head = head->next;
+        //printf ("A2L CL 2= %s \n", head);
     }
 
     return head;
@@ -56,6 +57,8 @@ list *array_to_list (char base[], int size)
 
 void print_list (list *h, char *title)
 {
+    printf ("\n\n");
+
     printf ("%s \n", title);
 
     do 
@@ -85,10 +88,11 @@ main ()
     list *hd;
 
     char dbase[10];
+    char dbasee[10][10];
 
-    scanin (dbase, 1);
+    scanin (dbasee, 2);
 
-    head = array_to_list (dbase, 5);
+    head = array_to_list (dbasee, 5);
 
     print_list (head, "dbase");
 
