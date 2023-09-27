@@ -15,32 +15,44 @@ and print it out to the terminal
  */
 void print_file (FILE *fptr)
 {
-    char c;
-    rewind (fptr);
+    char c; // the file output will be passed to this variable
+    rewind (fptr);  // this function will rewind the file back to the start
 
-    while ((c = getc (fptr)) != EOF)
+    /*
+    This will read the data from the input file and pass it to c until the
+    file comes to an end which will be checked by EOF. It will then print
+    the data passed to c*/
+    while ((c = getc (fptr)) != EOF)    // this will pass data from the file to c
     {
-        putc (c, stdout);
+        putc (c, stdout);   // this will print the data in c
     }
 }
 
 /*
 This function will take the input file data and write it to the output
-file, placing double spaces between each line.*/
+file, placing double spaces between each line.
+*/
 void double_space (FILE *ifp, FILE *ofp)
 {
-    char c;
-    rewind (ifp);
+    char c; // the file output will be passed to this variable
+    rewind (ifp);   // this function will rewind the file back to the start
 
-    while ((c = getc (ifp)) != EOF)
+    /*
+    This will read the data from the input file and pass it to c until the
+    file comes to an end which will be checked by EOF. It will then pass 
+    the data to the output file through the point *ofp. It will the file
+    for a new line and then print a new line again to achieve the double
+    spacing.
+    */
+    while ((c = getc (ifp)) != EOF) // this will pass data from the file to c
     {
-        putc (c, ofp);
+        putc (c, ofp);  // this will pass data from c the the output file through the point *ofp
         // putchar (c);
         //putc (c, stdout);
 
-        if (c == '\n')
+        if (c == '\n')  // this will check for a new line in the file that is being passed to *ofp
         {
-            putc ('\n', ofp);
+            putc ('\n', ofp);   // this will print a new line and achieve the double space
         }
     }
 }
