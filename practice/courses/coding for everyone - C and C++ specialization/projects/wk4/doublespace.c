@@ -36,7 +36,7 @@ void double_space (FILE *ifp, FILE *ofp)
     {
         putc (c, ofp);
         // putchar (c);
-        putc (c, stdout);
+        //putc (c, stdout);
 
         if (c == '\n')
         {

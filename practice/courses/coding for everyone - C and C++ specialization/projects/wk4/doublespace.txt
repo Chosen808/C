@@ -74,7 +74,7 @@ void double_space (FILE *ifp, FILE *ofp)
 
         // putchar (c);
 
-        putc (c, stdout);
+        //putc (c, stdout);
 
 
 
@@ -116,7 +116,7 @@ main (int argc, char *argv[])
 
     ifp = fopen (argv[1], "r+");    // this reads the data from the file which is input at the terminal
 
-    ofp = fopen (argv[2], "w+");    // this reads writes the data to the new file 
+    ofp = fopen (argv[2], "w");    // this reads writes the data to the new file 
 
 
 
