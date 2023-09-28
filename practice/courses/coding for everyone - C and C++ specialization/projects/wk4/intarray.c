@@ -3,13 +3,24 @@
 
 #define MAX_HW 20
 
-void print_file (FILE *in, int data[], int *size)
+void print_file (FILE *in, int data[], int d_2[], int *size, int s)
 {
     *size = 0;
 
     while (fscanf (in, "%d", &data[*size]) == 1)
     {
         (*size)++;
+
+        s = data[0];
+
+        printf ("S 1 = %d \n", s);
+    }
+
+    for (int i = 0, k = 1; i < s, k < s + 1; i++, k++)
+    {
+        d_2[i] = data[k];
+
+        printf ("DATA = %d \n", d_2[i]);
     }
 
     fclose (in);
@@ -32,7 +43,10 @@ main ()
 {
     FILE *in;
     int data[20];
+    int data_2[0];
     int size = 20;
+
+    int s = 0;
 
     printf ("Y \n");
 
@@ -40,14 +54,9 @@ main ()
 
     printf ("T \n");
 
-    print_file (in, data, &size);
+    print_file (in, data, data_2, &size, s);
 
-    print_data (data, size);
-
-    for (int i = 0; i < size; i++)
-    {
-        printf ("DATA = %d \n", data[i]);
-    }
+    //print_data (data, size);
 
     return 0;
 }
