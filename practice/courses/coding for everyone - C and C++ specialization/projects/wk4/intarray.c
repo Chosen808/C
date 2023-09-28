@@ -12,15 +12,11 @@ void print_file (FILE *in, int data[], int d_2[], int *size, int s)
         (*size)++;
 
         s = data[0];
-
-        printf ("S 1 = %d \n", s);
     }
 
     for (int i = 0, k = 1; i < s, k < s + 1; i++, k++)
     {
         d_2[i] = data[k];
-
-        printf ("DATA = %d \n", d_2[i]);
     }
 
     fclose (in);
@@ -56,7 +52,7 @@ main ()
 
     print_file (in, data, data_2, &size, s);
 
-    //print_data (data, size);
+    print_data (data_2, s);
 
     return 0;
 }
