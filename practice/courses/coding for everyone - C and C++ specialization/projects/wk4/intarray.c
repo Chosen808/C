@@ -50,19 +50,13 @@ double average (int data_2[], double s)
     return (avg = max / s);
 }
 
-void file_out (int data_2[], int s, FILE *out)
+void file_out (int data_2[], int s, double avg, FILE *out)
 {
-    char c[50];
+    //fprintf (out, "%f" "%d", avg, data_2[i]);
 
     for (int i = 0; i < s; i++)
     {
-        //c = getc (data_2[i]);
-
-        //strcpy (c, data_2[i]);
-
-        fwrite (data_2[i], s, 1, out);
-
-        //putc (c, out);
+        fprintf (out, "%f %d", avg, data_2[i]);
     }
 }
 
@@ -74,6 +68,7 @@ main (int argc, char *argv[])
     int data_2[MAX_HW];
     int size = MAX_HW;
     double s = MAX_HW;
+    double avg = 0.0;
 
     if (argc != 3)
     {
@@ -93,7 +88,11 @@ main (int argc, char *argv[])
 
     printf ("AVERAGE =  %.4f \n", average (data_2, s));
 
-    file_out (data_2, s, out);
+    avg = average (data_2, s);
+
+    printf ("%f \n", avg);
+
+    file_out (data_2, s, avg ,out);
 
     return 0;
 }
