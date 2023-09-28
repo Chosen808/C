@@ -52,11 +52,11 @@ double average (int data_2[], double s)
 
 void file_out (int data_2[], int s, double avg, FILE *out)
 {
-    //fprintf (out, "%f" "%d", avg, data_2[i]);
+    fprintf (out, "%.2f", avg);
 
     for (int i = 0; i < s; i++)
     {
-        fprintf (out, "%f %d", avg, data_2[i]);
+        fprintf (out, "%d \n", data_2[i]);
     }
 }
 
