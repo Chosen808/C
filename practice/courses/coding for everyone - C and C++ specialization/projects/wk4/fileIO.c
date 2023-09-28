@@ -3,9 +3,9 @@
 #define MAX_HW 20
 
 /*
-This function passes the data which come from the file which is
+This function passes the data which comes from the file which is
 passed to the pointer FILE *ptr and stores it in an array int d[]. 
-It also counts the amount of numbers and stores in in int *size
+It also counts the amount of numbers and stores in int *size
 */
 void read_data (FILE *ptr, int d[], int *size)
 {

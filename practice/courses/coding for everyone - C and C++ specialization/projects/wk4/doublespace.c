@@ -73,7 +73,7 @@ main (int argc, char *argv[])   // these arguments in main are used when passed 
     }
 
     ifp = fopen (argv[1], "r+");    // this reads the data from the file which is input at the terminal
-    ofp = fopen (argv[2], "w+");    // this reads writes the data to the new file 
+    ofp = fopen (argv[2], "w+");    // this writes the data to the new file 
 
     printf ("my %s file as read is \n\n", argv[1]);
 
