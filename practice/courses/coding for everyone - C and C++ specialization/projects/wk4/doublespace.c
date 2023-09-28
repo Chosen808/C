@@ -57,8 +57,12 @@ void double_space (FILE *ifp, FILE *ofp)
     }
 }
 
-
-main (int argc, char *argv[])
+/*
+int argc is the number of arguments on the command line including the name
+of the executable which is 3 files. char *argv[] takes the names of two 
+files to be input which can be passed to the program as argv[1] argv[2]
+*/
+main (int argc, char *argv[])   // these arguments in main are used when passed arguments to the program through the terminal
 {
     FILE *ifp, *ofp;
 

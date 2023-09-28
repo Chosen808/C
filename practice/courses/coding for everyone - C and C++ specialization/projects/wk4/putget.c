@@ -21,7 +21,9 @@ main (int argc, char *argv[])
         }
     }
 
-    puts ("\n");
+    puts ("\\");
+
+    printf ("%%d \n");
 
     return 0;
 }

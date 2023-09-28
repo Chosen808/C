@@ -44,7 +44,19 @@ main (int argc, char *argv[])
 
 
 
-    puts ("\n");
+    puts ("\\");
+
+
+
+    char *p = &a;
+
+
+
+    printf ("%%d \n");
+
+    printf ("p = %p \n", p);
+
+    printf ("%lx \n", 0x7ffff0f9ccbf);
 
 
 
