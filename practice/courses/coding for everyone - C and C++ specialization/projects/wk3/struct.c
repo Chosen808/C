@@ -100,7 +100,7 @@ main ()
 
     head = create_name (arr[0]);
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 1; i < 10; i++)
     {
         strcpy (arr, array[i]);
 
