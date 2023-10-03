@@ -31,13 +31,13 @@ den *add_to_front (char arr, den *h)
     return head;
 }
 
-den *array_to_list (char array[], char arr[], int size, den *h, char *title)
+den *array_to_list (char *array[], char arr[], int size, den *h, char *title)
 {
     den *head = create_name (arr[0]);
 
     for (int i = 0; i < size; i++)
     {
-        printf ("Array = %s \n", array[i]);
+        //printf ("Array = %s \n", array[i]);
 
         printf ("Arr = %s \n", arr);
         strcpy (arr, array[i]);
@@ -67,7 +67,7 @@ main ()
     den *head = NULL;
 
     char arr[10] = {" "};
-    char array[10][10];
+    char *array[10][10] = {" "};
 
     for (int i = 0; i < 10; i++)
     {
@@ -96,7 +96,28 @@ main ()
 
     }*/
 
-    head = array_to_list (array, arr, 10, head, "Test");
+    //head = array_to_list (array, arr, 10, head, "Test");
+
+    head = create_name (arr[0]);
+
+    for (int i = 0; i < 10; i++)
+    {
+        strcpy (arr, array[i]);
+
+        for (int i = 1; i < 10; i++)
+        {
+            head = add_to_front (arr[i], head);
+        }
+    }
+
+    printf ("%s \n", "Title");
+
+    do 
+    {
+        printf ("%c", head->dag);
+
+        head = head->next;
+    } while (head != NULL);
 
     return 0;
 }
