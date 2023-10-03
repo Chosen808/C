@@ -98,16 +98,20 @@ main ()
 
     //head = array_to_list (array, arr, 10, head, "Test");
 
+    strcpy (arr, array[0]);
+
     head = create_name (arr[0]);
 
     for (int i = 1; i < 10; i++)
     {
-        strcpy (arr, array[i]);
+        //strcpy (arr, array[i]);
 
         for (int i = 1; i < 10; i++)
         {
             head = add_to_front (arr[i], head);
         }
+
+        strcpy (arr, array[i]);
     }
 
     printf ("%s \n", "Title");
