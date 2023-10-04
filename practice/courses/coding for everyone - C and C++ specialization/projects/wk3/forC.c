@@ -42,16 +42,16 @@ main ()
 
     printf ("Please enter: \n");
 
-    for (int i = 0, k = 0; i < 5, k < 5; i++, k++)
+    for (int i = 0, k = 5; i < 5, k > 0; i++, k--)
     {
         printf ("Enter number %d \n", i);
-        scanf ("%d", &array[i][i]);
+        scanf ("%d", &array[i][k]);
 
         if (i == 4)
         {
-            for (int i = 0, k = 0; i < 5, k < 5; i++, k++)
+            for (int i = 0, k = 5; i < 5, k > 0; i++, k--)
             {
-                printf ("array = %d \n", array[i][i]);
+                printf ("array = %d \n", array[i][k]);
             }
         }
     }
