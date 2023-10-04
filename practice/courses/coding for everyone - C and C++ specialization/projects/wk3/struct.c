@@ -123,5 +123,7 @@ main ()
         head = head->next;
     } while (head != NULL);
 
+    printf  ("%s \n", l[0]);
+
     return 0;
 }
