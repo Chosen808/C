@@ -1,0 +1,5 @@
+AVERAGE 
+7.25 
+
+STORED NUMBERS
+9 	11 	4 	5 	
