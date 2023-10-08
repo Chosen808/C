@@ -5,12 +5,12 @@ main ()
 {
     int i = 0, k = 0;
 
-    while (i <= 20)
-    {
-        i++;
-        //k++;
+    printf ("Please enter enter a value ");
+    scanf ("%d", &k);
 
-        printf ("%d * 5 = %d \n", i, i * 5);
+    for (i = 0; i < 10; i++)
+    {
+        printf ("%d * %d = %d \n", i, k, i * k);
     }
 
     return 0;
