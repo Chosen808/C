@@ -6,6 +6,14 @@ Pointers hold the address of data
 #include <stdlib.h>
 #include <stdbool.h>
 
+int increment (int *p)
+{
+    *p = *p + 1;
+
+    return *p;
+}
+
+
 main ()
 {
     char h[10][5];
@@ -28,7 +36,7 @@ main ()
     int s = 76;
     int *g = &s;
 
-    printf ("*g = %d \n", *g);
+    printf ("*g = %d \n", *g);  // the pointer is dereferenced here. It will print the value of s
 
     int b[5];
     int *j = &b;
@@ -44,14 +52,14 @@ main ()
         {
             for (int i = 0; i < 5; i++)
             {
-                printf ("p->b[] = %d \n", j[i]);
+                printf ("p->b[] = %d \n", j[i]);    // the pointer j can be used to print the value of the array b[]
 
                 if (i == 4)
                 {
                     for (int i = 0; i < 5; i++)
                     {
                         printf ("Enter value %d \n", i);
-                        scanf ("%d", &j[i]);
+                        scanf ("%d", &j[i]);    // the pointer can now be used to assign values to the array b[]
 
                         if (i == 4)
                         {
@@ -65,5 +73,20 @@ main ()
             }
         }
     }
+
+    int y = 34;
+    int *d = &y;
+
+    printf ("\nAns = %d \n", increment (d));    // the pointer int *d will be used to increment the value of y
+
+    printf ("y = %d \n", y);    // the value of y will now be 35
+
+    printf ("&y = %d \n", increment (&y));
+
+    printf ("y = %d \n", y);
+
+    printf ("sizeof *d = %d \n", sizeof (d));
+
+    return 0;
 
 }
