@@ -8,7 +8,7 @@ main ()
     int *ab = &m;
 
     printf ("&m = %p \n", &m);  // address of m
-    printf ("*m = %d \n", m);   // value of m
+    printf ("m = %d \n", m);   // value of m
 
     printf ("ab->m = %p \n", ab);   // address of pointer ab
     printf ("*ab = %d \n", *ab);    // content of pointer ab
@@ -21,6 +21,6 @@ main ()
     m = 7;
 
     printf ("&m %p \n", &m);  // address of m
-    printf ("*m = %d \n", m);  // value of m
+    printf ("m = %d \n", m);  // value of m
 
 }
