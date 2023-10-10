@@ -51,7 +51,7 @@ main ()
     printf ("&cht = %p \n", &cht);  // address of cht
 
     printf ("*(&m) = %d \n", *(&m));  // value at m
-    printf ("*(fx) = %f \n", *(&fx));    // value at fx
+    printf ("*(&fx) = %f \n", *(&fx));    // value at fx
     printf ("*(&cht) = %c \n", *(&cht));    // value at cht
 
     printf ("x->m = %p \n", x); // address of m
