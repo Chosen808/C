@@ -23,7 +23,7 @@ Expected Output :
 /*
 This function will store the values of the array
 */
-int arrayStore (int array[], int *size);
+int arrayStore (int array[], int size);
 
 /*
 This function will print the value of the pointer
@@ -32,14 +32,29 @@ int printer (int *p, int size);
 
 main ()
 {
-    int *p, *q;
+    int *p;
     int size = 10;
-    int array[0];
+    int array[size];
 
     p = &array;
-    q = &size;
 
-    arrayStore (array, q);
+    /*
+    This program had a problem where size was always reverting to the 3rd 4th array element.
+    The solution was found in check to location of the size and array[3], which was the same.
+    This occured due to declaring the pointer after the array. It was solved by declaring 
+    the pointer first.
+    
+    printf ("&size = %p \n", &size);    // this was used o find the location of size
+    printf ("&array[3] = %p \n", &array[3]);    // this was used to find the location of array[3]
+
+    */
+
+    printf ("Please enter the size of the array: ");
+    scanf ("%d", &size);
+
+    puts ("\n");
+
+    arrayStore (array, size);
 
     puts ("\n");
     printer (p, size);
@@ -47,32 +62,24 @@ main ()
     return 0;
 }
 
-int arrayStore (int array[], int *size)
+int arrayStore (int array[], int size)
 {
-    printf ("Please enter how many elements: ");
-    scanf ("%d", &size);
+    printf ("Please enter your elements: \n");
 
-    array[*size];
-
-    //printf ("size = %d \n", *size);
-
-    for (int i = 0; i < *size; i++)
+    for (int i = 0, k = 1; i < size, k < size + 1; i++, k++)
     {
-        printf ("Element %d: ", i);
+        printf ("Element %d: ", k);
         scanf ("%d", &array[i]);
     }
 
-    printf ("ds %d \n", size);
 }
 
 int printer (int *p, int size)
 {
     printf ("The element you entered are: \n");
 
-    printf ("size = %d \n", size);
-
-    for (int i = 0; i < size; i ++)
+    for (int i = 0, k = 1; i < size, k < size + 1; i ++, k++)
     {
-        printf ("Element %d = %d \n", i, p[i]);
+        printf ("Element %d = %d \n", k, p[i]);
     }
 }
