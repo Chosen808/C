@@ -23,7 +23,7 @@ Expected Output :
 /*
 This function will store the values of the array
 */
-int arrayStore (int array[], int size);
+int arrayStore (int array[], int *size);
 
 /*
 This function will print the value of the pointer
@@ -32,16 +32,14 @@ int printer (int *p, int size);
 
 main ()
 {
-    int *p;
-    int size = 0;
+    int *p, *q;
+    int size = 10;
     int array[0];
 
     p = &array;
+    q = &size;
 
-    printf ("&size = %p \n", &size);
-    printf ("&array = %p \n", &array[3]);
-
-    arrayStore (array, size);
+    arrayStore (array, q);
 
     puts ("\n");
     printer (p, size);
@@ -49,16 +47,16 @@ main ()
     return 0;
 }
 
-int arrayStore (int array[], int size)
+int arrayStore (int array[], int *size)
 {
     printf ("Please enter how many elements: ");
     scanf ("%d", &size);
 
-    array[size];
+    array[*size];
 
-    printf ("size = %d \n", size);
+    //printf ("size = %d \n", *size);
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < *size; i++)
     {
         printf ("Element %d: ", i);
         scanf ("%d", &array[i]);
