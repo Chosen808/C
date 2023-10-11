@@ -25,6 +25,34 @@ Expected Output :
 /*
 This function will store the values of the array
 */
+int arrayStore (int array[], int size);
+
+/*
+This function will print the value of the pointer
+*/
+int printer (int *p, int size);
+
+main ()
+{
+    int size = 0;
+    int array[size];
+    int *p;
+
+    p = &array;
+
+    printf ("&size = %p \n", &size);
+    printf ("&array = %p \n", &array[3]);
+
+    //arrayStore (array, size);
+
+    //printf ("size = %d \n", size);
+    //printf ("*p = %d \n", *p);
+    puts ("\n");
+    //printer (p, size);
+
+    return 0;
+}
+
 int arrayStore (int array[], int size)
 {
     printf ("Please enter how many elements: ");
@@ -38,12 +66,9 @@ int arrayStore (int array[], int size)
         scanf ("%d", &array[i]);
     }
 
-    return size;
+    printf ("ds %d \n", size);
 }
 
-/*
-This function will print the value of the pointer
-*/
 int printer (int *p, int size)
 {
     printf ("The element you entered are: \n");
@@ -54,19 +79,4 @@ int printer (int *p, int size)
     {
         printf ("Element %d = %d \n", i, p[i]);
     }
-}
-
-main ()
-{
-    int size = 0;
-    int array[size];
-    int *p = &array;
-
-    arrayStore (array, size);
-
-    printf ("size = %d \n", size);
-    puts ("\n");
-    printer (p, size);
-
-    return 0;
 }
