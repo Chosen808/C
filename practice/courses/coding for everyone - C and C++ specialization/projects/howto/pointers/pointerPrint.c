@@ -33,7 +33,7 @@ int printer (int *p, int size);
 main ()
 {
     int *p;
-    int size;
+    int size = 0;
     int array[0];
 
     p = &array;
@@ -43,8 +43,6 @@ main ()
 
     arrayStore (array, size);
 
-    printf ("size = %d \n", size);
-    printf ("*p = %d \n", *p);
     puts ("\n");
     printer (p, size);
 
