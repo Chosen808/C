@@ -20,8 +20,6 @@ Expected Output :
 
 #include <stdio.h>
 
-//#define SIZEE 10
-
 /*
 This function will store the values of the array
 */
@@ -34,21 +32,21 @@ int printer (int *p, int size);
 
 main ()
 {
-    int size = 0;
-    int array[size];
     int *p;
+    int size;
+    int array[0];
 
     p = &array;
 
     printf ("&size = %p \n", &size);
     printf ("&array = %p \n", &array[3]);
 
-    //arrayStore (array, size);
+    arrayStore (array, size);
 
-    //printf ("size = %d \n", size);
-    //printf ("*p = %d \n", *p);
+    printf ("size = %d \n", size);
+    printf ("*p = %d \n", *p);
     puts ("\n");
-    //printer (p, size);
+    printer (p, size);
 
     return 0;
 }
@@ -57,6 +55,8 @@ int arrayStore (int array[], int size)
 {
     printf ("Please enter how many elements: ");
     scanf ("%d", &size);
+
+    array[size];
 
     printf ("size = %d \n", size);
 
