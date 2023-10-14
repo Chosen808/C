@@ -5,7 +5,8 @@
 
 typedef struct list
 {
-    char *dbase[100][100];
+    char *dbase;
+    struct list *man;
     struct list *next;
 } list;
 
