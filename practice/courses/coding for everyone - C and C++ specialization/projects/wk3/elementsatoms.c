@@ -57,13 +57,16 @@ void print_list (list *h, char *title)
 
 int array_n (list *h, char arr[], int size)
 {
-    for (int i = 0; i < size; i++)
+    /*for (int i = 0; i < size; i++)
     {
         //printf ("h = %c \n", h->dbase);
 
         arr[i] = h->dbase;
         h = h->next;
-    }
+    }*/
+
+    arr = h->dbase;
+    h = h->next;
 }
 
 main ()
@@ -74,13 +77,17 @@ main ()
 
     char dbase[] = {'a', 's', 'e', 'f', 's', 'r', 't', 'h'};
 
+    char arr[100];
+
     head = array_to_list (dbase, 8);
 
     print_list (head, "dbase");
 
     puts ("\n");
 
-    array_n (head, dbase, 8);
+    array_n (head, arr, 8);
+
+    printf ("%c \n", arr);
 
     head = array_to_list (dbase, 8);
 
