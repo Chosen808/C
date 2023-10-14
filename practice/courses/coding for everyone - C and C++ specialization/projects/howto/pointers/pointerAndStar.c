@@ -39,11 +39,11 @@ Using only pointer variable :
 main ()
 {
     int m = 300;
-    float fx = 300.600006;
+    double fx = 3.4;
     char cht = 'z';
 
     int *x = &m;
-    float *y = &fx;
+    int *y = &fx;
     char *z = &cht;
 
     printf ("&m = %p \n", &m);  // address of m
@@ -59,8 +59,18 @@ main ()
     printf ("z-> cht = %p \n", z);  // address of cht
 
     printf ("*x = %d \n", *x);  // value at m
-    printf ("*fx = %f \n", y);  // value at fx
+    printf ("*y = %f \n", *y);  // value at fx
     printf ("*z = %c \n", *z);  // value at cht
+
+    int *i;
+    double h = 865.4;
+    //int *i = &h;
+    i = &h;
+
+    printf ("i = %p \n", i);
+    printf ("*i = %f \n", i);
+    printf ("&h = %p \n", &h);
+    printf ("h = %.2f \n", h);
 
 
 

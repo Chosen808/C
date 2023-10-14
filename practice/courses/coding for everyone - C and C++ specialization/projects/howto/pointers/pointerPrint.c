@@ -21,6 +21,11 @@ Expected Output :
 #include <stdio.h>
 
 /*
+This function will take an input value for size
+*/
+int initialize (int *size);
+
+/*
 This function will store the values of the array
 */
 int arrayStore (int array[], int size);
@@ -38,6 +43,7 @@ main ()
 
     p = &array;
 
+
     /*
     This program had a problem where size was always reverting to the 3rd 4th array element.
     The solution was found in check to location of the size and array[3], which was the same.
@@ -49,17 +55,25 @@ main ()
 
     */
 
-    printf ("Please enter the size of the array: ");
-    scanf ("%d", &size);
+    initialize (&size);
 
     puts ("\n");
 
     arrayStore (array, size);
 
     puts ("\n");
+
     printer (p, size);
 
     return 0;
+}
+
+int initialize (int *size)
+{
+    printf ("Please enter the size of the array: ");
+    scanf ("%d", &*size);
+
+    return size;
 }
 
 int arrayStore (int array[], int size)
