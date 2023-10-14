@@ -57,16 +57,13 @@ void print_list (list *h, char *title)
 
 int array_n (list *h, char arr[], int size)
 {
-    /*for (int i = 0; i < size; i++)
+    for (int i = 0; i < size; i++)
     {
         //printf ("h = %c \n", h->dbase);
 
         arr[i] = h->dbase;
         h = h->next;
-    }*/
-
-    arr = h->dbase;
-    h = h->next;
+    }
 }
 
 main ()
