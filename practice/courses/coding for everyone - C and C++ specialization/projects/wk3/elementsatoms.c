@@ -77,7 +77,7 @@ main ()
 
     char dbase[] = {'a', 's', 'e', 'f', 's', 'r', 't', 'h'};
 
-    char arr[100];
+    char arr[100] = { };
 
     head = array_to_list (dbase, 8);
 
