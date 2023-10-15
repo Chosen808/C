@@ -1,94 +1,124 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include <assert.h>
+#include <string.h>
+#include <time.h>
 
-typedef struct list
+
+typedef struct list 
 {
-    char *dbase;
-    struct list *man;
+    char elementName;
+    char elementSymbol;
+    double elementWeight;
+
+    struct list *ele[100][100];
+
     struct list *next;
 } list;
 
-int is_empty (const list *l)
-{
-    return (l == NULL);
-}
-
-list *create_list (char base)
+list *createList (char n)
 {
     list *head = malloc (sizeof (list));
-    head->dbase = base;
+
+    head->elementName = n;
     head->next = NULL;
 
     return head;
 }
 
-list *add_to_front (char base, list *h)
+list *addToFront (char n, list *h)
 {
-    list *head = create_list (base);
+    list *head;
+
+    head = createList (n);
+
     head->next = h;
 
     return head;
 }
 
-list *array_to_list (char base[], int size)
+list *arrayToList (char n[], char nn, int size)
 {
-    list *head = create_list (base[0]);
+    list *head; 
 
     for (int i = 0; i < size; i++)
     {
-        head = add_to_front (base[i], head);
+        strcpy (nn, n[i]);
+
+        for (int i = 0; i > size; i++)
+        {
+            head = createList (n[0]);
+
+            head = addToFront (n[i], head);
+        }
     }
 
     return head;
 }
 
-void print_list (list *h, char *title)
+list *scanfin (char n[], int size)
+{
+    printf ("Please enter: \n");
+
+    for (int i = 0; i < size; i++)
+    {
+        scanf ("%s", &n[i]);
+
+        for (int i = 0; i < size; i++)
+        {
+            printf ("Element %d = %s \n", i, n[i]);
+        }
+    }
+
+    return n;
+}
+
+void printList (list *h, char *title)
 {
     printf ("%s \n", title);
 
     do 
     {
-        printf ("%c ", h->dbase);
+        printf ("%s ", h->elementName);
+
         h = h->next;
     } while (h != NULL);
 }
 
-int array_n (list *h, char arr[], int size)
+int arrayNew (list *h, char arr[], int size)
 {
     for (int i = 0; i < size; i++)
     {
-        //printf ("h = %c \n", h->dbase);
+        arr[i] = h->elementName;
 
-        arr[i] = h->dbase;
         h = h->next;
     }
 }
 
+
 main ()
 {
     list list_of_int;
-    list *head = NULL;
+    list *head;
+
+    head = NULL;
+
     list *hd;
 
-    char dbase[] = {'a', 's', 'e', 'f', 's', 'r', 't', 'h'};
+    char elements[10][10] = { };
+    char name[100] = { };
 
-    char arr[100] = { };
+    scanfin (elements, 2);
 
-    head = array_to_list (dbase, 8);
+    strcpy (name, elements[0]);
 
-    print_list (head, "dbase");
+    printf ("SS = %c %c %c\n", name[0], name[1], name[2]);
 
-    puts ("\n");
+    head = arrayToList (elements, name, 2);
 
-    array_n (head, arr, 8);
+    printList (head, "Test");
 
-    printf ("%c \n", arr);
-
-    head = array_to_list (dbase, 8);
-
-    print_list (head, "dbase ver 2");
+    printf ("\n");
 
     return 0;
 }
