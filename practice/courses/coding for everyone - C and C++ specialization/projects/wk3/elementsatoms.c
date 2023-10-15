@@ -37,19 +37,29 @@ list *addToFront (char n, list *h)
     return head;
 }
 
-list *arrayToList (char n[], char nn, int size)
+list *arrayToList (char *n[], char *nn[], int size)
 {
-    list *head; 
+    //list *head = createList (n[0]);
+
+    list *head;
+    /*
+    for (int i = 0; i < size; i++)
+    {
+        head = addToFront (n[i], head);
+
+        head = head->next;
+    }*/
 
     for (int i = 0; i < size; i++)
     {
-        strcpy (nn, n[i]);
+        strcpy (*nn, *n[i]);
 
-        for (int i = 0; i > size; i++)
+        for (int i = 1; i > size; i++)
         {
-            head = createList (n[0]);
+            head = createList (*nn[0]);
 
-            head = addToFront (n[i], head);
+            head = addToFront (*nn[i], head);
+            head = head->next;
         }
     }
 
@@ -115,9 +125,9 @@ main ()
         printf ("Elements %d = %s \n", i,  elements[i]);
     }
 
-    //strcpy (name, elements[0]);
+    //strcpy (*name, *elements[0]);
 
-    //printf ("SS = %s \n", name);
+    printf ("SS = %s \n", name);
 
     head = arrayToList (elements, name, 2);
 
