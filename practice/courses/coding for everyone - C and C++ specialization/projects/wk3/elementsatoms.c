@@ -65,8 +65,6 @@ int scanfin (char n[], int size)
         printf ("Please enter element %d: ", i);
         scanf ("%s", &n[i]);
     }
-
-    //return n;
 }
 
 void printList (list *h, char *title)
@@ -117,9 +115,9 @@ main ()
         printf ("Elements %d = %s \n", i,  elements[i]);
     }
 
-    strcpy (name, elements[0]);
+    //strcpy (name, elements[0]);
 
-    printf ("SS = %s \n", name);
+    //printf ("SS = %s \n", name);
 
     head = arrayToList (elements, name, 2);
 
