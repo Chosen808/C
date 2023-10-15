@@ -56,21 +56,17 @@ list *arrayToList (char n[], char nn, int size)
     return head;
 }
 
-list *scanfin (char n[], int size)
+int scanfin (char n[], int size)
 {
     printf ("Please enter: \n");
 
     for (int i = 0; i < size; i++)
     {
+        printf ("Please enter element %d: ", i);
         scanf ("%s", &n[i]);
-
-        for (int i = 0; i < size; i++)
-        {
-            printf ("Element %d = %s \n", i, n[i]);
-        }
     }
 
-    return n;
+    //return n;
 }
 
 void printList (list *h, char *title)
@@ -105,14 +101,25 @@ main ()
 
     list *hd;
 
-    char elements[10][10] = { };
+    char elements[10][10];
     char name[100] = { };
 
-    scanfin (elements, 2);
+    //scanfin (elements, 2);
+
+    for (int i =0; i < 2; i++)
+    {
+        printf ("Please enter element %d: ", i);
+        scanf ("%s", &elements[i]);
+    }
+
+    for (int i = 0; i < 2; i++)
+    {
+        printf ("Elements %d = %s \n", i,  elements[i]);
+    }
 
     strcpy (name, elements[0]);
 
-    printf ("SS = %c %c %c\n", name[0], name[1], name[2]);
+    printf ("SS = %s \n", name);
 
     head = arrayToList (elements, name, 2);
 
