@@ -110,7 +110,7 @@ main ()
     list *hd;
 
     char elements[10][10];
-    char name[100] = { };
+    char name[100];
 
     //scanfin (elements, 2);
 
