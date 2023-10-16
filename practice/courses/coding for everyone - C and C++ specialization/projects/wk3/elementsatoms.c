@@ -28,9 +28,7 @@ list *createList (char n)
 
 list *addToFront (char n, list *h)
 {
-    list *head;
-
-    head = createList (n);
+    list *head = createList (n);
 
     head->next = h;
 
@@ -54,7 +52,7 @@ list *arrayToList (char *n[], char *nn[], int size)
     {
         strcpy (*nn, *n[i]);
 
-        for (int i = 1; i > size; i++)
+        for (int i = 1; i < size; i++)
         {
             head = createList (*nn[0]);
 
@@ -83,7 +81,7 @@ void printList (list *h, char *title)
 
     do 
     {
-        printf ("%s ", h->elementName);
+        printf ("%c ", h->elementName);
 
         h = h->next;
     } while (h != NULL);
@@ -93,6 +91,7 @@ int arrayNew (list *h, char arr[], int size)
 {
     for (int i = 0; i < size; i++)
     {
+        //printf ("ARRNEW = %c \n", h->elementName);
         arr[i] = h->elementName;
 
         h = h->next;
@@ -111,6 +110,7 @@ main ()
 
     char elements[10][10];
     char name[100];
+    char arr[100];
 
     //scanfin (elements, 2);
 
@@ -125,11 +125,33 @@ main ()
         printf ("Elements %d = %s \n", i,  elements[i]);
     }
 
-    //strcpy (*name, *elements[0]);
+    for (int i = 0; i < 2; i++)
+    {
+        strcpy (name, elements[i]);
 
-    printf ("SS = %s \n", name);
+        //head = createList (name[0]);
 
-    head = arrayToList (elements, name, 2);
+        //printf ("Head = %c \n", head->elementName);
+
+        for (int i = 0; i < 8; i++)
+        {
+            //head = createList (name[0]);
+
+            head = addToFront (name[i], head);
+            printf ("Head addtofront %c \n", head->elementName);
+            //head = head->next;
+        }
+    }
+
+    arrayNew (head, arr, 16);
+
+    for (int i = 0; i < 8; i++)
+    {
+        head = addToFront (arr[i], head);
+        printf ("Head addtofront %c \n", head->elementName);
+    }
+
+    //printf ("ARR = %s \n", arr);
 
     printList (head, "Test");
 
