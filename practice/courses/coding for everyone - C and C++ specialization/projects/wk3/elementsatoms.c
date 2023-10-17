@@ -149,6 +149,8 @@ main ()
     {
         head = addToFront (arr[i], head);
         printf ("Head addtofront %c \n", head->elementName);
+
+        head = head->next;
     }
 
     //printf ("ARR = %s \n", arr);
