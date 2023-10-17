@@ -36,11 +36,17 @@ void inorder (BTREE root)
     }
 }
 
+/*
+This function will create memory required for each node
+*/
 BTREE newNode (void)
 {
     return (malloc (sizeof (NODE_t)));
 }
 
+/*
+This function will initialize a new node
+*/
 BTREE initNode (DATA_t d1, BTREE p1, BTREE p2)
 {
     BTREE t;
@@ -53,6 +59,9 @@ BTREE initNode (DATA_t d1, BTREE p1, BTREE p2)
     return t;
 }
 
+/*
+This function will create the binary tree
+*/
 BTREE createTree (DATA_t a[], int i, int size)
 {
     if (i >= size)
@@ -120,16 +129,17 @@ void printData (int data2[], int size)
 
 main (int argc, char *argv[])
 {
+    // This pointer will accept the data that is passed from the file
     FILE *in;
-
-    int data[MAX_NUM];
-    int data2[MAX_NUM];
-    int size = MAX_NUM;
-    int s = MAX_NUM;
+    
+    int data[MAX_NUM];  // This array will accept data from the file that is entered at the terminal
+    int data2[MAX_NUM]; // This array will accept the numbers to be used that will be passed from data[]
+    int size = MAX_NUM; // This will hold the amount of numbers that will be passed from the file enter at the terminal
+    int s = MAX_NUM;    // This will hold the amount of numbers to be used
 
     BTREE b;
 
-
+    // Here a check is made to see if there is a file entered at the terminal
     if (argc != 2)
     {
         printf ("Need executable input/output file \n");
@@ -137,6 +147,7 @@ main (int argc, char *argv[])
         exit (1);
     }
 
+    // This will open the file entered at the terminal
     in = fopen (argv[1], "r+");
 
     arrayRead (in, data, data2, &size, &s);
