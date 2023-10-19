@@ -31,6 +31,56 @@ main ()
 
     printf ("Sum = %d \n", sum);
 
+    int arrayM[3][6] = 
+    {
+        {2, 43, 65, 11, 76, 78}, 
+        {652, 878674, 1212, 634, 22, 5321},
+        {12, 324, 54, 123, 76, 98}
+    };
+
+    printf ("array[1][4] = %d \n\n", arrayM[1][4]);
+
+    for (int k = 0; k < 6; k++)
+    {
+        printf ("Array[0][%d] = %d \n", k, arrayM[0][k]);
+
+        if (k == 5)
+        {
+            for (int k = 0; k < 6; k++)
+            {
+                printf ("Array[1][%d] = %d \n", k, arrayM[1][k]);
+
+                if (k == 5)
+                {
+                    for (int k = 0; k < 6; k++)
+                    {
+                        printf ("Array[2][%d] = %d \n", k, arrayM[2][k]);
+                    }
+                }
+            }
+        }
+    }
+
+
+    puts ("\n\n");
+
+    for (int i = 0; i < 3; i++)
+    {
+        for (int k = 0; k < 6; k++)
+        {
+            printf ("Array[%d][%d] = %d \n", i, k, arrayM[i][k]);
+        }
+    }
+
+    int arrayM3[3][5][15] = 
+    {
+        {12, 54, 34, 454, 232},
+        {23324, 55, 34, 66, 22},
+        {122, 234, 34, 45, 45}
+    };
+
+
+
 
 
     return 0;
