@@ -94,15 +94,10 @@ main ()
             {
                 printf ("\nRow %d \n", k);
             }
-            
+
             for (int j = 0; j < 15; j++)
             {
                 printf ("Array[%d][%d][%d] = %d \n", i, k, j, arrayM3[i][k][j]);
-                /*
-                if (i++ || k++)
-                {
-                    puts ("\n");
-                }*/
             }
         }
     }
