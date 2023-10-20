@@ -17,9 +17,20 @@ long long fact (int n)
 
 main ()
 {
+    int num = 0;
+
     cout << "This program uses some features not in C89 \n";
 
-    for (auto i = 0; i < 16; i++)
+    cout << "Please enter a number to increase by: ";
+    cin >> num;
+
+    while (num > 20)
+    {
+        cout << "Please enter a number that is less than 21: ";
+        cin >> num;
+    }
+
+    for (auto i = 0; i <= num; i++)
     {
         cout << "Factorial of " << i << " is " << fact (i) << endl;
     }
