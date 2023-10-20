@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+struct complex 
+{
+    double real;
+    double imaginary;
+} c1 = {1.5, -2.0}, c2 = {3.4, 6.8};
+
 void myfunc ()
 {
     printf ("sum = %d \n", 9 + 12);
@@ -28,6 +34,11 @@ int divide (int x, int y)
 
 main ()
 {
+    printf ("c1.real = %f \n", c1.real);
+    printf ("c2.real = %f \n", c2.real);
+
+    printf ("SIZE = %d \n", sizeof (double));
+
     int x = 0, y = 0;
 
     myfunc ();

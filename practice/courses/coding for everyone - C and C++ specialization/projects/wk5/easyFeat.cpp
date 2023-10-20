@@ -17,6 +17,10 @@ long long fact (int n)
 
 main ()
 {
+    int a = 2, b = 5, c = 8;
+
+    printf ("a && b = %d \n", c = ++b);
+
     int num = 0;
 
     cout << "This program uses some features not in C89 \n";
