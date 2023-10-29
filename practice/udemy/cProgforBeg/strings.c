@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+void display (char ch[]);
 
 main ()
 {
@@ -40,5 +41,19 @@ main ()
 
     printf ("h = %s \n", h);
 
+    char s[50];
+
+    printf ("Entering the string: ");
+    gets (s);
+
+    display (s);
+
+
     return 0;
+}
+
+void display (char ch[])
+{
+    printf ("Output string ");
+    puts (ch);
 }
