@@ -31,7 +31,7 @@ main ()
 
     printf ("The age is %d \n", info->age);
     printf ("The name is %s \n", info->name[0]);
-    printf ("The salary is $%f \n", info->salary);
+    printf ("The salary is $%.2f \n", info->salary);
 
     return 0;
 }
