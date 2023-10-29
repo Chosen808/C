@@ -4,7 +4,7 @@
 typedef struct person 
 {
     int age;
-    char name[5][6];
+    char name[6][6];
     float salary;
 
     struct id_t *id;
@@ -13,25 +13,17 @@ typedef struct person
 
 main ()
 {
-    id_t *info;
+    id_t info;
 
-    printf ("TEST \n");
+    info.age = 20;
 
-    info->age = 20;
+    strcpy (info.name[0], "Thomas");
 
-    printf ("TEST2 \n");
+    info.salary = 20000.50;
 
-    strcpy (info->name[0], "Thomas");
-
-    printf ("TEST3 \n");
-
-    info->salary = 20000.50;
-
-    printf ("TEST4 \n");
-
-    printf ("The age is %d \n", info->age);
-    printf ("The name is %s \n", info->name[0]);
-    printf ("The salary is $%.2f \n", info->salary);
+    printf ("The age is %d \n", info.age);
+    printf ("The name is %s \n", info.name[0]);
+    printf ("The salary is $%.2f \n", info.salary);
 
     return 0;
 }
