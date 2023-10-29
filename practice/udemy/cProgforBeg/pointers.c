@@ -17,7 +17,8 @@ main ()
     for (int i = 0; i < 5; i++)
     {
         printf ("p->array[%d] = %p \n", i, p[i]);
+        printf ("p->array[%d] = %d \n", i, p[i]);
     }
-
+    
     return 0;
 }
