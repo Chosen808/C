@@ -21,9 +21,18 @@ main ()
 
     info.salary = 20000.50;
 
+    info.id = &info.age;
+
     printf ("The age is %d \n", info.age);
     printf ("The name is %s \n", info.name[0]);
     printf ("The salary is $%.2f \n", info.salary);
+    printf ("The id is %p \n", info.id);
+
+    struct person *p = &info;
+
+    id_t *q = &info;
+
+    printf ("age = %d \n", q->age);
 
     return 0;
 }
