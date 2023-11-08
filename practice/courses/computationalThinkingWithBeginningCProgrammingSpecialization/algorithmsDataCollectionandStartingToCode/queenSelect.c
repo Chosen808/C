@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define CARDSDRAWS 10000
+#define CARDSDRAWS 1000000
 
 int randNum ()
 {
@@ -32,49 +32,42 @@ main ()
     "Ace Clubs", "Clubs Two", "Clubs Three", "Clubs Four", "Clubs Five", "Clubs Six", "Clubs Seven", "Clubs Eight", "Clubs Nine", "Clubs Ten", "Clubs Jack", "Club Queen", "Clubs King"};
 
     int card;
-    int temp;
-    int cycles[CARDSDRAWS];
+    int temp = 1;
+    long cycles[CARDSDRAWS];
+    int cardCount;
 
     draw:
     card = randNum ();
 
-    printf ("P = %s \n", cards[card]);
-
     if (card != 11 && card != 24 && card != 37 && card != 50 )
     {
-        for (int i = 0; i < 52;)
+        for (int i = 0; i < temp;)
         {
-            cycles[i] = card;
             ++i;
 
-            printf ("i = %d \n", i);
+            temp += i;
 
-            temp = i;
-
-            for (int j = 0; j < 52; j++)
+            for (int j = 0; j < temp; j++)
             {
-                printf ("arr[%d] = %d \n", j, cycles[j]);
+                //printf ("j 1 = %d \n", j);
 
-                if (j < 52)
+                if (cycles[j] != card)
                 {
-                    j++;
-                }
+                    //printf ("j 2 = %d \n", j);
+                    cycles[j] = card;
 
-                if (cycles[j] == card)
-                {
-                    printf ("j = %d \n", j);
-
-                    goto draw;
-                }
-
-                else if (cycles[j] != card)
-                {
                     printf ("You drew a %s \n", cards[card]);
-
                     printf ("Please draw again, press enter \n");
 
                     getchar ();
 
+                    goto draw;
+                }
+
+                else if (cycles[j] == card)
+                {
+                    cycles[j] = card;
+                    //printf ("PLLL \n");
                     goto draw;
                 }
             }
@@ -82,8 +75,10 @@ main ()
         
     }
 
-    else if (card == 11 && card == 24 && card == 37 && card == 50)
+    else
     {
+        printf ("You drew a %s \n", cards[card]);
+
         return 0;
     }
 
