@@ -38,17 +38,42 @@ main ()
     draw:
     card = randNum ();
 
-    if (card != 11)
+    printf ("P = %s \n", cards[card]);
+
+    if (card != 11 && card != 24 && card != 37 && card != 50 )
     {
-        printf ("Your drew %s \n", cards[card]);
-        printf ("Please draw again, press enter: ");
+        for (int i = 0; i < 52;)
+        {
+            cycles[i] = card;
+            ++i;
 
-        getchar ();
+            temp = i;
 
-        goto draw;
+            for (int j = 0; j < temp; j++)
+            {
+                printf ("j = %d \n", j);
+                
+                if (cycles[j] == card)
+                {
+                    goto draw;
+                }
+
+                else if (cycles[j] != card)
+                {
+                    printf ("You drew a %s \n", cards[card]);
+
+                    printf ("Please draw again, press enter \n");
+
+                    getchar ();
+
+                    goto draw;
+                }
+            }
+        }
+        
     }
 
-    else if (card == 11)
+    else if (card == 11 && card == 24 && card == 37 && card == 50)
     {
         return 0;
     }
