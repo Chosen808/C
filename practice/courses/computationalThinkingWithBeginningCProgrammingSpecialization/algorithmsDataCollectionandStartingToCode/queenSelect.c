@@ -35,9 +35,17 @@ main ()
     int temp = 1;
     long cycles[CARDSDRAWS];
     int cardCount;
+    int index = 0;
 
     draw:
     card = randNum ();
+
+    for (int i = 0; i < temp; i++)
+    {
+        cycles[i] == cards;
+
+        printf ("TESTcycles[%d] = %ld \n", i, cycles[i]);
+    }
 
     if (card != 11 && card != 24 && card != 37 && card != 50 )
     {
@@ -45,29 +53,51 @@ main ()
         {
             ++i;
 
+            printf ("i = %d \n", i);
+
+            printf ("cycles[%d] = %ld \n", i, cycles[i]);
+
             temp += i;
+
+            cycles[index] = card;
+
+            index += i;
+
+            printf ("card = %d \n", card);
+
+            printf ("temp = %d \n", temp);
 
             for (int j = 0; j < temp; j++)
             {
-                //printf ("j 1 = %d \n", j);
+                printf ("j 1 = %d \n", j);
 
-                if (cycles[j] != card)
+                cycles[j];
+
+                if (card == cycles[j])
                 {
-                    //printf ("j 2 = %d \n", j);
-                    cycles[j] = card;
+                    printf ("j 2 = %d \n", j);
+                    printf ("2cycles[%d] = %ld \n", j, cycles[j]);
+                    //cycles[j] = card;
 
+                    goto draw;
+
+                    //printf ("You drew a %s \n", cards[card]);
+                    //printf ("Please draw again, press enter \n");
+
+                    //getchar ();
+
+                    //goto draw;
+                }
+
+                else
+                {
+                    //cycles[j] = card;
+                    //printf ("PLLL \n");
                     printf ("You drew a %s \n", cards[card]);
                     printf ("Please draw again, press enter \n");
 
                     getchar ();
 
-                    goto draw;
-                }
-
-                else if (cycles[j] == card)
-                {
-                    cycles[j] = card;
-                    //printf ("PLLL \n");
                     goto draw;
                 }
             }
