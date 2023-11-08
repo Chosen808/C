@@ -47,14 +47,23 @@ main ()
             cycles[i] = card;
             ++i;
 
+            printf ("i = %d \n", i);
+
             temp = i;
 
-            for (int j = 0; j < temp; j++)
+            for (int j = 0; j < 52; j++)
             {
-                printf ("j = %d \n", j);
-                
+                printf ("arr[%d] = %d \n", j, cycles[j]);
+
+                if (j < 52)
+                {
+                    j++;
+                }
+
                 if (cycles[j] == card)
                 {
+                    printf ("j = %d \n", j);
+
                     goto draw;
                 }
 
