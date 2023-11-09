@@ -32,7 +32,7 @@ main ()
     "Ace Clubs", "Clubs Two", "Clubs Three", "Clubs Four", "Clubs Five", "Clubs Six", "Clubs Seven", "Clubs Eight", "Clubs Nine", "Clubs Ten", "Clubs Jack", "Club Queen", "Clubs King"};
 
     int card;
-    int temp = 1;
+    int temp = 2;
     long cycles[CARDSDRAWS];
     int cardCount;
     int index = 0;
@@ -40,13 +40,61 @@ main ()
     draw:
     card = randNum ();
 
-    for (int i = 0; i < temp; i++)
+    if (card != 11 && card != 24 && card != 37 && card != 50)
     {
-        cycles[i] == cards;
 
-        printf ("TESTcycles[%d] = %ld \n", i, cycles[i]);
-    }
+        for (int i = 1; i < temp; i++)
+        {
+            //++i;
 
+            //printf ("I = %d \n", i);
+
+            //temp += i;
+
+            cycles[index] = card;
+
+            //++i;
+
+            temp += i;
+            index += i;
+
+            printf ("card = %d \n", card);
+
+            printf ("i = %d \n", i);
+
+            printf ("cycles[%d] = %ld \n", i, cycles[i]);
+
+            printf ("temp = %d \n", temp);
+
+            for (int j = 0; j < i; j++)
+            {
+                if (cycles[j] != card)
+                {
+                    printf ("You drew a %s \n", cards[card]);
+
+                    printf ("Please draw again, press enter \n");
+
+                    getchar ();
+
+                    goto draw;
+                }
+
+                else if (cycles[j] == card)
+                {
+                    goto draw;
+                }
+            }
+        }
+    }  
+
+    else 
+    {
+        printf ("You drew a %s \n", cards[card]);
+
+        return 0;
+    }  
+
+/*
     if (card != 11 && card != 24 && card != 37 && card != 50 )
     {
         for (int i = 0; i < temp;)
@@ -110,7 +158,7 @@ main ()
         printf ("You drew a %s \n", cards[card]);
 
         return 0;
-    }
+    }*/
 
     return 0;
 }
