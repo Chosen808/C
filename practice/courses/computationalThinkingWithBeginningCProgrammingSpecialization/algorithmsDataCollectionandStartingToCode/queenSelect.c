@@ -80,6 +80,7 @@ int cardDraw ()
 
     int j = 0;
     suite.temp = 2;
+    suite.index = 0;
 
     draw:
     suite.cardNumber = randNum ();  // random number are generated and stored in cardNumber
