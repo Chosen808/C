@@ -51,12 +51,12 @@ main ()
 
             //temp += i;
 
-            cycles[index] = card;
+            //cycles[index] = card;
 
             //++i;
 
             temp += i;
-            index += i;
+            //index += i;
 
             printf ("card = %d \n", card);
 
@@ -70,6 +70,9 @@ main ()
             {
                 if (cycles[j] != card)
                 {
+                    cycles[index] = card;
+
+                    index += i;
                     printf ("You drew a %s \n", cards[card]);
 
                     printf ("Please draw again, press enter \n");
@@ -81,6 +84,12 @@ main ()
 
                 else if (cycles[j] == card)
                 {
+                    cycles[index] = card;
+
+                    index += i;
+
+                    printf ("TEST");
+
                     goto draw;
                 }
             }
