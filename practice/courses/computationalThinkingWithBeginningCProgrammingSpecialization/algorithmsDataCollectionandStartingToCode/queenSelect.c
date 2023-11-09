@@ -39,12 +39,11 @@ int randNum ()
     }
 }
 
-
-main ()
+int cardDraw ()
 {
-    int j = 0;
-
     hand_t suite;
+
+    int j = 0;
     suite.temp = 2;
 
     draw:
@@ -52,7 +51,6 @@ main ()
 
     if (suite.card != 11 && suite.card != 24 && suite.card != 37 && suite.card != 50)
     {
-
         for (int i = 0; i < suite.temp;)
         {
             ++i;
@@ -70,8 +68,7 @@ main ()
 
                 suite.index += i;
 
-                printf("You drew a %s \n", cards[suite.card]);
-
+                printf ("You drew a %s \n", cards[suite.card]);
                 printf ("Please draw again, press enter \n");
 
                 j = 0;
@@ -79,14 +76,12 @@ main ()
                 getchar ();
 
                 goto draw;
-
-
             }
 
             else if (suite.cycles[j] == suite.card)
             {
                 j = 0;
-    
+
                 goto draw;
             }
         }
@@ -94,10 +89,16 @@ main ()
 
     else 
     {
-        printf ("You drew a %s \n", cards[suite.card]);
+        printf ("You drew a %s, YOU WON THE GAME!!! \n", cards[suite.card]);
 
         return 0;
-    }  
+    }
+}
+
+
+main ()
+{
+    cardDraw ();
 
     return 0;
 }
