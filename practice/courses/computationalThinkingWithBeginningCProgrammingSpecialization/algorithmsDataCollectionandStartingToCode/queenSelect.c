@@ -24,7 +24,7 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-v1.0
+v1.1
 
 */
 
@@ -95,7 +95,7 @@ int cardDraw ()
             suite.temp += i;    // i will increment the value of temp to keep the counter moving
 
             // Here checking will be made for numbers which have already been drawn
-            while (suite.cycles[j] != suite.cardNumber && j < suite.temp)
+            while (suite.cycles[j] != suite.cardNumber && j < suite.index)
             {
                 j++;
             }
