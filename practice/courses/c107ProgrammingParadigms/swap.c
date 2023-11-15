@@ -18,20 +18,26 @@ void swap2 (double d1, double d2)
     d2 = temp;
 }
 
+// THIS function needs to checked for segfault that is occuring at if statement
 void *lsearch (void * key, void *base, int n, int elemSize)
 {
+    void *ele;
+
     for (int i = 0; i < n; i++)
     {
         void *elemAddr = (int*)base + i * elemSize;
 
-        if ((memcmp (key, elemAddr, elemSize)) == 0)
+        printf ("i = %d \n", i);
+
+        if (memcmp (key, elemAddr, elemSize) == 0)
         {
             return elemAddr;
         }
-
-        return NULL;
+        
     }
+    return NULL;
 }
+
 
 main ()
 {
