@@ -3,7 +3,7 @@
 
 typedef struct meal 
 {
-    char onTable[10][10];
+    char onTable[10][15];
     int i;
 } meal_t;
 
@@ -37,22 +37,12 @@ int tableSet (int c, int count)
 
     else if (c == 5)
     {
-        c == 4;
+        c = 4;
     }
 
     temp = count - 1;
 
-    printf ("TEMP = %d \n", temp);
-
     strcpy(choice.onTable[temp], array[c]);
-
-    printf ("array[%d] = %s \n", c, array[c]);
-
-    char *p = array[1];
-    char *o = choice.onTable[0];
-
-    printf ("p = %p \n", p);
-    printf ("o = %p \n", o);
 }
 
 main ()
@@ -74,7 +64,7 @@ main ()
 
     else if ((strcmp (answer, "No")) == 0 || (strcmp (answer, "no")) == 0)
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 5; i++)
         {
             printf ("Please select what you need: \n");
             printf ("1. Peanut Butter \n2. Jelly \n3. Knife \n4. Bread \n5. Plate \n");
@@ -84,11 +74,15 @@ main ()
 
             tableSet (toGet, temp);
 
+            printf ("\n");
+            printf ("You selected: \n");
+
             for (int i = 0; i < temp; i++)
             {
-                printf ("\n");
-                printf ("You have: %s \n\n", choice.onTable[i]);
+                printf ("%s\, ", choice.onTable[i]);
             }
+
+            printf ("\n\n");
         }    
     }
 
