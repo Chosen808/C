@@ -4,7 +4,6 @@
 typedef struct meal 
 {
     char onTable[10][15];
-    int i;
 } meal_t;
 
 char array[6][15] = {"Peanut Butter", "Jelly", "Knife", "Bread", "Plate"};
@@ -79,7 +78,7 @@ main ()
 
             for (int i = 0; i < temp; i++)
             {
-                printf ("%s\, ", choice.onTable[i]);
+                printf ("%s%s ", choice.onTable[i], i == 4? ".": ",");
             }
 
             printf ("\n\n");
@@ -93,8 +92,18 @@ main ()
         goto doYou;
     }
 
-    
+    int construct;
 
+    printf ("Is the peanut butter uncovered? \n");
+    scanf ("%s", &answer);
 
+    if ((strcmp (answer, "Yes")) == 0 || (strcmp (answer, "yes") == 0))
+    {
+        printf ("Uncover the peanut butter? \n");
+        printf ("Select: \n1. Uncover \n2. Leave lid on \n");
+        scanf ("%d", &construct);
+
+        
+    }
     return 0;
 }
