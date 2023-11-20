@@ -44,6 +44,19 @@ int tableSet (int c, int count)
     strcpy(choice.onTable[temp], array[c]);
 }
 
+int open (int count)
+{
+    printf ("What do you want to do next? \n");
+
+    for (int i = 0; i < count; i++)
+    {
+        if ((strcmp (choice.onTable[i], "Peanut Butter")) == 0)
+        {
+            printf ("ETSTST \n");
+        }
+    }
+}
+
 main ()
 {
     char answer[10];
@@ -92,18 +105,68 @@ main ()
         goto doYou;
     }
 
+    open (temp);
+
     int construct;
 
     printf ("Is the peanut butter uncovered? \n");
     scanf ("%s", &answer);
 
-    if ((strcmp (answer, "Yes")) == 0 || (strcmp (answer, "yes") == 0))
+    if ((strcmp (answer, "no")) == 0 || (strcmp (answer, "No") == 0))
     {
+        choose:
         printf ("Uncover the peanut butter? \n");
         printf ("Select: \n1. Uncover \n2. Leave lid on \n");
         scanf ("%d", &construct);
 
-        
+        if (construct == 1)
+        {
+            printf ("\nThe peanut butter is uncovered \n\n");
+
+            goto jellyO;
+        }
+
+        else if (construct == 2)
+        {
+            printf ("Please uncover the peanut butter \n");
+
+            goto choose;
+        }
+    }
+
+    else if ((strcmp (answer, "Yes") == 0) || strcmp (answer, "yes") == 0)
+    {
+        jellyO:
+        printf ("Is the Jelly uncovered? \n");
+        scanf ("%s", &answer);
+
+        if ((strcmp (answer, "no"))== 0 || (strcmp (answer, "No")) == 0)
+        {
+            chooseA:
+            printf ("Uncover the jelly? \n");
+            printf ("Select: \n1. Uncover \n2. Leave lid on \n");
+            scanf ("%d", &construct);
+
+            if (construct == 1)
+            {
+                printf ("\nThe jelly butter is uncovered \n");
+
+                goto breadO;
+            }
+
+            else if (construct == 2)
+            {
+                printf ("Please uncover the jelly \n");
+
+                goto chooseA;
+            }
+        }
+
+        else if ((strcmp (answer, "Yes")) == 0 || (strcmp (answer, "yes")) == 0)
+        {
+            breadO:
+            printf ("Is the bread open \n");
+        }
     }
     return 0;
 }
