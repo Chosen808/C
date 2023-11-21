@@ -1,3 +1,29 @@
+/*
+Thank You Lord Jesus for building this software
+
+Copyright (c) 2023, Jesus Christ
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software. Attribution be given
+to the author of this software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
 #include <stdio.h>
 #include <string.h>
 
@@ -44,19 +70,6 @@ int tableSet (int c, int count)
     strcpy(choice.onTable[temp], array[c]);
 }
 
-int open (int count)
-{
-    printf ("What do you want to do next? \n");
-
-    for (int i = 0; i < count; i++)
-    {
-        if ((strcmp (choice.onTable[i], "Peanut Butter")) == 0)
-        {
-            printf ("ETSTST \n");
-        }
-    }
-}
-
 main ()
 {
     char answer[10];
@@ -64,12 +77,12 @@ main ()
     int temp = 0;
 
     doYou:
-    printf ("Do you have what you need to make a sandwich? Please answer yes or no: \n");
+    printf ("\nDo you have what you need to make a sandwich? Please answer yes or no: \n");
     scanf ("%s", &answer);
 
     if ((strcmp (answer, "yes")) == 0 || (strcmp (answer, "Yes")) == 0)
     {
-        printf ("Enjoy your sandwich \n");
+        printf ("\nEnjoy your sandwich \n");
 
         return 0;
     }
@@ -78,8 +91,8 @@ main ()
     {
         for (int i = 0; i < 5; i++)
         {
-            printf ("Please select what you need: \n");
-            printf ("1. Peanut Butter \n2. Jelly \n3. Knife \n4. Bread \n5. Plate \n");
+            printf ("\nPlease select what you need: \n");
+            printf ("\n1. Peanut Butter \n2. Jelly \n3. Knife \n4. Bread \n5. Plate \n");
             scanf ("%d", &toGet);
 
             temp += 1;
@@ -87,7 +100,7 @@ main ()
             tableSet (toGet, temp);
 
             printf ("\n");
-            printf ("You selected: \n");
+            printf ("\nYou selected: \n");
 
             for (int i = 0; i < temp; i++)
             {
@@ -100,23 +113,21 @@ main ()
 
     else 
     {
-        printf ("Please enter yes or no: ");
+        printf ("\nPlease enter yes or no: \n");
 
         goto doYou;
     }
 
-    open (temp);
-
     int construct;
 
-    printf ("Is the peanut butter uncovered? \n");
+    printf ("\nIs the peanut butter uncovered? \n");
     scanf ("%s", &answer);
 
     if ((strcmp (answer, "no")) == 0 || (strcmp (answer, "No") == 0))
     {
         choose:
-        printf ("Uncover the peanut butter? \n");
-        printf ("Select: \n1. Uncover \n2. Leave lid on \n");
+        printf ("\nUncover the peanut butter? \n");
+        printf ("\nSelect: \n1. Uncover \n2. Leave lid on \n");
         scanf ("%d", &construct);
 
         if (construct == 1)
@@ -128,7 +139,7 @@ main ()
 
         else if (construct == 2)
         {
-            printf ("Please uncover the peanut butter \n");
+            printf ("\nPlease uncover the peanut butter \n");
 
             goto choose;
         }
@@ -137,14 +148,14 @@ main ()
     else if ((strcmp (answer, "Yes") == 0) || strcmp (answer, "yes") == 0)
     {
         jellyO:
-        printf ("Is the Jelly uncovered? \n");
+        printf ("\nIs the Jelly uncovered? \n");
         scanf ("%s", &answer);
 
         if ((strcmp (answer, "no"))== 0 || (strcmp (answer, "No")) == 0)
         {
             chooseA:
-            printf ("Uncover the jelly? \n");
-            printf ("Select: \n1. Uncover \n2. Leave lid on \n");
+            printf ("\nUncover the jelly? \n");
+            printf ("\nSelect: \n1. Uncover \n2. Leave lid on \n");
             scanf ("%d", &construct);
 
             if (construct == 1)
@@ -156,7 +167,7 @@ main ()
 
             else if (construct == 2)
             {
-                printf ("Please uncover the jelly \n");
+                printf ("\nPlease uncover the jelly \n");
 
                 goto chooseA;
             }
@@ -165,13 +176,13 @@ main ()
         else if ((strcmp (answer, "Yes")) == 0 || (strcmp (answer, "yes")) == 0)
         {
             breadO:
-            printf ("Is the bread open \n");
+            printf ("\nIs the bread open \n");
             scanf ("%s", &answer);
 
             if ((strcmp (answer, "no")) == 0 || (strcmp (answer, "No")) == 0)
             {
-                printf ("Open the bread? \n");
-                printf ("Select: \n1. Open \n2. Leave closed \n");
+                printf ("\nOpen the bread? \n");
+                printf ("\nSelect: \n1. Open \n2. Leave closed \n");
                 scanf ("%d", &construct);
 
                 if (construct == 1)
@@ -199,12 +210,12 @@ main ()
                 {
                     chooseB:
                     printf ("\nTake out two slices of bread?\n");
-                    printf ("Select: \n1. Remove two slices \n2. Do not remove two slice \n");
+                    printf ("\nSelect: \n1. Remove two slices \n2. Do not remove two slice \n");
                     scanf ("%d", &construct);
 
                     if (construct == 1)
                     {
-                        printf ("\nTwo slices are removed");
+                        printf ("\nTwo slices are removed\n");
 
                         goto plateO;
                     }
@@ -227,7 +238,7 @@ main ()
                     {
                         chooseC:
                         printf ("\nPlace bread on plate? \n");
-                        printf ("Select: \n1. Place bread on plate \n2. Do not place bread on plate \n");
+                        printf ("\nSelect: \n1. Place bread on plate \n2. Do not place bread on plate \n");
                         scanf ("%d", &construct);
 
                         if (construct == 1)
@@ -237,9 +248,9 @@ main ()
                             goto knifeO;
                         }
 
-                        else (construct == 2)
+                        else if (construct == 2)
                         {
-                            printf ("Please place bread on the plate \n");
+                            printf ("\nPlease place bread on the plate \n");
 
                             goto chooseC;
                         }
@@ -255,7 +266,7 @@ main ()
                         {
                             chooseD:
                             printf ("\nTake the knife? \n");
-                            printf ("Select: \n1. Take the knife \n2. Do not take the knife \n");
+                            printf ("\nSelect: \n1. Take the knife \n2. Do not take the knife \n");
                             scanf ("%d", &construct);
 
                             if (construct == 1)
@@ -283,8 +294,8 @@ main ()
                             {
                                 chooseE:
                                 printf ("\nRemove peanut butter with the knife? \n");
-                                printf ("Select: \n1. Remove peanut butter with the knife \n2. Do not remove peanut butter \n");
-                                scanf ("%d", %construct);
+                                printf ("\nSelect: \n1. Remove peanut butter with the knife \n2. Do not remove peanut butter \n");
+                                scanf ("%d", &construct);
 
                                 if (construct == 1)
                                 {
@@ -311,7 +322,7 @@ main ()
                                 {
                                     chooseF:
                                     printf ("\nSpread peanut butter on one slice of bread? \n");
-                                    printf ("Select: \n1. Spread peanut butter on one slice of bread \n2. Do not spread peanut butter \n");
+                                    printf ("\nSelect: \n1. Spread peanut butter on one slice of bread \n2. Do not spread peanut butter \n");
                                     scanf ("%d", &construct);
 
                                     if (construct == 1)
@@ -338,7 +349,7 @@ main ()
                                     {
                                         chooseG:
                                         printf ("\nRemove jelly with the knife? \n");
-                                        printf ("Select: \n1. Remove with the knife \n2. Do not remove jelly with knife \n");
+                                        printf ("\nSelect: \n1. Remove with the knife \n2. Do not remove jelly with knife \n");
                                         scanf ("%d", &construct);
 
                                         if (construct == 1)
@@ -366,7 +377,7 @@ main ()
                                         {
                                             chooseH:
                                             printf ("\nSpread jelly on the other slice of bread? \n");
-                                            printf ("Select: \n1. Spread the jelly on other slice of bread \n2. Do not spread jelly on other slice of bread\n");
+                                            printf ("\nSelect: \n1. Spread the jelly on other slice of bread \n2. Do not spread jelly on other slice of bread\n");
                                             scanf ("%d", &construct);
 
                                             if (construct == 1)
@@ -393,7 +404,76 @@ main ()
                                             if ((strcmp (answer, "no")) == 0 || (strcmp (answer, "No")) == 0)
                                             {
                                                 chooseI:
-                                                printf ("\nPlea")
+                                                printf ("\nPut down the knife? \n");
+                                                printf ("\nSelect: \n1. Put down the knife \n2. Do not put down the knife \n");
+                                                scanf ("%d", &construct);
+
+                                                if (construct == 1)
+                                                {
+                                                    printf ("\nYou have put down the knife \n");
+
+                                                    goto sandwichO;
+                                                }
+
+                                                else if (construct == 2)
+                                                {
+                                                    printf ("\nPlease put down the knife \n");
+
+                                                    goto chooseI;
+                                                }
+                                            }
+                                            
+
+                                            else if ((strcmp (answer, "Yes")) == 0 || (strcmp (answer, "yes")) == 0)
+                                            {
+                                                sandwichO:
+                                                printf ("\nDid you put the two slices of bread together \n");
+                                                scanf ("%s", &answer);
+
+                                                if ((strcmp (answer, "no")) == 0 || (strcmp (answer, "No")) == 0)
+                                                {
+                                                    chooseJ:
+                                                    printf ("\nPut two slices of bread together? \n");
+                                                    printf ("\nSelect: \n1. Put two slices of bread togehter \n2. Do not put slices of bread together \n");
+                                                    scanf ("%d", &construct);
+
+                                                    if (construct == 1)
+                                                    {
+                                                        printf ("\nYou have put the two slices of bread together \n");
+
+                                                        goto eatO;
+                                                    }
+
+                                                    else if (construct == 2)
+                                                    {
+                                                        printf ("\nPlease put the two slices of bread together \n");
+
+                                                        goto chooseJ;
+                                                    }
+                                                }
+
+                                                else if ((strcmp (answer, "Yes")) == 0 || (strcmp (answer, "yes")) == 0)
+                                                {
+                                                    eatO:
+                                                    printf ("\nDid you eat the sandwich? \n");
+                                                    scanf ("%s", &answer);
+
+                                                    if ((strcmp (answer, "no")) == 0 || (strcmp (answer, "No")) == 0)
+                                                    {
+                                                        chooseK:
+                                                        printf ("\nEat the sandwich? \n");
+                                                        printf ("\nSelect: \n1. Eat the sandwich \n2. Do not eat the sandiwch \n");
+                                                        scanf ("%d", &construct);
+
+                                                        if (construct == 1)
+                                                        {
+                                                            printf ("\nYou ate the sandwich \n");
+                                                            printf ("\nIt was enjoyable \n");
+
+                                                            return 0;
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
