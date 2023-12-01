@@ -9,6 +9,8 @@
 // makes your solution work with the
 // automated grader on Coursera
 
+#define _USE_MATH_DEFINES
+
 // x and y coordinates for points
 float Point1X;
 float Point1Y;
@@ -38,15 +40,13 @@ int main(int argc, const char * argv[])
         // course add more space between the
         // comments as needed
 
-        int deltaX = Point1X - Point2X;
-        int deltaY = Point2Y - Point2Y;
+        int deltaX = Point2X - Point1X;
+        int deltaY = Point2Y - Point1Y;
 
-        std::cout << deltaX << std::endl;
-
-        float Hypotenuse = pow ((float)deltaX, 2) + pow ((float)deltaY, 2);
-        Hypotenuse = sqrt (Hypotenuse);
-
-        std::cout << Hypotenuse << std::endl;
+        float Hypotenuse = sqrt (pow (deltaX, 2) + pow(deltaY, 2));
+        float Angle = atan2 (deltaX, deltaY) * (180.0 / M_PI);
+        
+        std::cout << Hypotenuse << " " << Angle << std::endl;
 
         // Don't add or modify any code below
         // this comment
