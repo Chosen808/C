@@ -44,7 +44,7 @@ int main(int argc, const char * argv[])
         int deltaY = Point2Y - Point1Y;
 
         float Hypotenuse = sqrt (pow (deltaX, 2) + pow(deltaY, 2));
-        float Angle = atan2 (deltaX, deltaY) * (180.0 / M_PI);
+        float Angle = atan2 (deltaY, deltaX) * (180 / M_PI);
         
         std::cout << Hypotenuse << " " << Angle << std::endl;
 
