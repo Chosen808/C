@@ -19,8 +19,6 @@ days operator++ (days& d)
 {
     d = static_cast<days> ((static_cast<int>(d) + 1) % 7);
 
-    std::cout << "DAYS = " << d << std::endl;
-
     return d;
 }
 
@@ -29,9 +27,7 @@ days operator++ (days& d, int)
     days temp = d;
     d = static_cast<days> ((static_cast<int>(d) + 1) % 7);
 
-    std::cout << "DAYS 2 = " << d << std::endl;
-
-    return temp;
+    return d;
 }
 
 
