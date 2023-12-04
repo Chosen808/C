@@ -9,12 +9,9 @@ void myBook (Book a, Book b)
 {
     int lenA;
     int lenB;
-    
+
     lenA = strlen (a);
     lenB = strlen (b);
-
-    std::cout << lenA << std::endl;
-    std::cout << lenB << std::endl;
 
     if (lenA < lenB)
     {
@@ -51,14 +48,19 @@ class Array
             return m_Array[index];
         }
 
+        T *address (int index)
+        {
+            return &m_Array[index];
+        }
+
     
 };
 
 
 main ()
 {
-    char a[20];
-    char b[20];
+    static char a[20];
+    static char b[20];
 
     std::cout << "Please enter the name of book 1: " << std::endl;
     std::cin.getline (a, 20);
@@ -66,19 +68,23 @@ main ()
     std::cout << "Please enter the name of book 2: " << std::endl;
     std::cin.getline (b, 20);
 
+    puts ("\n");
+
     Array<double, 10> array;
 
-    for (double i = 0, j = 45.5; i < 10, j < 51; i++, j+=0.5)
+    for (double i = 0, j = 45.5; i < 10, j < 51; i++, j+= 0.5)
     {
         array.push (j, i);
     }
 
     for (int i = 0; i < 10; i++)
     {
-        std::cout << array.print (i) << std::endl;
+        printf ("%p \n", array.address (i));
     }
 
-   myBook(a, b);
+    puts ("\n");
+
+    myBook (a, b);
 
     return 0;
 }
