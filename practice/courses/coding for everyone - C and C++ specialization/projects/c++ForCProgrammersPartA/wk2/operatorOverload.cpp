@@ -27,7 +27,7 @@ days operator++ (days& d, int)
     days temp = d;
     d = static_cast<days> ((static_cast<int>(d) + 1) % 7);
 
-    return d;
+    return temp;
 }
 
 
