@@ -43,6 +43,30 @@ class stack
             return (bool)(top == max_len -1);
         }
 
+/*
+        // Default constructor for stack
+        stack::stack ()
+        {
+            s = new char[100];
+            max_len = 100;
+            top = EMPTY;
+        }
+
+        // domain transfer
+        stack::stack (int size, const char str[])
+        {
+            int i = 0;
+            s = new char[size];
+            max_len = size;
+
+            for (i = 0; i < max_len && str[i] != 0; ++i)
+            {
+                s[i] = str[i];
+            }
+
+            top = --i;
+        }
+*/
     private:
         enum 
         {
@@ -62,5 +86,7 @@ main ()
     stack data(1000);   // allocate 1000 elements
     stack more_data (2 * n);    // allocate 2 * n elements
 
-    stack::reset;
+    std::cout << sizeof (s) << std::endl;
+
+    //stack::reset;
 }
