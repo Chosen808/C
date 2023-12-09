@@ -19,12 +19,12 @@ main ()
     {
         for (j = 0; j < numberNode; j++)
         {
-            scanf ("%d", G[i][j]);
+            scanf ("%d", &G[i][j]);
         }
     }
 
     printf ("\nEnter the starting node: ");
-    scanf ("%d", startNode);
+    scanf ("%d", &startNode);
 
     dijkstra (G, numberNode, startNode);
 

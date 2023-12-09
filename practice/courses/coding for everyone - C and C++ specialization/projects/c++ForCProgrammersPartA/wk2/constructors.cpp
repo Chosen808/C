@@ -5,7 +5,7 @@ const int modulus = 60;
 class modInt 
 {
     public:
-        modInt (int i)
+        modInt (int i)  // Constructor
         {
             v = i % modulus;
         }

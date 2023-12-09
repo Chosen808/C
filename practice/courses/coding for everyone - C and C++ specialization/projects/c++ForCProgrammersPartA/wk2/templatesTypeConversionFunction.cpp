@@ -27,5 +27,7 @@ main ()
 
     std::cout << sizeof (c) << std::endl;
 
+    std::cout << 3.0 / 4 << std::endl;
+
     return 0;
 }
