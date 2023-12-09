@@ -7,7 +7,7 @@ class Array
         T new_Array[N];
 
     public:
-        inline T operator= (T input)
+        T& operator= (T input)
         {
             Array d;
 
@@ -27,7 +27,8 @@ main ()
 {
     Array<double, 5> array;
 
-    array[0];
+    array[0] = 0;
+    array = 0;
 
     
 }
