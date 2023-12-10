@@ -5,6 +5,7 @@ typedef struct Class
     int roomA;
     int roomB;
     int total;
+    int roomC;
 
     int allRoom[20];
 
@@ -13,14 +14,12 @@ typedef struct Class
 } student_t;
 
 
-student_t func (student_t *h, student_t *b, student_t *d)
+void func (student_t *h, student_t *b, student_t *d)
 {
     printf ("h = %d \n", h->roomA);
-    printf ("b = %d \n", b->roomB);
+    printf ("b = %d \n", b->roomC);
 
-    return d->total = h->roomA * b->roomA;
-
-    
+    d->total = h->roomA * b->roomB;
 }
 
 main ()
@@ -33,6 +32,9 @@ main ()
     standardTwo.roomB = 34;
     standardThree.roomA = 21;
     standardThree.roomB = 32;
+
+    int er = 34;
+    int re = 12;
 
     school.allRoom[0] = standardOne.roomA;
     school.allRoom[1] = standardOne.roomB;
@@ -50,7 +52,9 @@ main ()
 
     printf ("Sum of children = %d \n", sum.total);
 
-    func (&standardOne.roomA, &standardTwo.roomB, &sum2.total);
+    printf ("%d \n", standardTwo.roomB);
+
+    func (&er, &re, &sum2.total);
 
     printf ("%d \n", sum2.total);
 
