@@ -45,9 +45,10 @@ std::ostream& operator<< (std::ostream& out, Array<T, N> d)
     return out;
 }
 
+
 main ()
 {
-    Array<double, 5> array;
+    Array<double, 5> array; int g;
 
     array[0] = 2;
 

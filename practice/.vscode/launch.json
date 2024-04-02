@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/mnt/c/Users/(808)/Documents/GitHub/C/practice/courses/introductionToEmbeddedSytems",
-      "program": "/mnt/c/Users/(808)/Documents/GitHub/C/practice/courses/introductionToEmbeddedSytems/build/Debug/outDebug",
+      "cwd": "/mnt/c/Users/(808)/Documents/GitHub/C/practice",
+      "program": "/mnt/c/Users/(808)/Documents/GitHub/C/practice/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

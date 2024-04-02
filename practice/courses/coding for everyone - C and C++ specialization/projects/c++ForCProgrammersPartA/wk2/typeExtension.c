@@ -22,18 +22,16 @@ void func (student_t *h, student_t *b, student_t *d)
     d->total = h->roomA * b->roomB;
 }
 
+
 main ()
 {
     student_t standardOne, standardTwo, standardThree, school, sum, d, sum2;
 
-    standardOne.roomA = 20;
-    standardOne.roomB = 26;
-    standardTwo.roomA = 43;
-    standardTwo.roomB = 34;
+    standardOne.roomA = 20; standardOne.roomB = 26; standardTwo.roomA = 43; standardTwo.roomB = 34;
     standardThree.roomA = 21;
     standardThree.roomB = 32;
 
-    int er = 34;
+    int er = 34; int h;
     int re = 12;
 
     school.allRoom[0] = standardOne.roomA;
@@ -49,6 +47,41 @@ main ()
 
         sum.total += school.allRoom[i];
     }
+
+    unsigned short a = 0xFFFF;
+
+    a = ~(a ^ (a << 4));
+
+    int i = 0, foo = 0, bar = 0;
+
+    while (i < 17)
+    {
+        i++;
+        
+        foo += i;
+    }
+
+    for (i = 0; i < 17; i++)
+    {
+        bar += i;
+    }
+
+    printf ("foo = %d bar = %d \n", foo, bar);
+
+    int x;
+    unsigned int k;
+
+    for (k = 0; k >= 0; )
+    {
+        x = (++k);
+
+        printf ("x = %d \n", x);
+        printf ("k = %d \n", k);
+    }
+
+    printf ("x = %d \n", x);
+
+    printf ("a = %d \n", a);
 
     printf ("Sum of children = %d \n", sum.total);
 
