@@ -1,145 +1,404 @@
+#include "dijkstras.h"
 #include <iostream>
 
-class Graph 
+int Graph::vertices (int graph[][SIZE])
 {
-    public:
-        Graph () {}
+    int vertices = 0;
 
-        // Returns the number of vertices in the graph
-        int vertices (int graph)
+    for (int i = 0; i < SIZE; i++)
+    {
+        graph[0][i];
+
+        if (graph[0][i] == -1)
         {
-
+            vertices = i;
         }
+    }
 
-        // Returns the number of edges in the graph
-        int edges (int graph)
-        {
+    return vertices;
+}
 
-        }
-
-        // Test whether there is an edge from node x to y
-        int adjacent (int graph, int x, int y)
-        {
-
-        }
-
-        // List all nodes y such that there is an edge from x to y
-        int neighbors (int graph, int x)
-        {
-
-        }
-
-        // Adds to G the edge from x to y, if there is none
-        int add (int graph, int x, int y)
-        {
-
-        }
-
-        // Removes the edge from x to y, if there is one
-        int del (int graph, int x, int y)
-        {
-
-        }
-
-        // Returns the value associated with the node x
-        int getNodeValue (int graph, int x)
-        {
-
-        }
-
-        // Sets the value associated with the node x to a
-        int setNodeValue (int graph, int x, int a)
-        {
-
-        }
-
-        // Returns the value associated to edge (x, y)
-        int getEdgeValue (int graph, int x, int y)
-        {
-
-        }
-
-        // Sets the value associated to the edge (x, y) to v
-        int setEdgeValue (int graph, int x, int y, int v)
-        {
-
-        }
-
-
-    private:
-        int a, x, y, v;
-
-};
-
-class PriorityQueue
+int Graph::edges (int graph[][SIZE])
 {
-    public:
-        PriorityQueue () {}
+    int edges = 0;
 
-        // Changes the priorty (node value) of queue element
-        int chgPriority (int PQ, int priority)
+    for (int i = 1; i < SIZE; i++)
+    {
+        graph[i][0];
+
+        if (graph[i][0] == -1)
         {
-
+            edges = i - 1;
         }
+    }
 
-        // Removes the top element of the queue
-        int minPriority (int PQ)
-        {
+    return edges;
+}
 
-        }
-
-        // Does the queue contain queue element
-        int contains (int PQ, int queueElement)
-        {
-
-        }
-
-        // Insert queue element
-        int insert (int PQ, int queueElement)
-        {
-
-        }
-
-        // Returns the top element of the queue
-        int top (int PQ)
-        {
-
-        }
-
-        // Return the number of queue elements
-        int size (int PQ)
-        {
-
-        }
-
-    private:
-        int priority, queueElement;
-
-};
-
-class ShortestPath 
+int Graph::adjacent (int graph[][SIZE], int x, int y)
 {
-    public:
-        ShortestPath () {}
+    int vertexX = 1;
+    int vertexY = 0;
 
-        // List of vertices in G(V, E)
-        int vertices (int list)
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < 3; j++)
         {
+            graph[i][j];
 
+            if (i == 0)
+            {
+                continue;
+            }
+
+            else if (i != 0)
+            {
+                if (graph[i][j] == x)
+                {
+                    vertexX = i;
+                }
+
+                if (graph[i][j] == y)
+                {
+                    vertexY = i;
+                }
+
+                if (vertexX == vertexY)
+                {
+                    printf ("There is an edge between %c and %c \n", x, y);
+
+                     return 0;
+                }
+            }
         }
+    }
 
-        /*
-        Find shortest path between u and w. Returns the sequence of vertices 
-        represent shortest path u-v1-v2-...-vn-w
-        */
-        int path (int u, int w)
+    printf ("There is no edge between %c and %c \n", x, y);
+
+    return 1;
+}
+
+int dGraph::adjacent (int graph[][SIZE], int x, int y)
+{
+    int vertexX = 1;
+    int vertexY = 0;
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < 3; j++)
         {
+            graph[i][j];
 
+            if (i == 0)
+            {
+                continue;
+            }
+
+            else if (i != 0)
+            {
+                if (graph[i][j] == x)
+                {
+                    vertexX = i;
+                }
+
+                if (graph[i][j] == y)
+                {
+                    vertexY = i;
+                }
+
+                if (vertexX == vertexY)
+                {
+                    return 0;
+                }
+            }
         }
+    }
 
-        // Return the path cost associated with the shortest path
-        int pathSize (int u, int w)
+    return 1;
+}
+
+int Graph::neighbors (int graph[][SIZE], int x)
+{
+    int arr[40];
+    int k = 0;
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < SIZE; j++)
         {
+            graph[i][j];
 
+            if (i == 0)
+            {
+                continue;
+            }
+
+            else if (i != 0)
+            {
+                if (graph[i][j] == x)
+                {
+                    if (graph[i][0] == x)
+                    {
+                        arr[k] = graph[i][1];
+                        k++;
+                    }
+
+                    else if (graph[i][1] == x)
+                    {
+                        arr[k] = graph[i][0];
+                        k++;
+                    }
+                }
+            }
         }
-};
+    }
+
+    for (int i = 0; i < k; i++)
+    {
+        printf ("%c, ", arr[i]);
+    }
+
+    printf ("are neighbors of %c \n", x);
+}
+
+int Graph::add (int graph[][SIZE], int x, int y)
+{
+    if (dGraph::adjacent (graph, x, y) == 1)
+    {
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                if (i == 0)
+                {
+                    continue;
+                }
+
+                else if (i != 0)
+                {
+                    if (graph[i][j] == -1)
+                    {
+                        graph[i][0] = x;
+                        graph[i][1] = y;
+                        graph[i][2] = 0;
+
+                        graph[i + 1][0] = -1;
+                        graph[i + 1][1] = -1;
+                        graph[i + 1][2] = -1;
+
+                        return 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+int Graph::setEdgeValue (int graph[][SIZE], int x, int y, int v)
+{
+    int vertexX = 1;
+    int vertexY = 0;
+
+    if (dGraph::adjacent (graph, x, y) == 0)
+    {
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                graph[i][j];
+
+                if (i == 0)
+                {
+                    continue;
+                }
+
+                else if (i != 0)
+                {
+                    if (graph[i][j] == x)
+                    {
+                        vertexX = i;
+                    }
+
+                    if (graph[i][j] == y)
+                    {
+                        vertexY = i;
+                    }
+
+                    if (vertexX == vertexY)
+                    {
+                        graph[i][2] = v;
+
+                        return graph[i][2];
+                    }
+                }
+            }
+        }
+    }
+}
+
+int Graph::del (int graph[][SIZE], int x, int y)
+{
+    int vertexX = 1;
+    int vertexY = 0;
+
+    if (dGraph::adjacent (graph, x, y) == 0)
+    {
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                graph[i][j];
+
+                if (i == 0)
+                {
+                    continue;
+                }
+
+                else if (i != 0)
+                {
+                    if (graph[i][j] == x)
+                    {
+                        vertexX = i;
+                    }
+
+                    if (graph[i][j] == y)
+                    {
+                        vertexY = i;
+                    }
+
+                    if (vertexX == vertexY)
+                    {
+                        graph[i][0] = graph[j][0];
+                        graph[i][1] = graph[j][1];
+                        graph[i][2] = graph[j][2];
+
+                        if (graph[i][0] = -1)
+                        {
+                            return 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+int Graph::getVertexValue (int graph[][SIZE], int x)
+{
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < SIZE; j++)
+        {
+            graph[i][SIZE];
+
+            if (i > 0)
+            {
+                return 0;
+            }
+
+            else if (i == 0)
+            {
+                if (graph[i][j] == -1)
+                {
+                    return NULL;
+                }
+
+                if (graph[i][j] == x)
+                {
+                    return graph[i][j];
+                }
+            }
+        }
+    }
+}
+
+int Graph::setVertexValue (int graph[][SIZE], int x, int a)
+{
+    int k = 0;
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            graph[i][j];
+
+            if (i == 0)
+            {
+                if (graph[i][j] == -1)
+                {
+                    printf ("There is no vertex %c \n", x);
+
+                    return 0;
+                }
+
+                if (graph[i][j] == x)
+                {
+                    graph[i][j] = a;
+
+                    break;
+                }
+            }
+
+            if (graph[i][j] == x)
+            {
+                graph[i][j] = a;
+
+                k++;
+            }
+
+            else if (graph[i][0] == -1 && k == 0)
+            {
+                printf ("The vertex %c is not in the list \n", x);
+
+                return 0;
+            }
+
+            else if (graph[i][j] == -1)
+            {
+                return 0;
+            }
+        }
+    }
+}
+
+int Graph::getEdgeValue (int graph[][SIZE], int x, int y)
+{
+    if (dGraph::adjacent (graph, x, y) == 0)
+    {
+        int vertexX = 1;
+        int vertexY = 0;
+
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                graph[i][j];
+
+                if (i == 0)
+                {
+                    continue;
+                }
+
+                else if (i != 0)
+                {
+                    if (graph[i][j] == x)
+                    {
+                        vertexX = i;
+                    }
+
+                    if (graph[i][j] == y)
+                    {
+                        vertexY = i;
+                    }
+
+                    if (vertexX == vertexY)
+                    {
+                        return graph[vertexX][2];
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,17 +1,6 @@
+#include "dijkstras.h"
 #include <iostream>
 
-const int SIZE = 40;
-
-int vertices (int graph[][SIZE]);
-int vertices (int graph[][SIZE]);
-int adjacent (int graph[][SIZE], int x, int y);
-int neighbors (int graph[][SIZE], int x);
-int add (int graph[][SIZE], int x, int y);
-int setEdgeValue (int graph[][SIZE], int x, int y, int v);
-int del (int graph[][SIZE], int x, int y);
-int getVertexValue (int graph[][SIZE], int x);
-int setVertexValue (int graph[][SIZE], int x, int y);
-int getEdgeValue (int graph[][SIZE], int x, int y);
 
 main ()
 {
@@ -39,7 +28,7 @@ main ()
         {'f', 'g', 3},
         {-1, -1, -1}
     };
-
+/*
     for (int i = 1; i < 10; i++)
     {
         for (int j = 1; j < 10; j++)
@@ -53,19 +42,22 @@ main ()
                 break;
             }
         }
-    }
+    }*/
 
-    printf ("Vertices = %d \n", vertices (graph));
+    std::cout << "The value of edge {d, f} is " << Graph::getEdgeValue (graph, 'd', 'f') << "\n";
 
-    printf ("vertices = %d \n", vertices (graph));
+    printf ("Vertices = %d \n", Graph::vertices (graph));
 
-    int val = adjacent (graph, 'a', 'f');
+    printf ("Edges = %d \n", Graph::edges (graph));
+
+    int val = Graph::adjacent (graph, 'a', 'f');
 
     std::cout << "Val = " << val << "\n";
 
-    neighbors (graph, 'a');
-    add (graph, 'e', 'f');
+    Graph::neighbors (graph, 'a');
 
+    Graph::add (graph, 'e', 'f');
+/*
     for (int i = 0; i < 10; i++)
     {
         for (int j = 0; j < 3; j++)
@@ -80,22 +72,32 @@ main ()
             }
         }
     }
+*/
+    Graph::setEdgeValue (graph, 'e', 'f', 7);
 
-    setEdgeValue (graph, 'e', 'f', 7);
+    std::cout << "Add function here \n";
+    Graph::add (graph, 'b', 'g');
+    std::cout << "Add function was called \n";
 
-    add (graph, 'b', 'g');
-    setEdgeValue (graph, 'b', 'g', 6);
+    std::cout << "Edge {b, g} value has been set to " << Graph::setEdgeValue (graph, 'b', 'g', 6) << "\n";
 
-    adjacent (graph, 'e', 'f');
+    std::cout << "Adjacent function call here \n";
+    Graph::adjacent (graph, 'e', 'f');
 
-    del (graph, 'f', 'g');
+    Graph::adjacent (graph, 'd', 'f');
+
+    Graph::del (graph, 'f', 'g');
 
     //printf ("%c %c %d \n", graph[1][0], graph[1][1], graph[1][2]);
 
-    getVertexValue (graph, 'a');
+    std::cout << "The vertex value of a is " << Graph::getVertexValue (graph, 'a') << "\n";
+    std::cout << "The vertex value of v is " << Graph::getVertexValue (graph, 'v') << "\n";
 
-    setVertexValue (graph, 'c', 'l');
+    Graph::setVertexValue (graph, 'c', 'l');
 
+    Graph::neighbors (graph, 'l');
+
+/*
     for (int i = 0; i < 10; i++)
     {
         for (int j = 0; j < 3; j++)
@@ -109,15 +111,16 @@ main ()
                 break;
             }
         }
-    }
+    }*/
 
-    getEdgeValue (graph, 'd', 'f');
+    std::cout << "The edge {d, f} value is " << Graph::getEdgeValue (graph, 'd', 'f') << "\n";
 
 
     return 0;
 }
 
-/*// This function returns the number of vertices in the graph
+/*
+// This function returns the number of vertices in the graph
 int vertices (int graph[][SIZE])
 {
     int vertices = 0;
@@ -133,27 +136,24 @@ int vertices (int graph[][SIZE])
     }
 
     return vertices;
-}*/
+}
 
-// This function returns the numbers of vertices
-int vertices (int graph[][SIZE])
+// This function returns the numbers of edges
+int edges (int graph[][SIZE])
 {
-    int vertices = 0;
+    int edges = 0;
 
     for (int i = 1; i < SIZE; i++)
     {
-        for (int j = 0; j < SIZE; j++)
-        {
-            graph[i][j];
+        graph[i][0];
 
-            if (graph[i][j] == -1)
-            {
-                vertices = i - 1;
-            }
+        if (graph[i][0] == -1)
+        {
+            edges = i - 1;
         }
     }
 
-    return vertices;
+    return edges;
 }
 
 // This function checks for the adjacency of vertices
@@ -164,7 +164,7 @@ int adjacent (int graph[][SIZE], int x, int y)
 
     for (int i = 0; i < SIZE; i++)
     {
-        for (int j = 0; j < SIZE; j++)
+        for (int j = 0; j < 3; j++)
         {
             graph[i][j];
 
@@ -249,7 +249,7 @@ int neighbors (int graph[][SIZE], int x)
 // This function will create an vertex from x to y
 int add (int graph[][SIZE], int x, int y)
 {
-    if (adjacent (graph, x, y) == 1)
+    if (dGraph::adjacent (graph, x, y) == 1)
     {
         for (int i = 0; i < SIZE; i++)
         {
@@ -286,7 +286,7 @@ int setEdgeValue (int graph[][SIZE], int x, int y, int v)
     int vertexX = 1;
     int vertexY = 0;
 
-    if (adjacent (graph, x, y) == 0)
+    if (dGraph::adjacent (graph, x, y) == 0)
     {
         for (int i = 0; i < SIZE; i++)
         {
@@ -332,7 +332,7 @@ int del (int graph[][SIZE], int x, int y)
     int vertexX = 1;
     int vertexY = 0;
 
-    if (adjacent (graph, x, y) == 0)
+    if (dGraph::adjacent (graph, x, y) == 0)
     {
         for (int i = 0; i < SIZE; i++)
         {
@@ -410,7 +410,8 @@ int getVertexValue (int graph[][SIZE], int x)
     }
 }
 
-// Sets the value associated with the nde x to a
+
+// Sets the value associated with the node x to a
 int setVertexValue (int graph[][SIZE], int x, int a)
 {
     int k = 0;
@@ -463,7 +464,7 @@ int setVertexValue (int graph[][SIZE], int x, int a)
 // Returns the value associated to edge (x, y)
 int getEdgeValue (int graph[][SIZE], int x, int y)
 {
-    if (adjacent (graph, x, y) == 0)
+    if (dGraph::adjacent (graph, x, y) == 0)
     {
         int vertexX = 1;
         int vertexY = 0;
@@ -502,4 +503,4 @@ int getEdgeValue (int graph[][SIZE], int x, int y)
             }
         }
     }
-}
+}*/

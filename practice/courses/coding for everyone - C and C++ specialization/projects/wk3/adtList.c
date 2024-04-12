@@ -50,6 +50,8 @@ int main ()
 
     printf ("sizeof (list) = %lu \n", sizeof (list)); //usigned long
     head -> data = 5;
+    head->data = 34;
+    head->data = 98;
     head -> next = NULL;
     print_list (head, "single element list");
     printf ("\n\n");
