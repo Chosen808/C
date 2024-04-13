@@ -1,6 +1,7 @@
 #include "dijkstras.h"
 #include <iostream>
 
+// Returns the number of vertices in the graph
 int Graph::vertices (int graph[][SIZE])
 {
     int vertices = 0;
@@ -18,6 +19,7 @@ int Graph::vertices (int graph[][SIZE])
     return vertices;
 }
 
+// Returns the number of edges in the graph
 int Graph::edges (int graph[][SIZE])
 {
     int edges = 0;
@@ -35,6 +37,7 @@ int Graph::edges (int graph[][SIZE])
     return edges;
 }
 
+// Test whether there is an edge from node x to y
 int Graph::adjacent (int graph[][SIZE], int x, int y)
 {
     int vertexX = 1;
@@ -78,6 +81,10 @@ int Graph::adjacent (int graph[][SIZE], int x, int y)
     return 1;
 }
 
+/*
+Test whether there is an edge from node x to y : class dGraph does not include the print 
+statements in class Graph
+*/
 int dGraph::adjacent (int graph[][SIZE], int x, int y)
 {
     int vertexX = 1;
@@ -117,7 +124,8 @@ int dGraph::adjacent (int graph[][SIZE], int x, int y)
     return 1;
 }
 
-int Graph::neighbors (int graph[][SIZE], int x)
+// List all nodes y such that there is an edge from x to y
+void Graph::neighbors (int graph[][SIZE], int x)
 {
     int arr[40];
     int k = 0;
@@ -161,6 +169,7 @@ int Graph::neighbors (int graph[][SIZE], int x)
     printf ("are neighbors of %c \n", x);
 }
 
+// Adds to Graph the edge from x to y, if there is none
 int Graph::add (int graph[][SIZE], int x, int y)
 {
     if (dGraph::adjacent (graph, x, y) == 1)
@@ -194,7 +203,7 @@ int Graph::add (int graph[][SIZE], int x, int y)
     }
 }
 
-
+// Sets the value associated to the edge (x, y) to v
 int Graph::setEdgeValue (int graph[][SIZE], int x, int y, int v)
 {
     int vertexX = 1;
@@ -237,6 +246,7 @@ int Graph::setEdgeValue (int graph[][SIZE], int x, int y, int v)
     }
 }
 
+// Removes the edge from x to y, if there is one
 int Graph::del (int graph[][SIZE], int x, int y)
 {
     int vertexX = 1;
@@ -284,6 +294,7 @@ int Graph::del (int graph[][SIZE], int x, int y)
     }
 }
 
+// Returns the value associated with the node x
 int Graph::getVertexValue (int graph[][SIZE], int x)
 {
     for (int i = 0; i < SIZE; i++)
@@ -313,6 +324,7 @@ int Graph::getVertexValue (int graph[][SIZE], int x)
     }
 }
 
+// Sets the value associated with the node x to a
 int Graph::setVertexValue (int graph[][SIZE], int x, int a)
 {
     int k = 0;
@@ -362,6 +374,7 @@ int Graph::setVertexValue (int graph[][SIZE], int x, int a)
     }
 }
 
+// Returns the value associated to edge (x, y)
 int Graph::getEdgeValue (int graph[][SIZE], int x, int y)
 {
     if (dGraph::adjacent (graph, x, y) == 0)

@@ -5,37 +5,103 @@ const int SIZE = 40;
 class Graph 
 {
     public:
-        Graph () {}
+        // Default constructor
+        Graph () {} 
 
-        // Returns the number of vertices in the graph
+        /**
+         * @brief Returns the number of vertices in the graph
+         * @param graph This parameter takes the array with vertices and edges here
+         * @return int value returned: numbers of vertices
+         */
         static int vertices (int graph[][SIZE]);
 
-        // Returns the number of edges in the graph
+        /**
+         * @brief Returns the number of edges in the graph
+         * @param graph This parameter takes the array with vertices and edges here
+         * @return int value returned: numbers of edges
+         */
         static int edges (int graph[][SIZE]);
 
-        // Test whether there is an edge from node x to y
+        /**
+         * @brief Test whether there is an edge from node x to y
+         * @param graph This parameter takes the array with vertices and edges here
+         * @param x vertex X
+         * @param y vertex Y
+         * @return int value returned: returns 0 an a print statement if there is an edge
+         *                             returns 1 an a print statement if there is no edge
+         */
         static int adjacent (int graph[][SIZE], int x, int y);
 
-        // List all nodes y such that there is an edge from x to y
-        static int neighbors (int graph[][SIZE], int x);
+        /**
+         * @brief List all vertices y such that there is an edge from x to y
+         * @param graph This parameter takes the array with vertices and edges here
+         * @param x vertex X
+         * @return prints the vertices adjacent to x 
+         */
+        static void neighbors (int graph[][SIZE], int x);
 
-        // Adds to G the edge from x to y, if there is none
+        /**
+         * @brief Adds to Graph the edge from x to y, if there is none
+         * @param graph This parameter takes the array with vertices and edges here
+         * @param x vertex X
+         * @param y vertex Y
+         * @return int value return: 0
+         */
         static int add (int graph[][SIZE], int x, int y);
 
-        // Removes the edge from x to y, if there is one
+        /**
+         * @brief Removes the edge from x to y, if there is one
+         * @param graph This parameter takes the array with vertices and edges here
+         * @param x vertex X
+         * @param y vertex Y
+         * @return int value returned: returns 1 if there is no edge
+         *                             return 0 if there an edge and 0 when it is deleted
+         */
         static int del (int graph[][SIZE], int x, int y);
 
-        // Returns the value associated with the node x
+        /**
+         * @brief Returns the value associated with the vertex x
+         * @param graph This parameter takes the array with vertices and edges here
+         * @param x vertex X
+         * @return int value returned: value of x
+         */
         static int getVertexValue (int graph[][SIZE], int x);
 
-        // Sets the value associated with the node x to a
+        /**
+         * @brief Sets the value associated with the vertex x to a
+         * @param graph This parameter takes the array with vertices and edges here
+         * @param x vertex X
+         * @param a new vertex value
+         * @return int value returned: if the vertex x is not in the list a message is 
+         *                             print and 0 returned
+         *                             if the vertex value is added 0 is returned
+         */
         static int setVertexValue (int graph[][SIZE], int x, int a);
 
-        // Returns the value associated to edge (x, y)
+        /**
+         * @brief Returns the value associated to edge (x, y)
+         * @param graph This parameter takes the array with vertices and edges here
+         * @param x vertex X
+         * @param y vertex Y
+         * @return int value returned: if the edge exist 0 is returned and the value of the edge
+         *                             if the edge does not exist 1 is returned
+         */
         static int getEdgeValue (int graph[][SIZE], int x, int y);
 
-        // Sets the value associated to the edge (x, y) to v
+        /**
+         * @brief Sets the value associated to the edges (x, y) to v
+         * @param graph This parameter takes the array with vertices and edges here
+         * @param x vertex X
+         * @param y vertex Y
+         * @param v value of edge
+         * @return int value returned: returns 1 if there is no edge
+         *                             returns 0 if there is an edge and the value v 
+         *                             when it is created
+         */
         static int setEdgeValue (int graph[][SIZE], int x, int y, int v);
+
+        // Default deconstructor
+        ~Graph () {}
 
 
     private:
@@ -46,7 +112,22 @@ class Graph
 class dGraph : public Graph 
 {
     public:
+        // Default constructor
+        dGraph () {}
+
+        /**
+         * @brief Test whether there is an edge from vertex x to y: class dGragh does not include
+         * the print statements in class Graph
+         * @param graph This parameter takes the array with vertices and edges here
+         * @param x vertex X
+         * @param y vertex Y
+         * @return int value returned: returns 0 if there is an edge
+         *                             returns 1 if there is no edge
+         */
         static int adjacent (int graph[][SIZE], int x, int y);
+
+        // Default decontructor
+        ~dGraph () {}
 };
 
 class PriorityQueue
