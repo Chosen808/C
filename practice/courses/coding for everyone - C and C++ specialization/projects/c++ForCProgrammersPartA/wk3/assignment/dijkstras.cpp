@@ -125,7 +125,7 @@ int dGraph::adjacent (int graph[][SIZE], int x, int y)
 }
 
 // List all nodes y such that there is an edge from x to y
-void Graph::neighbors (int graph[][SIZE], int x)
+void Graph::degrees (int graph[][SIZE], int x)
 {
     int arr[40];
     int k = 0;
@@ -167,6 +167,53 @@ void Graph::neighbors (int graph[][SIZE], int x)
     }
 
     printf ("are neighbors of %c \n", x);
+}
+
+// List all vertices y such that there is an edge from x to y
+void dGraph::degrees (int graph[][SIZE], int x, int nV[], int *size)
+{
+    int arr[40];
+    int k = 0;
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            graph[i][j];
+
+            if (i == 0)
+            {
+                continue;
+            }
+
+            else if (i != 0)
+            {
+                if (graph[i][j] == x)
+                {
+                    if (graph[i][0] == x)
+                    {
+                        arr[k] = graph[i][1];
+                        k++;
+                    }
+
+                    else if (graph[i][1] == x)
+                    {
+                        arr[k] = graph[i][0];
+                        k++;
+                    }
+                }
+
+                
+            }
+        }
+    }
+
+    for (int i = 0; i < k; i++)
+    {
+        nV[i] = arr[i];
+    }
+
+    *size = k;
 }
 
 // Adds to Graph the edge from x to y, if there is none
@@ -395,6 +442,11 @@ int Graph::getEdgeValue (int graph[][SIZE], int x, int y)
 
                 else if (i != 0)
                 {
+                    if (graph[i][0] != x && graph[i][1] != y)
+                    {
+                        return 0;
+                    }
+
                     if (graph[i][j] == x)
                     {
                         vertexX = i;

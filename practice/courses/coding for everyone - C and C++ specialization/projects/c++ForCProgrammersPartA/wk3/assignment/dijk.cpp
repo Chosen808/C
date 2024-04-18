@@ -1,6 +1,8 @@
 #include "dijkstras.h"
 #include <iostream>
 
+int path (int graph[][SIZE], int sourceV, int arr[], int *size);
+
 
 main ()
 {
@@ -18,7 +20,9 @@ main ()
 
     // Graph, vertices and vertices, G = ({a,b,c...n}, {a,b}, {a,c}...{n,n})
     int graph[SIZE][SIZE] = {
+        // Vertices
         {'a', 'b', 'c', 'd', 'e', 'f', 'g', -1},
+        // Edges
         {'a', 'b', 4},
         {'a', 'c', 4},
         {'b', 'c', 2},
@@ -29,6 +33,7 @@ main ()
         {-1, -1, -1}
     };
 
+/*
     std::cout << "This graph has " << Graph::vertices (graph) << " vertices \n";
     std::cout << "This graph has " << Graph::edges (graph) << " edges \n";
     
@@ -44,7 +49,7 @@ main ()
     std::cout << "The value of edge {d, g} is " << Graph::getEdgeValue (graph, 'd', 'g') << "\n";
 
     std::cout << "The value os vertex e is " << Graph::getVertexValue (graph, 'e') << "\n";
-    Graph::setVertexValue (graph, 'e', 'r');
+    Graph::setVertexValue (graph, 'e', 'r');*/
     
 /*
     for (int i = 1; i < 10; i++)
@@ -97,42 +102,90 @@ main ()
         }
     }*/
 
+    int arr[5];
+    int num = 0;
+
+    dGraph::neighbors (graph, 'f', arr, &num);
+
+    for (int i = 0; i < num; i++)
+    {
+        printf ("arr[%d] = %c \n", i, arr[i]);
+    }
+
+    int g[15];
+    int n = 0;
+
+    path (graph, 'a', g, &n);
+
+    for (int i = 0; i < n; i++)
+    {
+        printf ("g[%d] = %d \n", i, g[i]);
+    }
+
+    std::cout << "The edge b-a value is " << Graph::getEdgeValue (graph, 'a', 'b');
+
 
     return 0;
 }
 
-int path (int graph[][SIZE], int x, int y)
+int path (int graph[][SIZE], int sourceV, int arr[], int *size)
 {
-    int vertex = 0;
-    int edgeValue[SIZE];
-    int k = 0;
+    int dist[SIZE];
+    dist[0] = sourceV;
+    int nV[10];
+    nV[0] = sourceV;
+    int num;
+    int u = sourceV;
+    //u[0] = sourceV;
+    int v;
+    int l = 0;
 
     for (int i = 0; i < SIZE; i++)
     {
-        for (int j = 0; j < SIZE; j++)
+        for (int j = 0; j < 3; j++)
         {
+            //u[j] = nV[j];
+            printf ("u = %c \n", u);
+
             if (i == 0)
             {
                 continue;
             }
-            if (i != 0)
+            
+            else if (i != 0)
             {
-                if (graph[i][j] == x)
+                if (graph[i][0] == u)
                 {
-                    if (graph[i][1] != y)
+                    std::cout << "i = " << i << " j = " << j << "\n";
+                    dGraph::neighbors (graph, u, nV, &num);
+                    
+                    for (int k = 0; k < num; k++)
                     {
-                        vertex = graph[i][1];
-                        edgeValue[k] = graph[i][2];
-                        k++;
-
-                        if (graph[i][0] == vertex)
-                        {
-                            vertex = graph[i][1];
-                            edgeValue[k] = graph[i][2];
-                        }
+                        std::cout << "l = " << l << "\n";
+                        printf ("nV[%d] = %d \n", k, nV[k]);
+                        printf ("u last = %c \n", u);
+                        dist[l] = Graph::getEdgeValue (graph, u, nV[k]);
+                        std::cout << "Edge Values " << Graph::getEdgeValue (graph, u, nV[k]) << " "<< l <<"\n";
+                        l++;
+                        std::cout << "l = " << l << "\n";
                     }
                 }
+
+                u = nV[j];
+            }
+
+            else if (graph[i][0] == -1)
+            {
+                break;
             }
         }
     }
+
+    for (int i = 0; i < l; i++)
+    {
+        arr[i] = dist[i];
+    }
+
+    *size = l;
+
 }

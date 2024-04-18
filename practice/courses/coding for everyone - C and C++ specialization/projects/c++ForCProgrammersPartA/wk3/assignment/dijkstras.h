@@ -38,7 +38,7 @@ class Graph
          * @param x vertex X
          * @return prints the vertices adjacent to x 
          */
-        static void neighbors (int graph[][SIZE], int x);
+        static void degrees (int graph[][SIZE], int x);
 
         /**
          * @brief Adds to Graph the edge from x to y, if there is none
@@ -126,6 +126,17 @@ class dGraph : public Graph
          */
         static int adjacent (int graph[][SIZE], int x, int y);
 
+        /**
+         * @brief List all vertices y such that there is an edge from x to y
+         * @param graph This parameter takes the array with vertices and edges here
+         * @param x x vertex X
+         * @param nV An array will be pass to this parameter that will hold the values of x neighbors
+         * @param *size This parameter will hold the amount of neighbors passed to the array
+         * @return void: this function will pass the neighbors of x to an array 
+         *               and the size of the array to *szie
+         */
+        static void degrees (int graph[][SIZE], int x, int nV[], int *size);
+
         // Default decontructor
         ~dGraph () {}
 };
@@ -191,10 +202,11 @@ class ShortestPath
         Find shortest path between u and w. Returns the sequence of vertices 
         represent shortest path u-v1-v2-...-vn-w
         */
+       /*
         int path (int u, int w)
         {
 
-        }
+        }*/
 
         // Return the path cost associated with the shortest path
         int pathSize (int u, int w)
