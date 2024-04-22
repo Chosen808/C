@@ -93,7 +93,7 @@ int rear (struct Queue *queue)
     return queue->array[queue->rear];
 }*/
 
-q Queue::*createQueue (unsigned capacity)
+Queue *Queue::createQueue (unsigned capacity)
 {
     Queue *queue = NULL;
     queue = (Queue*) malloc (sizeof (Queue));

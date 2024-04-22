@@ -1,61 +1,52 @@
 #include <iostream>
 #include <vector>
-#include <unordered_map>
-#include <queue>
-#include <limits>
 
-class Graph
+#define INT_MAX 10000000
+
+class Vertex;
+class Edge;
+
+class Vertex 
 {
-    private:
-        // {vertex: [(neighbor, weight)]}
-        std::unordered_map<int, std::vector<std::pair<int, int>>> vertices;
-
-        public:
-            void addEdge (int u, int v, int weight);
-
-            std::vector<int> getNeighbors (int u);
-
-            int getEdgeWeight (int u, int v);
-
-            int getVertices ();
-
-
-};
-
-class PriorityQueue
-{
-    private:
-        // Min-heap
-        std::priority_queue<std::pair<int, int>> pq;   
-        std::unordered_map<int, int> elementToPriority;
-
     public:
-        void insert (int element, int priority);
+        std::vector<Vertex*> vertices;
+        std::vector<Edge*> edges;
 
-        int top ();
+        char id;
+        Vertex *previous;
+        int distanceFromStart;
 
-        void minPriority ();
-
-        bool contains (int element); 
-};
-
-class ShortestPath 
-{
-    private:
-        Graph graph;
-        PriorityQueue pq;
-        // parent relationship for shortest path
-        std::unordered_map<int, int> parent;
-        // distance from source to each vertex
-        std::unordered_map<int, int> distance;
-
-    public:
         // constructor
-        ShortestPath (const Graph& g) : graph(g) {}
+        Vertex () {}
+        Vertex (char id) : id (id), previous (NULL), distanceFromStart (INT_MAX)
+        {
+            vertices.push_back (this);
+        }
 
-        void dijkstra (int source);
+        static Vertex *extractSmallest (std::vector<Vertex*>& vertices);
+        static void dijkstraTest ();
+        static void dijkstras ();
+        static std::vector<Vertex*> *adjacentRemainingVertices (Vertex *vertex);
+        static int distance (Vertex *vertex1, Vertex *vertex2);
+        static bool contains (std::vector<Vertex*>& vertices, Vertex *Vertex);
+        static void printShortestPath (Vertex *destruction);
 
-        std::vector<int> getpath (int source, int destination);
+};
 
-        int getPathSize (int source, int destination);
+class Edge : public Vertex
+{
+    public:
+        Vertex *vertex1;
+        Vertex *vertex2;
+        int distanceEE;
+
+        // constructor
+        Edge (Vertex *vertex1, Vertex *vertex2, int distance) : vertex1 (vertex1), vertex2 (vertex2), distanceEE (distance)
+        {
+            edges.push_back (this);
+        }
+
+        bool connects (Vertex *vertex1, Vertex *vertex2);
+        static void removeEdge (std::vector<Edge*>& Edges, Edge *edge);
+        static std::vector<Edge*> *adjacentEdges (std::vector<Edge*>& edges, Vertex *Vertex);
 };

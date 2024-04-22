@@ -68,7 +68,7 @@ class Queue
             return front;
         }
         
-        q *createQueue (unsigned capacity);
+        Queue *createQueue (unsigned capacity);
         int isFull (Queue *queue);
         int isEmpty (Queue *queue);
         void enqueue (Queue *queue, int item);

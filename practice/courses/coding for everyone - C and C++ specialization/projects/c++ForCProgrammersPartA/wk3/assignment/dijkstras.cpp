@@ -442,24 +442,32 @@ int Graph::getEdgeValue (int graph[][SIZE], int x, int y)
 
                 else if (i != 0)
                 {
-                    if (graph[i][0] != x && graph[i][1] != y)
+                    /*if (graph[i][0] != x && graph[i][1] != y)
                     {
                         return 0;
+                    }*/
+
+                    if (graph[i][0] == x)
+                    {
+                        if (graph[i][j] == x)
+                        {
+                            vertexX = i;
+                        }
+
+                        if (graph[i][j] == y)
+                        {
+                            vertexY = i;
+                        }
+
+                        if (vertexX == vertexY)
+                        {
+                            return graph[vertexX][2];
+                        }
                     }
 
-                    if (graph[i][j] == x)
+                    else if (graph[i][0] != x)
                     {
-                        vertexX = i;
-                    }
-
-                    if (graph[i][j] == y)
-                    {
-                        vertexY = i;
-                    }
-
-                    if (vertexX == vertexY)
-                    {
-                        return graph[vertexX][2];
+                        //return 0;
                     }
                 }
             }

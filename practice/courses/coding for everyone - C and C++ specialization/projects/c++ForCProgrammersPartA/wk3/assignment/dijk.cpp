@@ -2,6 +2,7 @@
 #include <iostream>
 
 int path (int graph[][SIZE], int sourceV, int arr[], int *size);
+int path2 (int graph[][SIZE], int sourceU, int arr[], int *size);
 
 
 main ()
@@ -105,7 +106,7 @@ main ()
     int arr[5];
     int num = 0;
 
-    dGraph::neighbors (graph, 'f', arr, &num);
+    dGraph::degrees (graph, 'f', arr, &num);
 
     for (int i = 0; i < num; i++)
     {
@@ -122,7 +123,9 @@ main ()
         printf ("g[%d] = %d \n", i, g[i]);
     }
 
-    std::cout << "The edge b-a value is " << Graph::getEdgeValue (graph, 'a', 'b');
+    //std::cout << "The edge b-a value is " << Graph::getEdgeValue (graph, 'a', 'b') << "\n";
+
+    //path2 (graph, 'a', arr, &n);
 
 
     return 0;
@@ -130,9 +133,9 @@ main ()
 
 int path (int graph[][SIZE], int sourceV, int arr[], int *size)
 {
-    int dist[SIZE];
-    dist[0] = sourceV;
-    int nV[10];
+    int dist[SIZE]; // distance of edges
+    dist[0] = sourceV;  // the first index will be set to the source vertex
+    int nV[10]; // 
     nV[0] = sourceV;
     int num;
     int u = sourceV;
@@ -145,7 +148,7 @@ int path (int graph[][SIZE], int sourceV, int arr[], int *size)
         for (int j = 0; j < 3; j++)
         {
             //u[j] = nV[j];
-            printf ("u = %c \n", u);
+            //printf ("u = %c \n", u);
 
             if (i == 0)
             {
@@ -154,38 +157,69 @@ int path (int graph[][SIZE], int sourceV, int arr[], int *size)
             
             else if (i != 0)
             {
-                if (graph[i][0] == u)
-                {
-                    std::cout << "i = " << i << " j = " << j << "\n";
-                    dGraph::neighbors (graph, u, nV, &num);
+                //if (graph[i][0] == u)
+                //{
+                    //std::cout << "i = " << i << " j = " << j << "\n";
+                    dGraph::degrees (graph, u, nV, &num);
                     
                     for (int k = 0; k < num; k++)
                     {
-                        std::cout << "l = " << l << "\n";
-                        printf ("nV[%d] = %d \n", k, nV[k]);
+                        //std::cout << "l = " << l << "\n";
+                        printf ("nV[%d] = %c \n", k, nV[k]);
                         printf ("u last = %c \n", u);
                         dist[l] = Graph::getEdgeValue (graph, u, nV[k]);
-                        std::cout << "Edge Values " << Graph::getEdgeValue (graph, u, nV[k]) << " "<< l <<"\n";
+                        std::cout << "Edge Values " << Graph::getEdgeValue (graph, u, nV[k]) << " l = "<< l <<"\n";
                         l++;
-                        std::cout << "l = " << l << "\n";
+                        //std::cout << "l = " << l << "\n";
                     }
-                }
-
-                u = nV[j];
+                //}
+                    
             }
 
-            else if (graph[i][0] == -1)
+            u = nV[j];
+            if (graph[i][0] == nV[j])
+            {
+                //u = nV[j];
+            }
+
+            if (graph[i][0] == -1)
             {
                 break;
             }
+            
         }
     }
 
     for (int i = 0; i < l; i++)
     {
+        //printf ("dist[%d] = %d \n", i, dist[i]);
         arr[i] = dist[i];
     }
 
     *size = l;
+
+}
+
+int path2 (int graph[][SIZE], int sourceU, int arr[], int *size)
+{
+    int edgeList[15];
+    int l = 0;
+
+    for (int i = 0; i < 8; i++)
+    {
+        if (i == 0)
+        {
+            continue;
+        }
+
+        if (graph[i][0] == -1)
+        {
+            break;;
+        }
+
+        edgeList[l] = graph[i][0];
+        l++;
+    }
+
 
 }
