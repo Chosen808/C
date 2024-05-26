@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define MAX 30
+#define MAX 400
 
 typedef struct Edge 
 {
@@ -29,55 +29,29 @@ void print ();
 
 main ()
 {
-    n = 6;
+    int V, u, v;
+    int j = 0;
 
-    Graph[0][0] = 0;
-    Graph[0][1] = 4;
-    Graph[0][2] = 4;
-    Graph[0][3] = 0;
-    Graph[0][4] = 0;
-    Graph[0][5] = 0;
-    Graph[0][6] = 0;
+    FILE *ptr;
+     ptr = fopen ("data.txt","r");
 
-    Graph[1][0] = 4;
-    Graph[1][1] = 0;
-    Graph[1][2] = 2;
-    Graph[1][3] = 0;
-    Graph[1][4] = 0;
-    Graph[1][5] = 0;
-    Graph[1][6] = 0;
+     if (ptr == NULL)
+     {
+        printf ("File was not read \n");
+     }
 
-    Graph[2][0] = 4;
-    Graph[2][1] = 2;
-    Graph[2][2] = 0;
-    Graph[2][3] = 3;
-    Graph[2][4] = 4;
-    Graph[2][5] = 0;
-    Graph[2][6] = 0;
+     while (fscanf (ptr, "%d %d %d", &v, &V, &u) == 3)
+     {
+        j++;
 
-    Graph[3][0] = 0;
-    Graph[3][1] = 0;
-    Graph[3][2] = 3;
-    Graph[3][3] = 0;
-    Graph[3][4] = 3;
-    Graph[3][5] = 0;
-    Graph[3][6] = 0;
+        Graph[j][0] = V;
+        Graph[j][1] = u;
+        Graph[j][2] = v;
+     }
 
-    Graph[4][0] = 0;
-    Graph[4][1] = 0;
-    Graph[4][2] = 4;
-    Graph[4][3] = 3;
-    Graph[4][4] = 0;
-    Graph[4][5] = 0;
-    Graph[4][6] = 0;
+     printf ("TEST \n");
 
-    Graph[5][0] = 0;
-    Graph[5][1] = 0;
-    Graph[5][2] = 2;
-    Graph[5][3] = 0;
-    Graph[5][4] = 3;
-    Graph[5][5] = 0;
-    Graph[5][6] = 0;
+    n = 344;
 
     kruskal ();
     print ();
